@@ -1338,18 +1338,26 @@
         .cursor { display: none !important; }
         body { cursor: auto !important; }
     }
-        /* ========================================= */
-    /* ===== UNIVERSAL FOOTER FIX (ALL DEVICES) ===== */
+       /* ========================================= */
+    /* ===== FINAL MASTER FOOTER FIX ===== */
     /* ========================================= */
 
-    /* 1. PC & LAPTOP (Base Style) */
+    /* 1. FORCE SCROLLING (The Magic Fix) */
+    html, body {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: auto !important; 
+        overflow-x: hidden !important; 
+    }
+
+    /* 2. THE FOOTER DESIGN (PC) */
     .system-footer {
         width: 100%;
         text-align: center;
         padding: 40px 0;
         margin-top: 80px;
         position: relative;
-        z-index: 5; /* Low enough to sit behind menu if needed */
+        z-index: 1; 
         background: linear-gradient(to top, #000 10%, transparent 100%);
     }
 
@@ -1370,36 +1378,34 @@
         color: rgba(255, 255, 255, 0.5);
     }
 
+    /* Colors */
     .copyright { color: #FFD700; text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
     .separator { color: #FF6B35; margin: 0 10px; }
     .status { color: #00D9FF; }
 
-    /* 2. TABLET & IPAD (Adjust spacing) */
-    @media (max-width: 1024px) {
-        .system-footer {
-            margin-top: 60px;
-            padding-bottom: 60px;
-        }
-    }
-
-    /* 3. MOBILE (ANDROID & iOS) - THE CRITICAL FIX */
+    /* 3. MOBILE FIX (Android/iOS) */
     @media (max-width: 768px) {
+        /* Adds a cushion at the bottom so you can scroll ABOVE the menu */
+        body {
+            padding-bottom: 180px !important; 
+        }
+
         .system-footer {
-            /* Pushes footer UP so floating menu doesn't hide it */
-            padding-bottom: 120px !important; 
-            background: #000; /* Solid black to prevent see-through glitch */
+            margin-top: 40px !important;
+            padding-bottom: 0px !important;
+            background: transparent !important;
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column; /* Stack text vertically */
+            flex-direction: column;
             gap: 10px;
             font-size: 9px !important;
         }
 
-        .separator { display: none; } /* Hide the '::' on phone */
-        
+        .separator { display: none !important; }
         .footer-line { width: 80px; margin-bottom: 15px; }
+    
     }
     </style>
 <base target="_blank">
