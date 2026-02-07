@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karthikeya Mudili | Astral Sovereign | Portfolio</title>
+    <title>Karthikeya Mudili | VDNSS | Portfolio</title>
     <meta name="description" content="Portfolio of Karthikeya Mudili | CA Intermediate & Python Developer. Specializing in Fintech, Automated Audit Systems, and Quantitative Finance.">
     <meta name="keywords" content="Karthikeya Mudili, CA Intermediate, Fintech, Python Developer, Audit Automation, KK Modi University, NTU Aspirant">
     <meta name="author" content="Karthikeya Mudili">
@@ -1270,6 +1270,74 @@
                 font-size: 28px;
             }
         }
+        /* ========================================= */
+    /* ===== PASTE THIS AT THE END OF CSS ===== */
+    /* ========================================= */
+    
+    @media (max-width: 768px) {
+        /* 1. Fix the Menu (Make it scrollable at bottom) */
+        .nav-bar {
+            top: auto !important;
+            bottom: 20px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 90% !important;
+            max-width: 100% !important;
+            padding: 10px 15px !important;
+            gap: 15px !important;
+            justify-content: flex-start !important;
+            overflow-x: auto !important;
+            background: rgba(0, 0, 0, 0.85) !important;
+            white-space: nowrap !important;
+            border-radius: 15px !important;
+        }
+        /* Hide scrollbar on menu */
+        .nav-bar::-webkit-scrollbar { display: none; }
+        
+        .nav-link {
+            font-size: 11px !important;
+            padding: 5px 8px !important;
+        }
+
+        /* 2. Fix Giant Text */
+        .hero-title {
+            font-size: 36px !important; 
+            line-height: 1.2 !important;
+        }
+        .hero-subtitle {
+            font-size: 14px !important;
+            letter-spacing: 2px !important;
+        }
+        
+        /* 3. Fix Layout Padding */
+        .section {
+            padding: 40px 15px !important;
+        }
+        /* Targets both themes just in case */
+        .crystal-card, .glass-card {
+            padding: 30px 20px !important;
+            width: 100% !important;
+        }
+
+        /* 4. Fix Grids (2 columns instead of 4) */
+        .skills-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 15px !important;
+        }
+        .about-grid {
+            grid-template-columns: 1fr !important;
+        }
+        
+        /* 5. Fix Profile Image */
+        .orb-container img {
+            width: 140px !important;
+            height: 140px !important;
+        }
+
+        /* 6. Disable Desktop Cursor */
+        .cursor { display: none !important; }
+        body { cursor: auto !important; }
+    }
     </style>
 <base target="_blank">
 </head>
