@@ -1338,6 +1338,69 @@
         .cursor { display: none !important; }
         body { cursor: auto !important; }
     }
+        /* ========================================= */
+    /* ===== UNIVERSAL FOOTER FIX (ALL DEVICES) ===== */
+    /* ========================================= */
+
+    /* 1. PC & LAPTOP (Base Style) */
+    .system-footer {
+        width: 100%;
+        text-align: center;
+        padding: 40px 0;
+        margin-top: 80px;
+        position: relative;
+        z-index: 5; /* Low enough to sit behind menu if needed */
+        background: linear-gradient(to top, #000 10%, transparent 100%);
+    }
+
+    .footer-line {
+        width: 120px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        margin: 0 auto 20px auto;
+        opacity: 0.6;
+        box-shadow: 0 0 10px #FFD700;
+    }
+
+    .footer-content {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .copyright { color: #FFD700; text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+    .separator { color: #FF6B35; margin: 0 10px; }
+    .status { color: #00D9FF; }
+
+    /* 2. TABLET & IPAD (Adjust spacing) */
+    @media (max-width: 1024px) {
+        .system-footer {
+            margin-top: 60px;
+            padding-bottom: 60px;
+        }
+    }
+
+    /* 3. MOBILE (ANDROID & iOS) - THE CRITICAL FIX */
+    @media (max-width: 768px) {
+        .system-footer {
+            /* Pushes footer UP so floating menu doesn't hide it */
+            padding-bottom: 120px !important; 
+            background: #000; /* Solid black to prevent see-through glitch */
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column; /* Stack text vertically */
+            gap: 10px;
+            font-size: 9px !important;
+        }
+
+        .separator { display: none; } /* Hide the '::' on phone */
+        
+        .footer-line { width: 80px; margin-bottom: 15px; }
+    }
     </style>
 <base target="_blank">
 </head>
@@ -1694,6 +1757,15 @@
             </div>
         </section>
     </main>
+
+    <footer class="system-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <span class="copyright">© 2026 VDNSS KARTHIKEYA MUDILI</span> 
+        <span class="separator">::</span> 
+        <span class="status">SYSTEM SECURE</span>
+    </div>
+</footer>
 
     <script>
         // ===== ASTRAL SOVEREIGN PORTFOLIO - MAIN SCRIPT =====
