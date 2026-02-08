@@ -29,7 +29,7 @@
     <meta name="google-site-verification" content="BvwAcUxKpywcpYrh7pGQ1Q9ezBoZDmeq29fYyEgIWk4" />
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mvdnssk.github.io/">
+    <meta property="og:url" content="https://mvdnssk.github.io">
     <meta property="og:title" content="VDNSS Karthikeya Mudili | The Strategist">
     <meta property="og:description" content="Bridging Financial Accounting with Algorithmic Logic. View the portfolio of Venkata Durga Naga Satya Sai Karthikeya.">
     <meta property="og:image" content="https://mvdnssk.github.io/banner.png">
@@ -851,6 +851,279 @@
             line-height: 1.6;
         }
         
+        /* ===== MILESTONES TWO-COLUMN LAYOUT ===== */
+        .milestones-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        
+        .milestones-left {
+            /* Timeline stays exactly as is */
+        }
+        
+        .milestones-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .credentials-title {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--celestial-cyan);
+            text-align: center;
+            margin-bottom: 32px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+        /* ===== CREDENTIALS BADGE GRID ===== */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            width: 100%;
+        }
+        
+        .credential-badge {
+            position: relative;
+            padding: 20px 16px;
+            border-radius: 16px;
+            text-align: center;
+            cursor: none;
+            transition: all 0.4s var(--ease-out-expo);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .credential-badge::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.3), 
+                transparent 50%,
+                rgba(255, 255, 255, 0.1));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            transition: opacity 0.4s ease;
+        }
+        
+        .credential-badge:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .credential-badge:hover::before {
+            opacity: 1;
+        }
+        
+        /* Badge Gradient Variants */
+        .badge-purple-cyan {
+            background: linear-gradient(135deg, 
+                rgba(157, 78, 221, 0.4) 0%, 
+                rgba(0, 217, 255, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+        }
+        
+        .badge-purple-cyan:hover {
+            box-shadow: 
+                0 20px 40px rgba(157, 78, 221, 0.3),
+                0 0 40px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-gold-orange {
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.4) 0%, 
+                rgba(255, 140, 0, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+        }
+        
+        .badge-gold-orange:hover {
+            box-shadow: 
+                0 20px 40px rgba(255, 215, 0, 0.3),
+                0 0 40px rgba(255, 140, 0, 0.2);
+        }
+        
+        .badge-green-teal {
+            background: linear-gradient(135deg, 
+                rgba(0, 245, 150, 0.4) 0%, 
+                rgba(0, 217, 255, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(0, 245, 150, 0.2);
+        }
+        
+        .badge-green-teal:hover {
+            box-shadow: 
+                0 20px 40px rgba(0, 245, 150, 0.3),
+                0 0 40px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-pink-purple {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 110, 0.4) 0%, 
+                rgba(157, 78, 221, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(255, 0, 110, 0.2);
+        }
+        
+        .badge-pink-purple:hover {
+            box-shadow: 
+                0 20px 40px rgba(255, 0, 110, 0.3),
+                0 0 40px rgba(157, 78, 221, 0.2);
+        }
+        
+        .badge-blue-indigo {
+            background: linear-gradient(135deg, 
+                rgba(58, 12, 163, 0.5) 0%, 
+                rgba(0, 217, 255, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(58, 12, 163, 0.3);
+        }
+        
+        .badge-blue-indigo:hover {
+            box-shadow: 
+                0 20px 40px rgba(58, 12, 163, 0.4),
+                0 0 40px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-cyan-gold {
+            background: linear-gradient(135deg, 
+                rgba(0, 217, 255, 0.4) 0%, 
+                rgba(255, 215, 0, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-cyan-gold:hover {
+            box-shadow: 
+                0 20px 40px rgba(0, 217, 255, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .badge-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .badge-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        
+        /* ===== MODAL STYLES ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.9);
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+        
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 300;
+            cursor: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--celestial-cyan);
+            color: var(--celestial-cyan);
+            transform: rotate(90deg);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(157, 78, 221, 0.2);
+        }
+        
+        .modal-caption {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        /* Body scroll lock when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+        
         /* ===== HOBBIES SECTION ===== */
         .hobbies-title {
             font-family: 'Cinzel', serif;
@@ -1152,6 +1425,16 @@
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
+            
+            /* Milestones two-column to single column */
+            .milestones-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -1235,6 +1518,40 @@
                 width: 160px;
                 height: 160px;
             }
+            
+            /* Credentials grid mobile */
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credential-badge {
+                padding: 18px 14px;
+            }
+            
+            .badge-title {
+                font-size: 12px;
+            }
+            
+            .badge-subtitle {
+                font-size: 10px;
+            }
+            
+            /* Modal mobile adjustments */
+            .modal-container {
+                max-width: 95vw;
+                max-height: 85vh;
+            }
+            
+            .modal-close {
+                top: -45px;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+            
+            .modal-image {
+                max-height: 75vh;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1288,6 +1605,10 @@
             .hobbies-title,
             .projects-title {
                 font-size: 28px;
+            }
+            
+            .credentials-title {
+                font-size: 22px;
             }
         }
         /* ========================================= */
@@ -1428,6 +1749,7 @@
     
     }
     </style>
+<base target="_blank">
 </head>
 <body>
     <!-- Sacred Geometry Background -->
@@ -1651,31 +1973,78 @@
             <div class="crystal-card">
                 <div class="card-content">
                     <h2 class="timeline-title">Milestones</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">2026</div>
-                            <div class="timeline-role">CA Intermediate Aspirant (May 2026)</div>
-                            <div class="timeline-company">Focus: Advanced Strategies & Financial Management</div>
+                    <div class="milestones-container">
+                        <!-- LEFT SIDE: Timeline (100% identical) -->
+                        <div class="milestones-left">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2026</div>
+                                    <div class="timeline-role">CA Intermediate Aspirant (May 2026)</div>
+                                    <div class="timeline-company">Focus: Advanced Strategies & Financial Management</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Dec 2025</div>
+                                    <div class="timeline-role">Academic Semester: BBA (Finance)</div>
+                                    <div class="timeline-company">KK Modi University | CGPA: 8.03/10.0 (First Class Distinction)<br>Focus: Cost Accounting & Business Management</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">June 2023</div>
+                                    <div class="timeline-role">Professional Certification: CA Foundation</div>
+                                    <div class="timeline-company">Institute of Chartered Accountants of India (ICAI)<br>Score: 247/400 (First Attempt) | Top 60th Percentile</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">June 2021 - March 2023</div>
+                                    <div class="timeline-role">Andhra Pradesh Intermediate (BIEAP) (HSC)</div>
+                                    <div class="timeline-company">Class (11 + 12): State Board Topper (95.8%)<br>Pratibha Puraskar Awardee | Master Minds Institute</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">March 2021</div>
+                                    <div class="timeline-role">Indian Certificate of Secondary Education (ICSE Class 10)</div>
+                                    <div class="timeline-company">ICSE Board | Score: 88.6%<br>Focus: Mathematics, English Literature & Computers</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">Dec 2025</div>
-                            <div class="timeline-role">Academic Semester: BBA (Finance)</div>
-                            <div class="timeline-company">KK Modi University | CGPA: 8.03/10.0 (First Class Distinction)<br>Focus: Cost Accounting & Business Management</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">June 2023</div>
-                            <div class="timeline-role">Professional Certification: CA Foundation</div>
-                            <div class="timeline-company">Institute of Chartered Accountants of India (ICAI)<br>Score: 247/400 (First Attempt) | Top 60th Percentile</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">June 2021 - March 2023</div>
-                            <div class="timeline-role">Andhra Pradesh Intermediate (BIEAP) (HSC)</div>
-                            <div class="timeline-company">Class (11 + 12): State Board Topper (95.8%)<br>Pratibha Puraskar Awardee | Master Minds Institute</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">March 2021</div>
-                            <div class="timeline-role">Indian Certificate of Secondary Education (ICSE Class 10)</div>
-                            <div class="timeline-company">ICSE Board | Score: 88.6%<br>Focus: Mathematics, English Literature & Computers</div>
+                        
+                        <!-- RIGHT SIDE: Credentials & Distinctions -->
+                        <div class="milestones-right">
+                            <h3 class="credentials-title">CREDENTIALS & DISTINCTIONS</h3>
+                            <div class="credentials-grid">
+                                <!-- Badge 1: Pratibha Puraskar -->
+                                <div class="credential-badge badge-gold-orange" data-modal="modal-pratibha">
+                                    <div class="badge-title">Pratibha Puraskar Awardee</div>
+                                    <div class="badge-subtitle">Master Minds Institute</div>
+                                </div>
+                                
+                                <!-- Badge 2: AP State Board Topper -->
+                                <div class="credential-badge badge-purple-cyan" data-modal="modal-topper">
+                                    <div class="badge-title">Andhra Pradesh State Board Topper</div>
+                                    <div class="badge-subtitle">95.8% • Class 12</div>
+                                </div>
+                                
+                                <!-- Badge 3: Python for Everybody -->
+                                <div class="credential-badge badge-green-teal" data-modal="modal-python">
+                                    <div class="badge-title">Python for Everybody</div>
+                                    <div class="badge-subtitle">University of Michigan • Coursera</div>
+                                </div>
+                                
+                                <!-- Badge 4: Financial Markets -->
+                                <div class="credential-badge badge-blue-indigo" data-modal="modal-finance">
+                                    <div class="badge-title">Financial Markets</div>
+                                    <div class="badge-subtitle">Yale University • Coursera</div>
+                                </div>
+                                
+                                <!-- Badge 5: Power BI Data Analyst -->
+                                <div class="credential-badge badge-pink-purple" data-modal="modal-powerbi">
+                                    <div class="badge-title">Power BI Data Analyst</div>
+                                    <div class="badge-subtitle">Microsoft • Active Learning</div>
+                                </div>
+                                
+                                <!-- Badge 6: SSRN Published Author -->
+                                <div class="credential-badge badge-cyan-gold" data-modal="modal-ssrn">
+                                    <div class="badge-title">SSRN Published Author</div>
+                                    <div class="badge-subtitle">Strategic Analysis • 2025</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1764,7 +2133,7 @@
         Keppel Ltd Strategic Analysis
         <br>
         <span style="font-size: 0.85em; color: #aaa; display: block; margin-top: 5px;">
-            A strategic review of Keppel’s "Vision 2030" pivot. Published on SSRN.
+            A strategic review of Keppel's "Vision 2030" pivot. Published on SSRN.
         </span>
     </td>
 
@@ -1820,6 +2189,61 @@
             </div>
         </section>
     </main>
+
+    <!-- ===== MODALS FOR CREDENTIALS ===== -->
+    <!-- Modal 1: Pratibha Puraskar -->
+    <div class="modal-overlay" id="modal-pratibha">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img class="modal-image" src="images/pratibha.jpg" alt="Pratibha Puraskar Award Certificate">
+            <p class="modal-caption">Pratibha Puraskar Award • Master Minds Institute</p>
+        </div>
+    </div>
+    
+    <!-- Modal 2: AP State Board Topper -->
+    <div class="modal-overlay" id="modal-topper">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img class="modal-image" src="images/topper-certificate.jpg" alt="Andhra Pradesh State Board Topper Certificate">
+            <p class="modal-caption">Andhra Pradesh State Board Topper • 95.8% Class 12</p>
+        </div>
+    </div>
+    
+    <!-- Modal 3: Python for Everybody -->
+    <div class="modal-overlay" id="modal-python">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img class="modal-image" src="images/python-cert.jpg" alt="Python for Everybody Certificate">
+            <p class="modal-caption">Python for Everybody • University of Michigan • Coursera</p>
+        </div>
+    </div>
+    
+    <!-- Modal 4: Financial Markets -->
+    <div class="modal-overlay" id="modal-finance">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img class="modal-image" src="images/finance-cert.jpg" alt="Financial Markets Certificate">
+            <p class="modal-caption">Financial Markets • Yale University • Coursera</p>
+        </div>
+    </div>
+    
+    <!-- Modal 5: Power BI Data Analyst -->
+    <div class="modal-overlay" id="modal-powerbi">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img class="modal-image" src="images/powerbi-cert.jpg" alt="Power BI Data Analyst Certificate">
+            <p class="modal-caption">Power BI Data Analyst • Microsoft • Active Learning</p>
+        </div>
+    </div>
+    
+    <!-- Modal 6: SSRN Published Author -->
+    <div class="modal-overlay" id="modal-ssrn">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img class="modal-image" src="images/ssrn-paper.jpg" alt="SSRN Published Paper">
+            <p class="modal-caption">SSRN Published Author • Strategic Analysis • 2025</p>
+        </div>
+    </div>
 
     <footer class="system-footer">
     <div class="footer-line"></div>
@@ -2285,6 +2709,55 @@
             if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
                 e.preventDefault();
                 hobbiesSlider.scrollLeft += e.deltaY;
+            }
+        });
+        
+        // ===== CREDENTIALS MODAL SYSTEM =====
+        const modalOverlay = document.querySelectorAll('.modal-overlay');
+        const credentialBadges = document.querySelectorAll('.credential-badge');
+        
+        // Open modal when badge is clicked
+        credentialBadges.forEach(badge => {
+            badge.addEventListener('click', () => {
+                const modalId = badge.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                }
+            });
+        });
+        
+        // Close modal functions
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+        
+        // Close on X button click
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = closeBtn.closest('.modal-overlay');
+                closeModal(modal);
+            });
+        });
+        
+        // Close on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay);
+                }
+            });
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal);
+                });
             }
         });
         
