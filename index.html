@@ -879,55 +879,127 @@
             text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
         
-        /* ===== CREDENTIALS BADGE GRID ===== */
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            width: 100%;
-        }
-        
-        .credential-badge {
-            position: relative;
-            padding: 20px 16px;
-            border-radius: 16px;
-            text-align: center;
-            cursor: none;
-            transition: all 0.4s var(--ease-out-expo);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-        }
-        
-        .credential-badge::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            padding: 1px;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.3), 
-                transparent 50%,
-                rgba(255, 255, 255, 0.1));
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0.5;
-            transition: opacity 0.4s ease;
-        }
-        
-        .credential-badge:hover {
-            transform: scale(1.05) translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .credential-badge:hover::before {
-            opacity: 1;
-        }
+      /* ===== CREDENTIALS BADGE GRID (UPDATED for Gap Fix) ===== */
+.credentials-grid {
+    display: grid;
+    /* Forces wider 2-column layout to eat up vertical space */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 40px; /* Pushes the Ongoing block down */
+}
+
+.credential-badge {
+    position: relative;
+    /* BIGGER PADDING & HEIGHT */
+    padding: 30px 25px; 
+    min-height: 130px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.credential-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.3), 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.credential-badge:hover {
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--celestial-cyan);
+}
+
+.credential-badge:hover::before {
+    opacity: 1;
+}
+
+.badge-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px; /* Bigger font */
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.badge-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+/* --- NEW: ONGOING PURSUIT BLOCK --- */
+.ongoing-pursuit {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.ongoing-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: var(--celestial-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.ongoing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ongoing-list li {
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.ongoing-list li::before {
+    content: "▹";
+    color: var(--starlight-gold);
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.ongoing-list strong {
+    color: #fff;
+    font-weight: 600;
+}
         
         /* Badge Gradient Variants */
         .badge-purple-cyan {
@@ -1748,16 +1820,7 @@
         .footer-line { width: 80px; margin-bottom: 15px; }
     
     }
-        /* --- CURSOR FIX FOR POPUP --- */
-    .modal {
-        cursor: auto !important; 
-    }
-    .close-btn {
-        cursor: pointer !important;
-    }
-    .modal-content {
-        cursor: default !important;
-    }
+     
     </style>
 <base target="_blank">
 </head>
@@ -2016,46 +2079,56 @@
                         </div>
                         
                         <!-- RIGHT SIDE: Credentials & Distinctions -->
-                        <div class="milestones-right">
-                            <h3 class="credentials-title">CREDENTIALS & DISTINCTIONS</h3>
-                            <div class="credentials-grid">
-                                <!-- Badge 1: Pratibha Puraskar -->
-                                <div class="credential-badge badge-gold-orange" data-modal="modal-pratibha">
-                                    <div class="badge-title">Pratibha Puraskar Awardee</div>
-                                    <div class="badge-subtitle">Master Minds Institute</div>
-                                </div>
-                                
-                                <!-- Badge 2: AP State Board Topper -->
-                                <div class="credential-badge badge-purple-cyan" data-modal="modal-topper">
-                                    <div class="badge-title">Andhra Pradesh State Board Topper</div>
-                                    <div class="badge-subtitle">95.8% • Class 12</div>
-                                </div>
-                                
-                                <!-- Badge 3: Python for Everybody -->
-                                <div class="credential-badge badge-green-teal" data-modal="modal-python">
-                                    <div class="badge-title">Python for Everybody</div>
-                                    <div class="badge-subtitle">University of Michigan • Coursera</div>
-                                </div>
-                                
-                                <!-- Badge 4: Financial Markets -->
-                                <div class="credential-badge badge-blue-indigo" data-modal="modal-finance">
-                                    <div class="badge-title">Financial Markets</div>
-                                    <div class="badge-subtitle">Yale University • Coursera</div>
-                                </div>
-                                
-                                <!-- Badge 5: Power BI Data Analyst -->
-                                <div class="credential-badge badge-pink-purple" data-modal="modal-powerbi">
-                                    <div class="badge-title">Power BI Data Analyst</div>
-                                    <div class="badge-subtitle">Microsoft • Active Learning</div>
-                                </div>
-                                
-                                <!-- Badge 6: SSRN Published Author -->
-                                <div class="credential-badge badge-cyan-gold" data-modal="modal-ssrn">
-                                    <div class="badge-title">SSRN Published Author</div>
-                                    <div class="badge-subtitle">Strategic Analysis • 2025</div>
-                                </div>
-                            </div>
-                        </div>
+                       <div class="milestones-right">
+    <h3 class="credentials-title">CREDENTIALS & DISTINCTIONS</h3>
+    
+    <div class="credentials-grid">
+        <div class="credential-badge badge-gold-orange" data-modal="modal-pratibha">
+            <div class="badge-title">Pratibha Puraskar Awardee</div>
+            <div class="badge-subtitle">Master Minds Institute</div>
+        </div>
+        
+        <div class="credential-badge badge-purple-cyan" data-modal="modal-topper">
+            <div class="badge-title">State Board Topper</div>
+            <div class="badge-subtitle">95.8% • Class 12</div>
+        </div>
+        
+        <div class="credential-badge badge-green-teal" data-modal="modal-python">
+            <div class="badge-title">Python for Everybody</div>
+            <div class="badge-subtitle">Univ. of Michigan • Coursera</div>
+        </div>
+        
+        <div class="credential-badge badge-blue-indigo" data-modal="modal-finance">
+            <div class="badge-title">Financial Markets</div>
+            <div class="badge-subtitle">Yale University</div>
+        </div>
+        
+        <div class="credential-badge badge-pink-purple" data-modal="modal-powerbi">
+            <div class="badge-title">Power BI Data Analyst</div>
+            <div class="badge-subtitle">Microsoft • Active Learning</div>
+        </div>
+        
+        <div class="credential-badge badge-cyan-gold" data-modal="modal-ssrn">
+            <div class="badge-title">SSRN Published Author</div>
+            <div class="badge-subtitle">Strategic Analysis • 2025</div>
+        </div>
+    </div>
+
+    <div class="ongoing-pursuit">
+        <h4 class="ongoing-title">Currently Engineering</h4>
+        <ul class="ongoing-list">
+            <li>
+                <span><strong>Advanced Power BI Analytics</strong> – Building interactive financial dashboards for audit visualization.</span>
+            </li>
+            <li>
+                <span><strong>CA Intermediate (May 2026)</strong> – Full-time preparation with focus on Costing & FM.</span>
+            </li>
+            <li>
+                <span><strong>Python Automation</strong> – Developing scripts to automate bank reconciliation statements.</span>
+            </li>
+        </ul>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
