@@ -1822,7 +1822,27 @@
         .footer-line { width: 80px; margin-bottom: 15px; }
     
     }
-     
+     /* ===== FIX: MOUSE VISIBILITY IN POPUPS ===== */
+    
+    /* 1. When modal is open, bring back the normal system mouse */
+    body.modal-open {
+        cursor: auto !important;
+    }
+
+    /* 2. Hide the custom "ring" cursor so it doesn't look messy */
+    body.modal-open .cursor {
+        opacity: 0 !important;
+    }
+
+    /* 3. Make sure the overlay allows the mouse to be seen */
+    .modal-overlay {
+        cursor: default !important;
+    }
+
+    /* 4. Make sure the X button shows a clickable hand icon */
+    .modal-close {
+        cursor: pointer !important;
+    }
     </style>
 <base target="_blank">
 </head>
