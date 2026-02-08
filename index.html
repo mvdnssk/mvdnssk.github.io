@@ -879,28 +879,28 @@
             text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
         
-      /* ===== CREDENTIALS BADGE GRID (UPDATED for Gap Fix) ===== */
+    /* ===== CREDENTIALS BADGE GRID (COMPACT VERSION) ===== */
 .credentials-grid {
     display: grid;
-    /* Forces wider 2-column layout to eat up vertical space */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    /* Keeps them side-by-side but prevents them from getting too wide */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; /* Tighter gap */
     width: 100%;
-    margin-bottom: 40px; /* Pushes the Ongoing block down */
+    margin-bottom: 25px; /* Less space before the 'Ongoing' text */
 }
 
 .credential-badge {
     position: relative;
-    /* BIGGER PADDING & HEIGHT */
-    padding: 30px 25px; 
-    min-height: 130px; 
+    /* MUCH SMALLER PADDING */
+    padding: 15px 15px; 
+    min-height: 80px; /* Fixed smaller height */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 16px;
+    border-radius: 12px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.4s var(--ease-out-expo);
+    transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
@@ -909,7 +909,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 1px;
     background: linear-gradient(135deg, 
         rgba(255, 255, 255, 0.3), 
@@ -920,12 +920,12 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.5;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
 .credential-badge:hover {
-    transform: scale(1.03) translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     border-color: var(--celestial-cyan);
 }
 
@@ -933,43 +933,45 @@
     opacity: 1;
 }
 
+/* Typography Updates for Compact Look */
 .badge-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 15px; /* Bigger font */
+    font-size: 12px; /* Smaller, cleaner font */
     font-weight: 700;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.3;
+    margin-bottom: 4px;
+    text-shadow: none; /* Removed heavy shadow for cleaner look */
 }
 
 .badge-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 10px; /* Small detail text */
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     letter-spacing: 0.5px;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
-/* --- NEW: ONGOING PURSUIT BLOCK --- */
+/* --- ONGOING PURSUIT BLOCK (Adjusted spacing) --- */
 .ongoing-pursuit {
     width: 100%;
-    margin-top: 20px;
-    padding-top: 24px;
+    margin-top: 15px;
+    padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
 }
 
+/* Keep the rest of ongoing styles same, just need the margin fix above */
 .ongoing-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--celestial-cyan);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     opacity: 0.9;
 }
 
@@ -982,17 +984,17 @@
 .ongoing-list li {
     font-family: 'Inter', sans-serif;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 13px;
-    margin-bottom: 12px;
+    font-size: 12px;
+    margin-bottom: 8px;
     display: flex;
     align-items: flex-start;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .ongoing-list li::before {
     content: "▹";
     color: var(--starlight-gold);
-    margin-right: 12px;
+    margin-right: 10px;
     font-weight: bold;
 }
 
