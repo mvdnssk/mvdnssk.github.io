@@ -1358,15 +1358,28 @@
         
         window.addEventListener('scroll', updateProgressBar, { passive: true });
         
-        // ===== Domain CURSOR =====
-        const cursor = document.getElementById('cursor');
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
-        });
+       // ===== Domain CURSOR (OPTIMIZED) =====
+const cursor = document.getElementById('cursor');
+const cursorRing = document.querySelector('.cursor-ring');
+const cursorCore = document.querySelector('.cursor-core');
+
+// Hide the main container's default position logic
+// We will move the inner parts independently
+gsap.set(cursor, {xPercent: -50, yPercent: -50});
+
+let mouseX = 0;
+let mouseY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // 1. INSTANT movement for the core dot (No Lag)
+    gsap.set(cursorCore, { x: mouseX, y: mouseY });
+    
+    // 2. Smooth movement for the outer ring (Aesthetic Lag)
+    gsap.to(cursorRing, { x: mouseX, y: mouseY, duration: 0.15, ease: "power2.out" });
+});
         
         // ===== STARDUST PARTICLE SYSTEM =====
         const particleCanvas = document.getElementById('particle-canvas');
