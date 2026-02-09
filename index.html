@@ -2893,6 +2893,10 @@
             return false;
         }
     }
+        // 3. Disable Dragging Images (Prevents saving logos/assets)
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
+    });
 </script>
 </body>
 </html>
