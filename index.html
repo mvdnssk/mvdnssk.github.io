@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script>
-        (function() {
-            const allowedDomains = ["mvdnssk.github.io", "localhost", "127.0.0.1"];
-            if (!allowedDomains.includes(window.location.hostname)) {
-                alert("⚠️ SECURITY ALERT: Redirecting to original source.");
-                window.location.href = "https://mvdnssk.github.io";
-            }
-        })();
-    </script>
+    (function() {
+        // added "" to the list to allow local testing
+        const allowedDomains = ["mvdnssk.github.io", "localhost", "127.0.0.1", ""]; 
+        
+        // Only run check if we have a hostname (skips file:// protocol)
+        if (window.location.hostname && !allowedDomains.includes(window.location.hostname)) {
+            alert("⚠️ SECURITY ALERT: Redirecting to original source.");
+            window.location.href = "https://mvdnssk.github.io";
+        }
+    })();
+</script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
