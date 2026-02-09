@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karthikeya Mudili (VDNSS) | CA & FinTech Portfolio</title>
-    
+
     <script>
     (function() {
-        // This list ONLY contains your live site. Localhost is removed.
-        const allowedDomains = ["mvdnssk.github.io"]; 
+        // added "" to the list to allow local testing
+        const allowedDomains = ["mvdnssk.github.io", "localhost", "127.0.0.1", ""]; 
         
+        // Only run check if we have a hostname (skips file:// protocol)
         if (window.location.hostname && !allowedDomains.includes(window.location.hostname)) {
-            // If the domain is wrong, force redirect to the real site
-            alert("⚠️ SECURITY ALERT: Redirecting to verified source.");
+            alert("⚠️ SECURITY ALERT: Redirecting to original source.");
             window.location.href = "https://mvdnssk.github.io";
         }
     })();
     </script>
 
-    <meta name="description" content="Official Portfolio of VDNSS Karthikeya Mudili. CA Intermediate student and Python Developer bridging Finance with Algorithmic Logic.">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico">
     <meta name="theme-color" content="#030305">
+    
+   <title>Karthikeya Mudili (VDNSS) | CA & FinTech Portfolio</title>
 
+    <meta name="description" content="Official Portfolio of VDNSS Karthikeya Mudili. CA Intermediate student and Python Developer bridging Finance with Algorithmic Logic.">
+    <meta name="keywords" content="Karthikeya Mudili, VDNSS, CA Intermediate, Fintech, Python Developer, NTU Singapore">
+    <meta name="author" content="VDNSS Karthikeya Mudili">
+    <meta name="google-site-verification" content="BvwAcUxKpywcpYrh7pGQ1Q9ezBoZDmeq29fYyEgIWk4" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mvdnssk.github.io">
+    <meta property="og:title" content="VDNSS Karthikeya Mudili | The Strategist">
+    <meta property="og:description" content="Bridging Financial Accounting with Algorithmic Logic. View the portfolio of Venkata Durga Naga Satya Sai Karthikeya.">
+    <meta property="og:image" content="https://mvdnssk.github.io/banner.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -28,206 +44,1980 @@
     
     <style>
         /* ===== CSS RESET & BASE ===== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         :root {
+            /* Astral Palette - The Colors of Divinity */
             --void-black: #030305;
+            --deep-space: #0a0a12;
+            --nebula-purple: #7B2D8E;
             --cosmic-violet: #9D4EDD;
             --starlight-gold: #FFD700;
             --celestial-cyan: #00D9FF;
+            --aurora-teal: #00F5D4;
             --stardust-pink: #FF006E;
-            --nebula-purple: #7B2D8E;
+            --galaxy-blue: #3A0CA3;
+            
+            /* Glow Effects */
+            --glow-gold: rgba(255, 215, 0, 0.5);
+            --glow-cyan: rgba(0, 217, 255, 0.5);
+            --glow-purple: rgba(157, 78, 221, 0.5);
+            
+            /* Animation Timing */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
         }
         
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
         
         body {
             font-family: 'Inter', sans-serif;
             background: var(--void-black);
             color: #ffffff;
             overflow-x: hidden;
-            
-            /* MOUSE FIX: Default cursor for speed */
-            cursor: default; 
-            
-            -webkit-user-select: none;
-            user-select: none;
+            cursor: none;
+
+            /* SECURITY: DISABLE TEXT SELECTION */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
         }
         
-        body::-webkit-scrollbar { display: none; }
+        /* ===== HIDE SCROLLBAR ===== */
+        body::-webkit-scrollbar {
+            display: none;
+        }
         
-        /* ===== LAYERS (Z-INDEX FIXED) ===== */
-        #astral-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; }
-        .sacred-geometry { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 150vmax; height: 150vmax; z-index: 1; opacity: 0.03; pointer-events: none; }
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
         
-        /* FIX: Particle Canvas is lower than Intro */
-        .particle-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 2; }
+        /* ===== ASTRAL CANVAS BACKGROUND ===== */
+        #astral-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
         
-        .section { position: relative; z-index: 10; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 24px; }
+        /* ===== SACRED GEOMETRY OVERLAY ===== */
+        .sacred-geometry {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150vmax;
+            height: 150vmax;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
+        }
         
-        /* ===== INTRO SEQUENCE (HIGHEST PRIORITY) ===== */
-        /* FIX: Z-Index boosted to 100,000 to sit on top of everything */
+        .sacred-geometry svg {
+            width: 100%;
+            height: 100%;
+            animation: sacredRotate 120s linear infinite;
+        }
+        
+        @keyframes sacredRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== ASTRAL PROGRESS BAR ===== */
+        .astral-progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, 
+                var(--nebula-purple) 0%, 
+                var(--cosmic-violet) 25%,
+                var(--celestial-cyan) 50%,
+                var(--starlight-gold) 75%,
+                var(--stardust-pink) 100%);
+            box-shadow: 
+                0 0 20px var(--cosmic-violet),
+                0 0 40px var(--celestial-cyan);
+            z-index: 200;
+            transition: width 0.1s ease-out;
+        }
+        
+        .astral-progress-bar::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--starlight-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--starlight-gold), 0 0 40px var(--celestial-cyan);
+            animation: starPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes starPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px var(--starlight-gold), 0 0 40px var(--celestial-cyan);
+                transform: translateY(-50%) scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px var(--starlight-gold), 0 0 80px var(--celestial-cyan);
+                transform: translateY(-50%) scale(1.5);
+            }
+        }
+        
+        /* ===== CELESTIAL CURSOR ===== */
+        .cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+        }
+        
+        .cursor-core {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--starlight-gold);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 10px var(--starlight-gold),
+                0 0 20px var(--celestial-cyan),
+                0 0 30px var(--cosmic-violet);
+        }
+        
+        .cursor-ring {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--celestial-cyan);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+            animation: cursorOrbit 3s linear infinite;
+        }
+        
+        .cursor-ring::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border: 1px solid var(--cosmic-violet);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: cursorOrbit 5s linear infinite reverse;
+        }
+        
+        @keyframes cursorOrbit {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* ===== INTRO SEQUENCE ===== */
         #intro-sequence {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background: var(--void-black);
-            z-index: 100000; 
-            display: flex; align-items: center; justify-content: center;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
         
-        /* ===== CURSOR (MAX PRIORITY) ===== */
-        .cursor { position: fixed; width: 30px; height: 30px; pointer-events: none; z-index: 100001; transform: translate(-50%, -50%); mix-blend-mode: screen; }
-        .cursor-core { position: absolute; width: 6px; height: 6px; background: var(--starlight-gold); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 10px var(--starlight-gold); }
-        .cursor-ring { position: absolute; width: 25px; height: 25px; border: 1px solid var(--celestial-cyan); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.6; }
-
-        /* ... STYLES ... */
+        .intro-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(157, 78, 221, 0.4), 
+                rgba(0, 217, 255, 0.2) 40%, 
+                rgba(255, 215, 0, 0.1) 70%, 
+                transparent);
+            filter: blur(40px);
+            animation: introOrbPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes introOrbPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        .ignite-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .ignite-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--starlight-gold);
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 50px;
+            padding: 20px 50px;
+            cursor: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px var(--starlight-gold);
+            box-shadow: 
+                0 0 30px rgba(157, 78, 221, 0.2) inset,
+                0 0 50px rgba(0, 217, 255, 0.2);
+            animation: astralBtnPulse 3s ease-in-out infinite;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ignite-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.2), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .ignite-btn:hover::before {
+            left: 100%;
+        }
+        
+        .ignite-btn:hover {
+            background: rgba(157, 78, 221, 0.1);
+            border-color: var(--celestial-cyan);
+            box-shadow: 
+                0 0 50px rgba(157, 78, 221, 0.3) inset,
+                0 0 80px rgba(0, 217, 255, 0.4);
+            transform: scale(1.02);
+            letter-spacing: 6px;
+        }
+        
+        @keyframes astralBtnPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(157, 78, 221, 0.2) inset,
+                    0 0 50px rgba(0, 217, 255, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 50px rgba(157, 78, 221, 0.4) inset,
+                    0 0 80px rgba(0, 217, 255, 0.4);
+            }
+        }
+        
+        .ignite-subtext {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 24px;
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+        
+        /* ===== NAVIGATION ===== */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(3, 3, 5, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 50px;
+            padding: 12px 32px;
+            z-index: 100;
+            display: flex;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            box-shadow: 0 0 40px rgba(157, 78, 221, 0.1);
+        }
+        
+        .nav-bar.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .nav-link {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            white-space: nowrap;
+            transition: all 0.4s ease;
+            padding: 8px 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--starlight-gold), transparent);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--starlight-gold);
+        }
+        
+        .nav-link:hover {
+            color: var(--starlight-gold);
+            text-shadow: 0 0 20px var(--starlight-gold);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* ===== SECTIONS ===== */
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            padding: 80px 24px;
+        }
+        
+        /* ===== CRYSTAL CARD ===== */
         .crystal-card {
             background: rgba(10, 10, 18, 0.7);
             backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border: 1px solid rgba(157, 78, 221, 0.2);
             border-radius: 24px;
             padding: 56px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03) inset;
-            max-width: 1000px; width: 100%; opacity: 0; transform: translateY(50px);
-            position: relative; overflow: hidden;
-        }
-        .crystal-card.visible { opacity: 1; transform: translateY(0); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-
-        /* Typography */
-        .hero-title {
-            font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 84px); font-weight: 700;
-            background: linear-gradient(135deg, var(--starlight-gold), #FFA500, var(--celestial-cyan), var(--cosmic-violet));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-align: center; margin-bottom: 20px;
-        }
-        .hero-subtitle {
-            font-family: 'Orbitron', sans-serif; font-size: clamp(14px, 2.5vw, 22px);
-            color: var(--celestial-cyan); text-align: center; letter-spacing: 6px; margin-bottom: 28px;
-        }
-        .hero-tagline {
-            font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.6);
-            max-width: 550px; margin: 0 auto; text-align: center; line-height: 1.8;
-        }
-
-        /* Nav Bar */
-        .nav-bar {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: rgba(3, 3, 5, 0.6); backdrop-filter: blur(20px);
-            border: 1px solid rgba(157, 78, 221, 0.2); border-radius: 50px;
-            padding: 12px 32px; z-index: 100; display: flex; gap: 32px;
-            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
-        }
-        .nav-bar.visible { opacity: 1; pointer-events: auto; }
-        .nav-link { color: rgba(255,255,255,0.5); text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.4s; font-family: 'Orbitron'; }
-        .nav-link:hover { color: var(--starlight-gold); text-shadow: 0 0 20px var(--starlight-gold); }
-
-        /* Ignite Button (Intro) */
-        .ignite-btn {
-            font-family: 'Orbitron', sans-serif; font-size: 16px; color: var(--starlight-gold);
-            background: transparent; border: 1px solid rgba(255, 215, 0, 0.4);
-            border-radius: 50px; padding: 20px 50px; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 4px;
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2) inset, 0 0 50px rgba(0, 217, 255, 0.2);
-            transition: 0.5s;
-        }
-        .ignite-btn:hover {
-            background: rgba(157, 78, 221, 0.1); border-color: var(--celestial-cyan);
-            box-shadow: 0 0 50px rgba(157, 78, 221, 0.3) inset, 0 0 80px rgba(0, 217, 255, 0.4);
-        }
-        .intro-orb { width: 300px; height: 300px; background: radial-gradient(circle, rgba(157,78,221,0.4), transparent 70%); border-radius: 50%; position: absolute; animation: pulse 4s infinite; }
-        @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; } }
-
-        /* Social Buttons (Solid Badge Style) */
-        .social-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .social-btn {
-            font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 500;
-            border-radius: 50px; padding: 16px 36px; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
-            display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.1); color: #fff;
-        }
-        .social-btn:hover { transform: translateY(-3px); }
-
-        /* Brand Colors (Solid Glow) */
-        .linkedin { background: rgba(10, 102, 194, 0.2); border-color: #0A66C2; } .linkedin:hover { background: #0A66C2; box-shadow: 0 0 30px rgba(10,102,194,0.6); }
-        .github { background: rgba(255, 255, 255, 0.1); border-color: #ffffff; } .github:hover { background: #ffffff; color: #000; box-shadow: 0 0 30px rgba(255,255,255,0.5); }
-        .orcid { background: rgba(166, 206, 57, 0.2); border-color: #A6CE39; } .orcid:hover { background: #A6CE39; color: #000; box-shadow: 0 0 30px rgba(166,206,57,0.6); }
-        .instagram { background: rgba(225, 48, 108, 0.2); border-color: #E1306C; } .instagram:hover { background: #E1306C; box-shadow: 0 0 30px rgba(225,48,108,0.6); }
-        .telegram { background: rgba(0, 136, 204, 0.2); border-color: #0088cc; } .telegram:hover { background: #0088cc; box-shadow: 0 0 30px rgba(0,136,204,0.6); }
-        .mail { background: rgba(255, 215, 0, 0.2); border-color: #FFD700; } .mail:hover { background: #FFD700; color: #000; box-shadow: 0 0 30px rgba(255,215,0,0.6); }
-
-        /* Footer */
-        .system-footer { margin-top: 80px; text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-content { font-family: 'Orbitron'; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.5); }
-        .status { color: #00F5D4; text-shadow: 0 0 10px rgba(0,245,212,0.5); margin-left: 10px; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-bar { top: auto; bottom: 20px; width: 90%; overflow-x: auto; justify-content: start; background: rgba(0,0,0,0.9); }
-            .hero-title { font-size: 36px; }
-            .section { padding: 40px 15px; }
-            .social-buttons { flex-direction: column; }
-            .social-btn { width: 100%; justify-content: center; }
-            #intro-sequence { z-index: 100000; } /* Ensure mobile also has high z-index */
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+                0 0 60px rgba(157, 78, 221, 0.1);
+            max-width: 1000px;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Modal Fixes */
-        .modal-overlay { z-index: 100002; /* Above cursor */ }
+        .crystal-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, 
+                transparent, 
+                rgba(157, 78, 221, 0.03), 
+                transparent, 
+                rgba(0, 217, 255, 0.03), 
+                transparent);
+            animation: crystalShimmer 15s linear infinite;
+        }
+        
+        @keyframes crystalShimmer {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .crystal-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s var(--ease-out-expo);
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-constellation {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            color: var(--cosmic-violet);
+            letter-spacing: 8px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 5vw, 84px);
+            font-weight: 700;
+            background: linear-gradient(135deg, 
+                var(--starlight-gold) 0%, 
+                #FFA500 25%,
+                var(--celestial-cyan) 50%,
+                var(--cosmic-violet) 75%,
+                var(--starlight-gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShine 5s linear infinite;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            position: relative;
+        }
+        
+        @keyframes titleShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .hero-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(14px, 2.5vw, 22px);
+            font-weight: 400;
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 28px;
+            opacity: 0.9;
+        }
+        
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+        
+        .hero-divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--cosmic-violet), 
+                var(--celestial-cyan), 
+                var(--starlight-gold), 
+                transparent);
+            margin: 32px auto;
+            opacity: 0.6;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        
+        .about-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--cosmic-violet);
+            margin-bottom: 28px;
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cosmic-violet), var(--celestial-cyan));
+        }
+        
+        .about-text {
+            font-size: 16px;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .orb-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* ASTRAL ORB */
+        .astral-orb {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            position: relative;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(157, 78, 221, 0.5), 
+                rgba(0, 217, 255, 0.3) 40%, 
+                rgba(255, 215, 0, 0.2) 70%, 
+                transparent);
+            box-shadow: 
+                0 0 80px rgba(157, 78, 221, 0.4),
+                0 0 120px rgba(0, 217, 255, 0.3),
+                inset 0 0 60px rgba(255, 215, 0, 0.2);
+            animation: astralPulse 4s ease-in-out infinite, astralFloat 6s ease-in-out infinite;
+        }
+        
+        .astral-orb::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            animation: orbRing1 8s linear infinite;
+        }
+        
+        .astral-orb::after {
+            content: '';
+            position: absolute;
+            inset: -30px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            animation: orbRing2 12s linear infinite reverse;
+        }
+        
+        @keyframes astralPulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 
+                    0 0 80px rgba(157, 78, 221, 0.4),
+                    0 0 120px rgba(0, 217, 255, 0.3);
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 
+                    0 0 120px rgba(157, 78, 221, 0.6),
+                    0 0 180px rgba(0, 217, 255, 0.5);
+            }
+        }
+        
+        @keyframes astralFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes orbRing1 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes orbRing2 {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        
+        /* ===== SKILLS SECTION - CELESTIAL Expertise ===== */
+        .skills-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--celestial-cyan);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 4px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        
+        .celestial-artifact {
+            aspect-ratio: 1;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 0 auto;
+            cursor: none;
+            transition: all 0.5s ease;
+            background: rgba(10, 10, 18, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            overflow: hidden;
+        }
+        
+        .celestial-artifact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                rgba(157, 78, 221, 0.1), 
+                transparent 50%, 
+                rgba(0, 217, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .celestial-artifact:hover::before {
+            opacity: 1;
+        }
+        
+        .celestial-artifact::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, 
+                var(--cosmic-violet), 
+                var(--celestial-cyan), 
+                var(--starlight-gold));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .celestial-artifact:hover::after {
+            opacity: 1;
+        }
+        
+        .celestial-artifact:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(157, 78, 221, 0.2),
+                0 0 40px rgba(0, 217, 255, 0.1);
+        }
+        
+        .artifact-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+        
+        .artifact-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(0.55rem, 1.8vw, 0.8rem);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 0 12px;
+        }
+        
+        .artifact-level {
+            display: flex;
+            gap: 4px;
+            margin-top: 16px;
+        }
+        
+        .level-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .level-dot.active {
+            background: var(--starlight-gold);
+            box-shadow: 0 0 10px var(--starlight-gold);
+        }
+        
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--starlight-gold);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 4px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, 
+                var(--cosmic-violet) 0%, 
+                var(--celestial-cyan) 50%, 
+                var(--starlight-gold) 100%);
+            opacity: 0.5;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 28px 0;
+            padding-left: 36px;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -43px;
+            top: 32px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--deep-space);
+            border: 2px solid var(--celestial-cyan);
+            box-shadow: 0 0 15px var(--celestial-cyan);
+        }
+        
+        .timeline-date {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            color: var(--celestial-cyan);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+        
+        .timeline-role {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        
+        .timeline-company {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+        
+        /* ===== MILESTONES TWO-COLUMN LAYOUT ===== */
+        .milestones-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        
+        .milestones-left {
+            /* Timeline stays exactly as is */
+        }
+        
+        .milestones-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .credentials-title {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--celestial-cyan);
+            text-align: center;
+            margin-bottom: 32px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+    /* ===== CREDENTIALS BADGE GRID (COMPACT VERSION) ===== */
+.credentials-grid {
+    display: grid;
+    /* Keeps them side-by-side but prevents them from getting too wide */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px; /* Tighter gap */
+    width: 100%;
+    margin-bottom: 25px; /* Less space before the 'Ongoing' text */
+}
+
+.credential-badge {
+    position: relative;
+    /* MUCH SMALLER PADDING */
+    padding: 15px 15px; 
+    min-height: 80px; /* Fixed smaller height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.credential-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.3), 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.credential-badge:hover {
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: var(--celestial-cyan);
+}
+
+.credential-badge:hover::before {
+    opacity: 1;
+}
+
+/* Typography Updates for Compact Look */
+.badge-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px; /* Smaller, cleaner font */
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    text-shadow: none; /* Removed heavy shadow for cleaner look */
+}
+
+.badge-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; /* Small detail text */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+/* --- ONGOING PURSUIT BLOCK (Adjusted spacing) --- */
+.ongoing-pursuit {
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+/* Keep the rest of ongoing styles same, just need the margin fix above */
+.ongoing-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--celestial-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.ongoing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ongoing-list li {
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.ongoing-list li::before {
+    content: "▹";
+    color: var(--starlight-gold);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.ongoing-list strong {
+    color: #fff;
+    font-weight: 600;
+}
+        
+        /* Badge Gradient Variants */
+        .badge-purple-cyan {
+            background: linear-gradient(135deg, 
+                rgba(157, 78, 221, 0.4) 0%, 
+                rgba(0, 217, 255, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(157, 78, 221, 0.2);
+        }
+        
+        .badge-purple-cyan:hover {
+            box-shadow: 
+                0 20px 40px rgba(157, 78, 221, 0.3), 
+                0 0 40px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-gold-orange {
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.4) 0%, 
+                rgba(255, 140, 0, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+        }
+        
+        .badge-gold-orange:hover {
+            box-shadow: 
+                0 20px 40px rgba(255, 215, 0, 0.3), 
+                0 0 40px rgba(255, 140, 0, 0.2);
+        }
+        
+        .badge-green-teal {
+            background: linear-gradient(135deg, 
+                rgba(0, 245, 150, 0.4) 0%, 
+                rgba(0, 217, 255, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(0, 245, 150, 0.2);
+        }
+        
+        .badge-green-teal:hover {
+            box-shadow: 
+                0 20px 40px rgba(0, 245, 150, 0.3), 
+                0 0 40px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-pink-purple {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 110, 0.4) 0%, 
+                rgba(157, 78, 221, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(255, 0, 110, 0.2);
+        }
+        
+        .badge-pink-purple:hover {
+            box-shadow: 
+                0 20px 40px rgba(255, 0, 110, 0.3), 
+                0 0 40px rgba(157, 78, 221, 0.2);
+        }
+        
+        .badge-blue-indigo {
+            background: linear-gradient(135deg, 
+                rgba(58, 12, 163, 0.5) 0%, 
+                rgba(0, 217, 255, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(58, 12, 163, 0.3);
+        }
+        
+        .badge-blue-indigo:hover {
+            box-shadow: 
+                0 20px 40px rgba(58, 12, 163, 0.4), 
+                0 0 40px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-cyan-gold {
+            background: linear-gradient(135deg, 
+                rgba(0, 217, 255, 0.4) 0%, 
+                rgba(255, 215, 0, 0.3) 100%);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.2);
+        }
+        
+        .badge-cyan-gold:hover {
+            box-shadow: 
+                0 20px 40px rgba(0, 217, 255, 0.3), 
+                0 0 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .badge-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .badge-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        
+        /* ===== MODAL STYLES ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.9);
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+        
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 300;
+            cursor: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--celestial-cyan);
+            color: var(--celestial-cyan);
+            transform: rotate(90deg);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(157, 78, 221, 0.2);
+        }
+        
+        .modal-caption {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        /* Body scroll lock when modal is open */
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        /* ===== HOBBIES SECTION ===== */
+        .hobbies-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--stardust-pink);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 4px;
+        }
+        
+        .hobbies-slider {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        
+        .hobbies-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .hobby-card {
+            flex: 0 0 280px;
+            background: rgba(10, 10, 18, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.15);
+            border-radius: 20px;
+            padding: 36px;
+            scroll-snap-align: start;
+            transition: all 0.5s ease;
+            cursor: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--cosmic-violet), 
+                var(--celestial-cyan), 
+                transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .hobby-card:hover::before {
+            opacity: 1;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(157, 78, 221, 0.4);
+            box-shadow: 
+                0 20px 60px rgba(157, 78, 221, 0.15),
+                0 0 40px rgba(0, 217, 255, 0.1);
+        }
+        
+        .hobby-icon {
+            font-size: 44px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+        }
+        
+        .hobby-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hobby-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+        }
+        
+        /* ===== PROJECTS SECTION ===== */
+        .projects-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            background: linear-gradient(90deg, 
+                var(--starlight-gold), 
+                var(--celestial-cyan), 
+                var(--cosmic-violet),
+                var(--stardust-pink));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShine 4s linear infinite;
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: 4px;
+        }
+        
+        .projects-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            margin-bottom: 48px;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+        
+        /* ===== ASTRAL TABLE ===== */
+        .astral-table-container {
+            max-width: 900px;
+            margin: 0 auto 48px auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .astral-table {
+            width: 100%;
+            min-width: 500px;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            background: rgba(10, 10, 18, 0.5);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .astral-table thead {
+            background: rgba(157, 78, 221, 0.1);
+        }
+        
+        .astral-table th {
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            padding: 18px 24px;
+            text-align: left;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            font-size: 11px;
+        }
+        
+        .astral-table td {
+            padding: 18px 24px;
+            color: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .astral-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        
+        .astral-table tbody tr:hover {
+            background: rgba(157, 78, 221, 0.05);
+        }
+        
+        .astral-table tbody tr:hover td {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .astral-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .astral-table .project-name {
+            color: #ffffff;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .astral-table .status-live {
+            color: var(--celestial-cyan);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+        
+        .astral-table .status-deployed {
+            color: var(--starlight-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .astral-table a {
+            color: var(--cosmic-violet);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(157, 78, 221, 0.5);
+            transition: all 0.3s ease;
+            padding-bottom: 2px;
+        }
+        
+        .astral-table a:hover {
+            color: var(--celestial-cyan);
+            border-bottom-color: var(--celestial-cyan);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+        
+        /* ===== SOCIAL HUB ===== */
+        .social-hub {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(157, 78, 221, 0.15);
+        }
+        
+        .social-hub-title {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: var(--starlight-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 28px;
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 12px; /* FIXED ALIGNMENT GAP */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--starlight-gold);
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            padding: 16px 36px;
+            cursor: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.1), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .social-btn:hover::before {
+            left: 100%;
+        }
+        
+        .social-btn:hover {
+            background: rgba(157, 78, 221, 0.1);
+            border-color: var(--celestial-cyan);
+            color: var(--celestial-cyan);
+            box-shadow: 
+                0 0 30px rgba(0, 217, 255, 0.2),
+                0 0 60px rgba(157, 78, 221, 0.2);
+            transform: translateY(-3px);
+            letter-spacing: 3px;
+        }
+        
+        /* ===== PARTICLE CANVAS ===== */
+        .particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+        }
+        /* ===== BRAND SPECIFIC COLORS (SOLID VERSION) ===== */
+
+/* 1. LinkedIn (Solid Blue) */
+.social-btn.linkedin {
+    background: rgba(10, 102, 194, 0.2); /* Semi-transparent background */
+    border-color: #0A66C2;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.4);
+}
+.social-btn.linkedin:hover {
+    background: #0A66C2; /* Full solid on hover */
+    box-shadow: 0 0 40px rgba(10, 102, 194, 0.6);
+}
+
+/* 2. GitHub (Solid White/Grey) */
+.social-btn.github {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.social-btn.github:hover {
+    background: #ffffff;
+    color: #000000; /* Text turns black on white background */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+/* 3. ORCID (Solid Green) */
+.social-btn.orcid {
+    background: rgba(166, 206, 57, 0.2);
+    border-color: #A6CE39;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(166, 206, 57, 0.4);
+}
+.social-btn.orcid:hover {
+    background: #A6CE39;
+    color: #000000;
+    box-shadow: 0 0 40px rgba(166, 206, 57, 0.6);
+}
+
+/* 4. Instagram (Solid Pink) */
+.social-btn.instagram {
+    background: rgba(225, 48, 108, 0.2);
+    border-color: #E1306C;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+}
+.social-btn.instagram:hover {
+    background: #E1306C;
+    box-shadow: 0 0 40px rgba(225, 48, 108, 0.6);
+}
+
+/* 5. Official Mail (Solid Gold) */
+.social-btn.mail {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #FFD700;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+.social-btn.mail:hover {
+    background: #FFD700;
+    color: #000000;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+}
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            /* Milestones two-column to single column */
+            .milestones-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-bar {
+                top: auto;
+                bottom: 20px;
+                gap: 6px;
+                padding: 10px 16px;
+                background: rgba(3, 3, 5, 0.8);
+            }
+            
+            .nav-link {
+                font-size: 9px;
+                letter-spacing: 1px;
+                padding: 8px 10px;
+            }
+            
+            .nav-link::after {
+                display: none;
+            }
+            
+            .section {
+                padding: 60px 20px 100px 20px;
+            }
+            
+            .crystal-card {
+                padding: 36px 24px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .celestial-artifact {
+                border-radius: 12px;
+            }
+            
+            .artifact-icon {
+                font-size: 28px;
+            }
+            
+            body {
+                cursor: auto;
+            }
+            
+            .cursor {
+                display: none;
+            }
+            
+            .astral-progress-bar {
+                bottom: 80px;
+            }
+            
+            .astral-table {
+                font-size: 11px;
+            }
+            
+            .astral-table th,
+            .astral-table td {
+                padding: 14px 16px;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .ignite-btn {
+                font-size: 13px;
+                padding: 16px 36px;
+            }
+            
+            .astral-orb {
+                width: 160px;
+                height: 160px;
+            }
+            
+            /* Credentials grid mobile */
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credential-badge {
+                padding: 18px 14px;
+            }
+            
+            .badge-title {
+                font-size: 12px;
+            }
+            
+            .badge-subtitle {
+                font-size: 10px;
+            }
+            
+            /* Modal mobile adjustments */
+            .modal-container {
+                max-width: 95vw;
+                max-height: 85vh;
+            }
+            
+            .modal-close {
+                top: -45px;
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+            
+            .modal-image {
+                max-height: 75vh;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-bar {
+                padding: 8px 12px;
+                gap: 4px;
+                bottom: 15px;
+            }
+            
+            .nav-link {
+                font-size: 8px;
+                padding: 6px 8px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+            
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+            
+            .section {
+                padding: 50px 16px 90px 16px;
+            }
+            
+            .astral-progress-bar {
+                bottom: 70px;
+            }
+            
+            .astral-table th,
+            .astral-table td {
+                padding: 12px 14px;
+            }
+            
+            .ignite-btn {
+                font-size: 11px;
+                padding: 14px 28px;
+                letter-spacing: 2px;
+            }
+            
+            .about-title,
+            .skills-title,
+            .timeline-title,
+            .hobbies-title,
+            .projects-title {
+                font-size: 28px;
+            }
+            
+            .credentials-title {
+                font-size: 22px;
+            }
+        }
+        /* ========================================= */
+    /* ===== PASTE THIS AT THE END OF CSS ===== */
+    /* ========================================= */
+    
+    @media (max-width: 768px) {
+        /* 1. Fix the Menu (Make it scrollable at bottom) */
+        .nav-bar {
+            top: auto !important;
+            bottom: 20px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 90% !important;
+            max-width: 100% !important;
+            padding: 10px 15px !important;
+            gap: 15px !important;
+            justify-content: flex-start !important;
+            overflow-x: auto !important;
+            background: rgba(0, 0, 0, 0.85) !important;
+            white-space: nowrap !important;
+            border-radius: 15px !important;
+        }
+        /* Hide scrollbar on menu */
+        .nav-bar::-webkit-scrollbar { display: none; }
+        
+        .nav-link {
+            font-size: 11px !important;
+            padding: 5px 8px !important;
+        }
+
+        /* 2. Fix Giant Text */
+        .hero-title {
+            font-size: 36px !important; 
+            line-height: 1.2 !important;
+        }
+        .hero-subtitle {
+            font-size: 14px !important;
+            letter-spacing: 2px !important;
+        }
+        
+        /* 3. Fix Layout Padding */
+        .section {
+            padding: 40px 15px !important;
+        }
+        /* Targets both themes just in case */
+        .crystal-card, .glass-card {
+            padding: 30px 20px !important;
+            width: 100% !important;
+        }
+
+        /* 4. Fix Grids (2 columns instead of 4) */
+        .skills-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 15px !important;
+        }
+        .about-grid {
+            grid-template-columns: 1fr !important;
+        }
+        
+        /* 5. Fix Profile Image */
+        .orb-container img {
+            width: 140px !important;
+            height: 140px !important;
+        }
+
+        /* 6. Disable Desktop Cursor */
+        .cursor { display: none !important; }
+        body { cursor: auto !important; }
+    }
+       /* ========================================= */
+    /* ===== FINAL MASTER FOOTER FIX ===== */
+    /* ========================================= */
+
+    /* 1. FORCE SCROLLING (The Magic Fix) */
+    html, body {
+        height: auto !important;
+        min-height: 100vh !important;
+        overflow-y: auto !important; 
+        overflow-x: hidden !important; 
+    }
+
+    /* 2. THE FOOTER DESIGN (PC) */
+    .system-footer {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        margin-top: 80px;
+        position: relative;
+        z-index: 1; 
+        background: linear-gradient(to top, #000 10%, transparent 100%);
+    }
+
+    .footer-line {
+        width: 120px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        margin: 0 auto 20px auto;
+        opacity: 0.6;
+        box-shadow: 0 0 10px #FFD700;
+    }
+
+    .footer-content {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Colors */
+    .copyright { color: #FFD700; text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+    .separator { color: #FF6B35; margin: 0 10px; }
+    .status { color: #00D9FF; }
+
+    /* 3. MOBILE FIX (Android/iOS) */
+    @media (max-width: 768px) {
+        /* Adds a cushion at the bottom so you can scroll ABOVE the menu */
+        body {
+            padding-bottom: 180px !important; 
+        }
+
+        .system-footer {
+            margin-top: 11px !important;
+            padding-bottom: 0px !important;
+            background: transparent !important;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 9px !important;
+        }
+
+        .separator { display: none !important; }
+        .footer-line { width: 80px; margin-bottom: 15px; }
+    
+    }
+     /* ===== FIX: MOUSE VISIBILITY IN POPUPS ===== */
+    
+    /* 1. When modal is open, bring back the normal system mouse */
+    body.modal-open {
+        cursor: auto !important;
+    }
+
+    /* 2. Hide the custom "ring" cursor so it doesn't look messy */
+    body.modal-open .cursor {
+        opacity: 0 !important;
+    }
+
+    /* 3. Make sure the overlay allows the mouse to be seen */
+    .modal-overlay {
+        cursor: default !important;
+    }
+
+    /* 4. Make sure the X button shows a clickable hand icon */
+    .modal-close {
+        cursor: pointer !important;
+    }
     </style>
+<base target="_blank">
 </head>
 <body>
-
-    <div class="sacred-geometry"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="rgba(157,78,221,0.1)" fill="none"/></svg></div>
+    <div class="sacred-geometry">
+        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="sacredGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#00D9FF;stop-opacity:0.2" />
+                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#sacredGrad)" stroke-width="0.5">
+                <circle cx="500" cy="500" r="400" />
+                <circle cx="500" cy="500" r="350" />
+                <circle cx="500" cy="500" r="300" />
+                <circle cx="500" cy="500" r="250" />
+                <circle cx="500" cy="500" r="200" />
+                <circle cx="500" cy="500" r="150" />
+                <circle cx="500" cy="500" r="100" />
+                <circle cx="500" cy="500" r="50" />
+                
+                <polygon points="500,100 846,300 846,700 500,900 154,700 154,300" />
+                <polygon points="500,200 773,357 773,643 500,800 227,643 227,357" />
+                <polygon points="500,300 700,415 700,585 500,700 300,585 300,415" />
+                
+                <polygon points="500,150 650,412 350,412" />
+                <polygon points="500,850 350,588 650,588" />
+                
+                <line x1="500" y1="100" x2="500" y2="900" />
+                <line x1="154" y1="300" x2="846" y2="700" />
+                <line x1="154" y1="700" x2="846" y2="300" />
+                <line x1="227" y1="357" x2="773" y2="643" />
+                <line x1="227" y1="643" x2="773" y2="357" />
+                <line x1="300" y1="415" x2="700" y2="585" />
+                <line x1="300" y1="585" x2="700" y2="415" />
+            </g>
+        </svg>
+    </div>
+    
     <canvas id="astral-canvas"></canvas>
+    
+    <div class="astral-progress-bar" id="astral-progress-bar"></div>
+    
+    <div class="cursor" id="cursor">
+        <div class="cursor-ring"></div>
+        <div class="cursor-core"></div>
+    </div>
+    
     <canvas class="particle-canvas" id="particle-canvas"></canvas>
-    <div class="cursor" id="cursor"><div class="cursor-ring"></div><div class="cursor-core"></div></div>
-
+    
     <div id="intro-sequence">
         <div class="intro-orb"></div>
-        <div class="ignite-container">
-            <button class="ignite-btn" id="ignite-btn">VIEW EXECUTIVE PORTFOLIO</button>
-            <p style="margin-top:20px; font-family:'Cormorant Garamond'; color:rgba(255,255,255,0.5); letter-spacing:3px;">
-                CHARTERED ACCOUNTANCY • CORPORATE STRATEGY • FINTECH INNOVATION
-            </p>
-        </div>
+       <div class="ignite-container">
+    <button class="ignite-btn" id="ignite-btn">VIEW EXECUTIVE PORTFOLIO</button>
+    <p class="ignite-subtext">CHARTERED ACCOUNTANCY • CORPORATE STRATEGY • FINTECH INNOVATION</p>
+</div>
     </div>
-
+    
     <nav class="nav-bar" id="nav-bar">
         <a href="#home" class="nav-link">Origin</a>
         <a href="#about" class="nav-link">The Core</a>
         <a href="#skills" class="nav-link">Expertise</a>
+        <a href="#path" class="nav-link">Milestones</a>
+        <a href="#hobbies" class="nav-link">Diversification</a>
         <a href="#projects" class="nav-link">Projects</a>
     </nav>
-
+    
     <main id="main-content">
         <section class="section" id="home">
             <div class="crystal-card hero-content">
-                <p style="color:#9D4EDD; letter-spacing:8px; margin-bottom:10px;">✦ VDNSS ✦</p>
+                <p class="hero-constellation">✦ VDNSS ✦</p>
                 <h1 class="hero-title">KARTHIKEYA MUDILI</h1>
                 <p class="hero-subtitle">INTEGRATING ACCOUNTING WITH FINTECH INNOVATION</p>
-                <p class="hero-tagline">
-                    A Chartered Accountancy student bridging the gap between Financial Rigor and Modern Fintech. 
-                    Leveraging audit expertise (80%) with Python automation (20%).
-                </p>
+                <div class="hero-divider"></div>
+<p class="hero-tagline">
+    A Chartered Accountancy student bridging the gap between <strong>Financial Rigor</strong> and <strong>Modern Fintech</strong>. 
+    Leveraging audit expertise (80%) with Python automation (20%) to solve complex business challenges.
+</p>
             </div>
         </section>
-
+        
         <section class="section" id="about">
             <div class="crystal-card">
-                <h2 style="text-align:center; font-family:'Cinzel'; color:#9D4EDD; font-size:28px; margin-bottom:20px;">The Core</h2>
-                <p style="text-align:center; color:rgba(255,255,255,0.8); line-height:1.8;">
-                    I use Python not to be a developer, but as a lever to move the heavy weight of financial compliance. 
-                    My goal is to evolve from traditional accounting into Global Fintech Leadership.
-                </p>
-                
-                <div class="social-buttons">
-                    <a href="https://www.linkedin.com/in/karthikeya-mudili/" class="social-btn linkedin" target="_blank"><span>💼</span> LinkedIn</a>
-                    <a href="https://github.com/mvdnssk" class="social-btn github" target="_blank"><span>💻</span> GitHub</a>
-                    <a href="https://orcid.org/0009-0008-2440-8170" class="social-btn orcid" target="_blank"><span>iD</span> ORCID</a>
-                    <a href="https://t.me/Mvdnssk" class="social-btn telegram" target="_blank"><span>✈️</span> Telegram</a>
-                    <a href="https://www.instagram.com/karthikeya.mudili/" class="social-btn instagram" target="_blank"><span>📸</span> Instagram</a>
-                    <a href="mailto:mvdnssk@gmail.com" class="social-btn mail"><span>✉️</span> Official Mail</a>
+                <div class="card-content">
+                    <div class="about-grid">
+                        <div class="about-text-content">
+                            <h2 class="about-title"> The Core </h2>
+                            <div class="about-text">
+                            <p>
+            I am a <strong>Chartered Accountancy student</strong> (CA Inter) with a 
+            technological pulse. My foundation is <strong>80% Finance</strong> 
+            (Audit, Accounts, Finance) and <strong>20% Code</strong>.
+        </p>
+        <p>
+            I use Python not to be a developer, but as a lever to move the 
+            heavy weight of financial compliance. My goal is to evolve from 
+            traditional accounting into <strong>Global Fintech Leadership</strong>.
+        </p>    
+                            </div>
+                        </div>
+                        <div class="orb-container">
+                            <img class="astral-orb" src="https://media.licdn.com/dms/image/v2/D4E03AQFiyI3EeZ8MWg/profile-displayphoto-crop_800_800/B4EZvwcTlNKYAI-/0/1769265513092?e=1772064000&v=beta&t=2WeWBWcrxy5NwBCsjR7QGEa3DXp2rMaAJMDDMdD_CGo" alt="Karthikeya Mudili" style="object-fit: cover; background: none;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -236,23 +2026,245 @@
             <div class="crystal-card">
                 <div class="card-content">
                     <h2 class="skills-title">Domain Expertise</h2>
-                    <div class="skills-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px;">
-                        <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:12px; text-align:center;">
-                            <span style="font-size:30px;">📚</span>
-                            <h3 style="font-family:'Orbitron'; font-size:14px; margin-top:10px;">Advanced Accounting</h3>
+                    <div class="skills-grid">
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">📚</span>
+                            <span class="artifact-name">Advanced Accounting</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
                         </div>
-                         <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:12px; text-align:center;">
-                            <span style="font-size:30px;">🐍</span>
-                            <h3 style="font-family:'Orbitron'; font-size:14px; margin-top:10px;">Python Basics</h3>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🐍</span>
+                            <span class="artifact-name">Python Basics</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
                         </div>
-                         <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:12px; text-align:center;">
-                            <span style="font-size:30px;">🏦</span>
-                            <h3 style="font-family:'Orbitron'; font-size:14px; margin-top:10px;">Financial Management</h3>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🏦</span>
+                            <span class="artifact-name">Financial Management </span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
                         </div>
-                         <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:12px; text-align:center;">
-                            <span style="font-size:30px;">🔍</span>
-                            <h3 style="font-family:'Orbitron'; font-size:14px; margin-top:10px;">Auditing Basics</h3>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🔍</span>
+                            <span class="artifact-name">Auditing Basics</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
                         </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">💰</span>
+                            <span class="artifact-name">Cost Management</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🕵️</span>
+                            <span class="artifact-name">Corporate Research</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">♟️</span>
+                            <span class="artifact-name">Strategic Analysis</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🧠</span>
+                            <span class="artifact-name">Critical Thinking</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="path">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <h2 class="timeline-title">Milestones</h2>
+                    <div class="milestones-container">
+                        <div class="milestones-left">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2026</div>
+                                    <div class="timeline-role">CA Intermediate Aspirant (May 2026)</div>
+                                    <div class="timeline-company">Focus: Advanced Strategies & Financial Management</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Dec 2025</div>
+                                    <div class="timeline-role">Academic Semester: BBA (Finance)</div>
+                                    <div class="timeline-company">KK Modi University | CGPA: 8.03/10.0 (First Class Distinction)<br>Focus: Cost Accounting & Business Management</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">June 2023</div>
+                                    <div class="timeline-role">Professional Certification: CA Foundation</div>
+                                    <div class="timeline-company">Institute of Chartered Accountants of India (ICAI)<br>Score: 247/400 (First Attempt) | Top 60th Percentile</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">June 2021 - March 2023</div>
+                                    <div class="timeline-role">Andhra Pradesh Intermediate (BIEAP) (HSC)</div>
+                                    <div class="timeline-company">Class (11 + 12): State Board Topper (95.8%)<br>Pratibha Puraskar Awardee | Master Minds Institute</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">March 2021</div>
+                                    <div class="timeline-role">Indian Certificate of Secondary Education (ICSE Class 10)</div>
+                                    <div class="timeline-company">ICSE Board | Score: 88.6%<br>Focus: Mathematics, English Literature & Computers</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="milestones-right">
+    <h3 class="credentials-title">CREDENTIALS & DISTINCTIONS</h3>
+    
+    <div class="credentials-grid">
+        <div class="credential-badge badge-green-teal" data-modal="modal-ca">
+            <div class="badge-title">CA Foundation</div>
+            <div class="badge-subtitle">ICAI Verified • Pass (First Attempt)</div>
+        </div>
+        
+        <a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10281216" target="_blank" style="text-decoration: none;">
+            <div class="credential-badge badge-cyan-gold">
+                <div class="badge-title">Published Author</div>
+                <div class="badge-subtitle">SSRN • View Author Profile</div>
+            </div>
+        </a>
+        
+        <div class="credential-badge badge-purple-cyan" data-modal="modal-topper">
+            <div class="badge-title">State Board Topper</div>
+            <div class="badge-subtitle">Rank 1 in College • 95.8%</div>
+        </div>
+        
+        <div class="credential-badge badge-gold-orange" data-modal="modal-pratibha">
+            <div class="badge-title">Pratibha Awardee</div>
+            <div class="badge-subtitle">Govt of AP • Excellence Award</div>
+        </div>
+        
+        <div class="credential-badge badge-blue-indigo" data-modal="modal-finance">
+            <div class="badge-title">Financial Markets</div>
+            <div class="badge-subtitle">Yale Univ • ⏳ Active Learning</div>
+        </div>
+        
+        <div class="credential-badge badge-pink-purple" data-modal="modal-powerbi">
+            <div class="badge-title">Power BI Analyst</div>
+            <div class="badge-subtitle">Microsoft • ⏳ Active Learning</div>
+        </div>
+    </div>
+
+    <div class="ongoing-pursuit">
+        <h4 class="ongoing-title">Currently Engineering</h4>
+        <ul class="ongoing-list">
+            <li>
+                <span><strong>Python Financial Engine</strong> – Published on Zenodo. Building automated loan calculators.</span>
+            </li>
+            <li>
+                <span><strong>CA Intermediate (May 2026)</strong> – Full-time preparation with focus on Costing & FM.</span>
+            </li>
+            <li>
+                <span><strong>Global Top Universities</strong> – Targeting advanced studies in Finance, Tech & Fintech.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="hobbies">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <h2 class="hobbies-title">Diversification</h2>
+                   <div class="hobbies-slider">
+    <div class="hobby-card">
+        <div class="hobby-icon">📒</div>
+        <h3 class="hobby-name">Financial Accounting</h3>
+        <p class="hobby-desc">
+            Strong foundation in Accounting Standards (AS). Understanding Balance Sheets, P&L, and Cash Flow statements.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">⚖️</div>
+        <h3 class="hobby-name">Corporate Law</h3>
+        <p class="hobby-desc">
+            Studying the Companies Act. Understanding the legal framework for how businesses are incorporated and managed.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">♟️</div>
+        <h3 class="hobby-name">Strategic Management</h3>
+        <p class="hobby-desc">
+            Analyzing business environments. Using tools like SWOT analysis to understand how companies compete (e.g., Keppel Ltd).
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">🔍</div>
+        <h3 class="hobby-name">Auditing Basics</h3>
+        <p class="hobby-desc">
+            Learning the concepts of verification and internal controls. Understanding how to check if financial data is accurate.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">📈</div>
+        <h3 class="hobby-name">Business Economics</h3>
+        <p class="hobby-desc">
+            Understanding demand, supply, and market structures. Analyzing how macro-economic factors affect business decisions.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">🐍</div>
+        <h3 class="hobby-name">Python Basics</h3>
+        <p class="hobby-desc">
+            Currently learning the syntax. Understanding loops and logic to eventually automate basic math problems.
+        </p>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -260,69 +2272,676 @@
         
         <section class="section" id="projects">
             <div class="crystal-card">
-                 <h2 style="text-align:center; font-family:'Cinzel'; font-size:28px;">Projects</h2>
-                 <div style="margin-top:30px; border:1px solid rgba(255,255,255,0.1); border-radius:12px; overflow:hidden;">
-                     <div style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between;">
-                         <span><strong>Keppel Ltd Strategy</strong></span>
-                         <span style="color:#00D9FF;">LIVE ✦</span>
-                     </div>
-                      <div style="padding:15px; display:flex; justify-content:space-between;">
-                         <span><strong>DBS Loan Engine</strong></span>
-                         <span style="color:#FFD700;">PUBLISHED ✦</span>
-                     </div>
-                 </div>
+                <div class="card-content">
+                    <h2 class="projects-title">Projects</h2>
+                    <p class="projects-subtitle">Bridging Financial Theory & Digital Solutions</p>
+                    
+                    <div class="astral-table-container">
+                        <table class="astral-table">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Focus Area</th>
+                                    <th>Status</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+    <td class="project-name">
+        Keppel Ltd Strategic Analysis
+        <br>
+        <span style="font-size: 0.85em; color: #aaa; display: block; margin-top: 5px;">
+            A strategic review of Keppel's "Vision 2030" pivot. Published on SSRN.
+        </span>
+    </td>
+
+    <td>Strategy Analysis</td>
+
+    <td class="status-live">✦ LIVE</td>
+
+    <td>
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6196159" target="_blank" class="btn-link">
+            Read Paper (SSRN)
+        </a>
+    </td>
+</tr>
+                            <tr>
+    <td class="project-name">
+        DBS Loan Amortization Engine
+        <br>
+        <span style="font-size: 0.85em; color: #aaa; display: block; margin-top: 5px;">
+            A Python-based financial engine for calculating loan amortization schedules.
+        </span>
+    </td>
+
+    <td>Fin Py</td>
+
+<td class="status-live" style="color: #00e676;">✦ PUBLISHED</td>
+    <td>
+<a href="https://zenodo.org/records/18526916" target="_blank" class="btn-link">
+            View Code (Zenodo) &rarr;
+    </td>
+</tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                 <div class="social-hub">
+    <h3 class="social-hub-title">Establish Connection</h3>
+    <div class="social-buttons">
+        
+        <a href="https://www.linkedin.com/in/karthikeya-mudili/" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+            <span>💼</span> LinkedIn
+        </a>
+
+        <a href="https://github.com/mvdnssk" class="social-btn github" target="_blank" rel="noopener noreferrer">
+            <span>💻</span> GitHub
+        </a>
+
+        <a href="https://orcid.org/0009-0008-2440-8170" class="social-btn orcid" target="_blank" rel="noopener noreferrer">
+            <span>iD</span> ORCID
+        </a>
+
+        <a href="https://www.instagram.com/karthikeya.mudili/" class="social-btn instagram" target="_blank" rel="noopener noreferrer">
+            <span>📸</span> Instagram
+        </a>
+
+        <a href="mailto:mvdnssk@gmail.com" class="social-btn mail">
+            <span>✉️</span> Official Mail
+        </a>
+
+    </div>
+</div>
+                </div>
             </div>
         </section>
     </main>
+<div class="modal-overlay" id="modal-ca">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="CA%20Foundation%20June%202023.jpg" alt="CA Foundation Certificate">
+        <p class="modal-caption">ICAI Chartered Accountancy Foundation • June 2023</p>
+    </div>
+</div>
 
+<div class="modal-overlay" id="modal-pratibha">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="Highest%20Marks%20Award%20Certification%20HSC%20AP%20Inter%202023.jpg" alt="Pratibha Puraskar Award Certificate">
+        <p class="modal-caption">Pratibha Puraskar Award • Master Minds Institute</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-topper">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="India%20HSC%20Andhra%20Pradesh%20Class%20XII%202023.jpg" alt="Andhra Pradesh State Board Topper Certificate">
+        <p class="modal-caption">Andhra Pradesh State Board Topper • 95.8% Class 12</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-finance">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Yale_University_Shield_1.svg" alt="Yale University">
+        <p class="modal-caption">Yale University • Financial Markets (In Progress)</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-powerbi">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI">
+<p class="modal-caption">Microsoft Power BI • Financial Visualization Foundations (In Progress)</p>    </div>
+</div>
     <footer class="system-footer">
-        <div class="footer-content">
-            <span class="copyright">© 2026 VDNSS KARTHIKEYA MUDILI</span> 
-            <span> || </span> 
-            <span class="status">DIGITAL LEDGER: VERIFIED</span>
-        </div>
-    </footer>
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <span class="copyright">© 2026 VDNSS KARTHIKEYA MUDILI</span> 
+        <span class="separator">||</span> 
+        <span class="status">DIGITAL LEDGER: VERIFIED</span>
+    </div>
+</footer>
 
     <script>
-        // Init Logic
+        // ===== ASTRAL SOVEREIGN PORTFOLIO - MAIN SCRIPT =====
+        
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // ===== ASTRAL COLORS =====
+        const ASTRAL_COLORS = {
+            purple: '#9D4EDD',
+            cyan: '#00D9FF',
+            gold: '#FFD700',
+            pink: '#FF006E',
+            teal: '#00F5D4'
+        };
+        
+        // ===== STATE =====
+        let introComplete = false;
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        // ===== ASTRAL CANVAS - STARFIELD =====
+        const astralCanvas = document.getElementById('astral-canvas');
+        const astralCtx = astralCanvas.getContext('2d');
+        
+        let astralWidth, astralHeight;
+        let stars = [];
+        let nebulae = [];
+        let shootingStars = [];
+        
+        function resizeAstralCanvas() {
+            astralWidth = window.innerWidth;
+            astralHeight = window.innerHeight;
+            astralCanvas.width = astralWidth;
+            astralCanvas.height = astralHeight;
+            initStars();
+            initNebulae();
+        }
+        
+        class Star {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight;
+                this.size = Math.random() * 2 + 0.5;
+                this.baseAlpha = Math.random() * 0.5 + 0.3;
+                this.alpha = this.baseAlpha;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.twinklePhase = Math.random() * Math.PI * 2;
+                this.color = this.getStarColor();
+            }
+            
+            getStarColor() {
+                const colors = ['#ffffff', '#FFD700', '#00D9FF', '#9D4EDD'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            update() {
+                this.twinklePhase += this.twinkleSpeed;
+                this.alpha = this.baseAlpha + Math.sin(this.twinklePhase) * 0.2;
+                
+                // Parallax based on mouse
+                const parallaxX = (mouseX - astralWidth / 2) * 0.0001 * this.size;
+                const parallaxY = (mouseY - astralHeight / 2) * 0.0001 * this.size;
+                this.x += parallaxX;
+                this.y += parallaxY;
+                
+                // Wrap around
+                if (this.x < 0) this.x = astralWidth;
+                if (this.x > astralWidth) this.x = 0;
+                if (this.y < 0) this.y = astralHeight;
+                if (this.y > astralHeight) this.y = 0;
+            }
+            
+            draw() {
+                astralCtx.save();
+                astralCtx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
+                astralCtx.fillStyle = this.color;
+                astralCtx.shadowBlur = this.size * 2;
+                astralCtx.shadowColor = this.color;
+                astralCtx.beginPath();
+                astralCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                astralCtx.fill();
+                astralCtx.restore();
+            }
+        }
+        
+        class Nebula {
+            constructor() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight;
+                this.radius = 200 + Math.random() * 300;
+                this.color = this.getNebulaColor();
+                this.driftX = (Math.random() - 0.5) * 0.2;
+                this.driftY = (Math.random() - 0.5) * 0.2;
+            }
+            
+            getNebulaColor() {
+                const colors = [
+                    'rgba(157, 78, 221, 0.08)',
+                    'rgba(0, 217, 255, 0.06)',
+                    'rgba(255, 215, 0, 0.05)',
+                    'rgba(0, 245, 212, 0.04)'
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            update() {
+                this.x += this.driftX;
+                this.y += this.driftY;
+                
+                if (this.x < -this.radius) this.x = astralWidth + this.radius;
+                if (this.x > astralWidth + this.radius) this.x = -this.radius;
+                if (this.y < -this.radius) this.y = astralHeight + this.radius;
+                if (this.y > astralHeight + this.radius) this.y = -this.radius;
+            }
+            
+            draw() {
+                astralCtx.save();
+                const gradient = astralCtx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.radius
+                );
+                gradient.addColorStop(0, this.color);
+                gradient.addColorStop(1, 'transparent');
+                astralCtx.fillStyle = gradient;
+                astralCtx.beginPath();
+                astralCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                astralCtx.fill();
+                astralCtx.restore();
+            }
+        }
+        
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight * 0.5;
+                this.length = Math.random() * 80 + 40;
+                this.speed = Math.random() * 10 + 15;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
+                this.life = 1;
+                this.decay = 0.02;
+                this.active = false;
+            }
+            
+            activate() {
+                this.active = true;
+                this.reset();
+            }
+            
+            update() {
+                if (!this.active) return;
+                
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.life -= this.decay;
+                
+                if (this.life <= 0 || this.x > astralWidth + this.length || this.y > astralHeight + this.length) {
+                    this.active = false;
+                }
+            }
+            
+            draw() {
+                if (!this.active) return;
+                
+                astralCtx.save();
+                astralCtx.globalAlpha = this.life;
+                astralCtx.strokeStyle = '#ffffff';
+                astralCtx.lineWidth = 2;
+                astralCtx.shadowBlur = 10;
+                astralCtx.shadowColor = '#00D9FF';
+                
+                const tailX = this.x - Math.cos(this.angle) * this.length;
+                const tailY = this.y - Math.sin(this.angle) * this.length;
+                
+                astralCtx.beginPath();
+                astralCtx.moveTo(tailX, tailY);
+                astralCtx.lineTo(this.x, this.y);
+                astralCtx.stroke();
+                astralCtx.restore();
+            }
+        }
+        
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 200; i++) {
+                stars.push(new Star());
+            }
+        }
+        
+        function initNebulae() {
+            nebulae = [];
+            for (let i = 0; i < 5; i++) {
+                nebulae.push(new Nebula());
+            }
+        }
+        
+        function initShootingStars() {
+            for (let i = 0; i < 3; i++) {
+                shootingStars.push(new ShootingStar());
+            }
+        }
+        
+        function animateAstral() {
+            astralCtx.fillStyle = '#030305';
+            astralCtx.fillRect(0, 0, astralWidth, astralHeight);
+            
+            // Draw nebulae
+            nebulae.forEach(nebula => {
+                nebula.update();
+                nebula.draw();
+            });
+            
+            // Draw stars
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            // Random shooting star
+            if (Math.random() < 0.005) {
+                const inactiveStar = shootingStars.find(s => !s.active);
+                if (inactiveStar) inactiveStar.activate();
+            }
+            
+            shootingStars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            requestAnimationFrame(animateAstral);
+        }
+        
+        // ===== ASTRAL PROGRESS BAR =====
+        const astralProgressBar = document.getElementById('astral-progress-bar');
+        
+        function updateProgressBar() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            astralProgressBar.style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgressBar, { passive: true });
+        
+        // ===== Domain CURSOR =====
+        const cursor = document.getElementById('cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+        
+        // ===== STARDUST PARTICLE SYSTEM =====
+        const particleCanvas = document.getElementById('particle-canvas');
+        const particleCtx = particleCanvas.getContext('2d');
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+        
+        let particles = [];
+        
+        class StardustParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                const colors = Object.values(ASTRAL_COLORS);
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4 + 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.life = 1;
+                this.decay = Math.random() * 0.02 + 0.015;
+                this.size = Math.random() * 4 + 2;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.2;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vx *= 0.97;
+                this.vy *= 0.97;
+                this.life -= this.decay;
+                this.size *= 0.98;
+                this.rotation += this.rotationSpeed;
+            }
+            
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                // Draw star shape
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+                
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    const angle = (i * 4 * Math.PI) / 5 - Math.PI / 2;
+                    const x = Math.cos(angle) * this.size;
+                    const y = Math.sin(angle) * this.size;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+        
+        function createStardustExplosion(x, y) {
+            for (let i = 0; i < 40; i++) {
+                particles.push(new StardustParticle(x, y));
+            }
+        }
+        
+        function animateParticles() {
+            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            
+            particles = particles.filter(p => p.life > 0);
+            particles.forEach(p => {
+                p.update();
+                p.draw(particleCtx);
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        // Global click for stardust
+        document.addEventListener('click', (e) => {
+            if (!introComplete) return;
+            createStardustExplosion(e.clientX, e.clientY);
+        });
+        
+        window.addEventListener('resize', () => {
+            resizeAstralCanvas();
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+        });
+        
+        // ===== INTRO SEQUENCE =====
         document.getElementById('ignite-btn').addEventListener('click', () => {
-            gsap.to('#intro-sequence', { opacity: 0, duration: 1, onComplete: () => {
+            introComplete = true;
+            
+            const tl = gsap.timeline();
+            
+            tl.to('#intro-sequence', {
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.inOut'
+            });
+            
+            tl.add(() => {
                 document.getElementById('intro-sequence').style.display = 'none';
                 document.getElementById('nav-bar').classList.add('visible');
-                document.querySelectorAll('.crystal-card').forEach(c => c.classList.add('visible'));
-            }});
+                document.querySelector('#home .crystal-card').classList.add('visible');
+            });
         });
-
-        // Mouse Follower
-        const cursor = document.getElementById('cursor');
-        gsap.set(cursor, {xPercent: -50, yPercent: -50});
-        let xTo = gsap.quickTo(cursor, "x", {duration: 0.2}), yTo = gsap.quickTo(cursor, "y", {duration: 0.2});
-        window.addEventListener('mousemove', e => { xTo(e.clientX); yTo(e.clientY); });
-
-        // Canvas (Simple Starfield)
-        const ctx = document.getElementById('astral-canvas').getContext('2d');
-        function resize() { ctx.canvas.width = window.innerWidth; ctx.canvas.height = window.innerHeight; }
-        resize(); window.addEventListener('resize', resize);
         
-        const stars = Array(100).fill().map(() => ({x: Math.random()*innerWidth, y: Math.random()*innerHeight, s: Math.random()*2}));
-        function animate() {
-            ctx.fillStyle = '#030305'; ctx.fillRect(0,0,innerWidth,innerHeight);
-            ctx.fillStyle = '#fff';
-            stars.forEach(s => { ctx.beginPath(); ctx.arc(s.x, s.y, s.s, 0, 6.28); ctx.fill(); });
-            requestAnimationFrame(animate);
+        // ===== SCROLL ANIMATIONS =====
+        gsap.utils.toArray('.crystal-card').forEach((card, index) => {
+            if (index === 0) return;
+            
+            ScrollTrigger.create({
+                trigger: card,
+                start: 'top 80%',
+                onEnter: () => card.classList.add('visible'),
+                once: true
+            });
+        });
+        
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+            ScrollTrigger.create({
+                trigger: item,
+                start: 'top 85%',
+                onEnter: () => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 150);
+                },
+                once: true
+            });
+        });
+        
+        gsap.utils.toArray('.celestial-artifact').forEach((artifact, index) => {
+            gsap.to(artifact, {
+                y: -8,
+                duration: 3 + index * 0.4,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+            
+            artifact.addEventListener('click', () => {
+                const rect = artifact.getBoundingClientRect();
+                createStardustExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            });
+        });
+        
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // ===== HOBBIES SLIDER =====
+        const hobbiesSlider = document.querySelector('.hobbies-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        hobbiesSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - hobbiesSlider.offsetLeft;
+            scrollLeft = hobbiesSlider.scrollLeft;
+        });
+        
+        hobbiesSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        hobbiesSlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        hobbiesSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - hobbiesSlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            hobbiesSlider.scrollLeft = scrollLeft - walk;
+        });
+        
+        hobbiesSlider.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                hobbiesSlider.scrollLeft += e.deltaY;
+            }
+        });
+        
+        // ===== CREDENTIALS MODAL SYSTEM =====
+        const modalOverlay = document.querySelectorAll('.modal-overlay');
+        const credentialBadges = document.querySelectorAll('.credential-badge');
+        
+        // Open modal when badge is clicked
+        credentialBadges.forEach(badge => {
+            badge.addEventListener('click', () => {
+                const modalId = badge.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                }
+            });
+        });
+        
+        // Close modal functions
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
         }
-        animate();
+        
+        // Close on X button click
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = closeBtn.closest('.modal-overlay');
+                closeModal(modal);
+            });
+        });
+        
+        // Close on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay);
+                }
+            });
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal);
+                });
+            }
+        });
+        
+        // ===== INITIALIZATION =====
+        window.addEventListener('resize', resizeAstralCanvas);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            resizeAstralCanvas();
+            initShootingStars();
+            animateAstral();
+            animateParticles();
+        });
     </script>
+   <script>
+    // 1. Disable Right Click
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert('⚠️ SYSTEM SECURE: CONTENT PROTECTED');
+    });
 
-    <script>
-    /* ⚠️ ADVANCED ANTI-THEFT PROTOCOL (Obfuscated) */
-    (function(_0x1a2b,_0x3c4d){const _0x5e6f=function(_0x7g8h){while(--_0x7g8h){_0x1a2b['push'](_0x1a2b['shift']());}};_0x5e6f(++_0x3c4d);}(['mvdnssk.github.io','localhost','127.0.0.1','VDNSS\x20KARTHIKEYA\x20MUDILI','innerText','.copyright','href','location','⚠️\x20SECURITY\x20ALERT:\x20Unauthorized\x20Clone\x20Detected.\x20Redirecting...','contextmenu','preventDefault','keydown','keyCode','ctrlKey','shiftKey','charCodeAt','dragstart','querySelector','querySelectorAll','forEach','addEventListener'],0x1e3));const _0x9h0i=function(_0x1a2b,_0x3c4d){_0x1a2b=_0x1a2b-0x0;let _0x5e6f=arguments[_0x1a2b];return _0x5e6f;};(function(){const _0x1=window[_0x9h0i('0x7')]['hostname'];const _0x2=[_0x9h0i('0x0'),_0x9h0i('0x1'),_0x9h0i('0x2')];if(_0x1!==''&&!_0x2['includes'](_0x1)){alert(_0x9h0i('0x8'));window[_0x9h0i('0x7')][_0x9h0i('0x6')]='https://'+_0x2[0x0];}setInterval(function(){const _0x3=document[_0x9h0i('0x11')](_0x9h0i('0x5'));if(!_0x3||!_0x3[_0x9h0i('0x4')]['includes'](_0x9h0i('0x3'))){window[_0x9h0i('0x7')][_0x9h0i('0x6')]='https://'+_0x2[0x0];}},0x7d0);})();
-    </script>
-    
-    <script>
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('keydown', e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) e.preventDefault(); });
-    </script>
+    // 2. Disable F12, Ctrl+U, Ctrl+Shift+I (Inspect Element)
+    document.onkeydown = function(e) {
+        if (event.keyCode == 123) { return false; } // F12
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
+    };
+
+    // 3. Disable Dragging Images
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('dragstart', e => e.preventDefault());
+    });
+</script>
 
 </body>
 </html>
