@@ -1493,7 +1493,62 @@
             pointer-events: none;
             z-index: 9998;
         }
-        
+        /* ===== BRAND SPECIFIC COLORS ===== */
+
+/* 1. LinkedIn (Corporate Blue) */
+.social-btn.linkedin {
+    border-color: rgba(10, 102, 194, 0.4);
+    color: #0A66C2;
+}
+.social-btn.linkedin:hover {
+    background: rgba(10, 102, 194, 0.1);
+    box-shadow: 0 0 30px rgba(10, 102, 194, 0.3);
+    border-color: #0A66C2;
+}
+
+/* 2. GitHub (Console White/Grey) */
+.social-btn.github {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #f0f6fc;
+}
+.social-btn.github:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    border-color: #ffffff;
+}
+
+/* 3. ORCID (Academic Green) */
+.social-btn.orcid {
+    border-color: rgba(166, 206, 57, 0.4);
+    color: #A6CE39;
+}
+.social-btn.orcid:hover {
+    background: rgba(166, 206, 57, 0.1);
+    box-shadow: 0 0 30px rgba(166, 206, 57, 0.3);
+    border-color: #A6CE39;
+}
+
+/* 4. Instagram (Neon Pink) */
+.social-btn.instagram {
+    border-color: rgba(225, 48, 108, 0.4);
+    color: #E1306C;
+}
+.social-btn.instagram:hover {
+    background: rgba(225, 48, 108, 0.1);
+    box-shadow: 0 0 30px rgba(225, 48, 108, 0.3);
+    border-color: #E1306C;
+}
+
+/* 5. Official Mail (Starlight Gold) */
+.social-btn.mail {
+    border-color: rgba(255, 215, 0, 0.4);
+    color: #FFD700;
+}
+.social-btn.mail:hover {
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    border-color: #FFD700;
+}
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .skills-grid {
@@ -2283,23 +2338,32 @@
                         </table>
                     </div>
                     
-                    <div class="social-hub">
-                        <h3 class="social-hub-title">Establish Connection</h3>
-                        <div class="social-buttons">
-                            <a href="https://www.linkedin.com/in/karthikeya-mudili/" class="social-btn" target="_blank" rel="noopener noreferrer">
-                                <span>💼</span>
-                                LinkedIn
-                            </a>
-                            <a href="https://www.instagram.com/karthikeya.mudili/" class="social-btn" target="_blank" rel="noopener noreferrer">
-                                <span>📸</span>
-                                Instagram
-                            </a>
-                             <a href="mailto:mvdnssk@gmail.com" class="social-btn linkedin">
-                                <span>✉️</span>
-                                 OFFICIAL MAIL
-                                  </a>
-                        </div>
-                    </div>
+                 <div class="social-hub">
+    <h3 class="social-hub-title">Establish Connection</h3>
+    <div class="social-buttons">
+        
+        <a href="https://www.linkedin.com/in/karthikeya-mudili/" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+            <span>💼</span> LinkedIn
+        </a>
+
+        <a href="https://github.com/mvdnssk" class="social-btn github" target="_blank" rel="noopener noreferrer">
+            <span>💻</span> GitHub
+        </a>
+
+        <a href="https://orcid.org/0009-0008-2440-8170" class="social-btn orcid" target="_blank" rel="noopener noreferrer">
+            <span>iD</span> ORCID
+        </a>
+
+        <a href="https://www.instagram.com/karthikeya.mudili/" class="social-btn instagram" target="_blank" rel="noopener noreferrer">
+            <span>📸</span> Instagram
+        </a>
+
+        <a href="mailto:mvdnssk@gmail.com" class="social-btn mail">
+            <span>✉️</span> Official Mail
+        </a>
+
+    </div>
+</div>
                 </div>
             </div>
         </section>
