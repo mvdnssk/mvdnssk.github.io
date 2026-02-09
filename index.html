@@ -7,9 +7,9 @@
     <script>
     (function() {
         // 🔒 SECURITY LOCK: RESTRICTED TO GITHUB DOMAIN ONLY
+        // This prevents the site from running on unauthorized clones or local files
         const allowedDomains = ["mvdnssk.github.io"]; 
         
-        // Only run check if we have a hostname (skips file:// protocol)
         if (window.location.hostname && !allowedDomains.includes(window.location.hostname)) {
             alert("⚠️ SECURITY ALERT: Redirecting to verified source.");
             window.location.href = "https://mvdnssk.github.io";
@@ -82,7 +82,9 @@
             background: var(--void-black);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none;
+            
+            /* MOUSE FIX: Restore default system cursor for precision */
+            cursor: default; 
 
             /* SECURITY: DISABLE TEXT SELECTION */
             -webkit-user-select: none; /* Safari */
@@ -282,7 +284,7 @@
             border: 1px solid rgba(255, 215, 0, 0.4);
             border-radius: 50px;
             padding: 20px 50px;
-            cursor: none;
+            cursor: pointer; /* Change to pointer for better UX */
             text-transform: uppercase;
             letter-spacing: 4px;
             text-shadow: 0 0 20px var(--starlight-gold);
@@ -1443,7 +1445,7 @@
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 50px;
             padding: 16px 36px;
-            cursor: none;
+            cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: all 0.5s ease;
@@ -1862,10 +1864,1021 @@
     </style>
 </head>
 <body>
-<script>
-    // ... GSAP and Logic ...
-</script>
-<script>
+    <div class="sacred-geometry">
+        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="sacredGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#00D9FF;stop-opacity:0.2" />
+                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#sacredGrad)" stroke-width="0.5">
+                <circle cx="500" cy="500" r="400" />
+                <circle cx="500" cy="500" r="350" />
+                <circle cx="500" cy="500" r="300" />
+                <circle cx="500" cy="500" r="250" />
+                <circle cx="500" cy="500" r="200" />
+                <circle cx="500" cy="500" r="150" />
+                <circle cx="500" cy="500" r="100" />
+                <circle cx="500" cy="500" r="50" />
+                
+                <polygon points="500,100 846,300 846,700 500,900 154,700 154,300" />
+                <polygon points="500,200 773,357 773,643 500,800 227,643 227,357" />
+                <polygon points="500,300 700,415 700,585 500,700 300,585 300,415" />
+                
+                <polygon points="500,150 650,412 350,412" />
+                <polygon points="500,850 350,588 650,588" />
+                
+                <line x1="500" y1="100" x2="500" y2="900" />
+                <line x1="154" y1="300" x2="846" y2="700" />
+                <line x1="154" y1="700" x2="846" y2="300" />
+                <line x1="227" y1="357" x2="773" y2="643" />
+                <line x1="227" y1="643" x2="773" y2="357" />
+                <line x1="300" y1="415" x2="700" y2="585" />
+                <line x1="300" y1="585" x2="700" y2="415" />
+            </g>
+        </svg>
+    </div>
+    
+    <canvas id="astral-canvas"></canvas>
+    
+    <div class="astral-progress-bar" id="astral-progress-bar"></div>
+    
+    <div class="cursor" id="cursor">
+        <div class="cursor-ring"></div>
+        <div class="cursor-core"></div>
+    </div>
+    
+    <canvas class="particle-canvas" id="particle-canvas"></canvas>
+    
+    <div id="intro-sequence">
+        <div class="intro-orb"></div>
+       <div class="ignite-container">
+    <button class="ignite-btn" id="ignite-btn">VIEW EXECUTIVE PORTFOLIO</button>
+    <p class="ignite-subtext">CHARTERED ACCOUNTANCY • CORPORATE STRATEGY • FINTECH INNOVATION</p>
+</div>
+    </div>
+    
+    <nav class="nav-bar" id="nav-bar">
+        <a href="#home" class="nav-link">Origin</a>
+        <a href="#about" class="nav-link">The Core</a>
+        <a href="#skills" class="nav-link">Expertise</a>
+        <a href="#path" class="nav-link">Milestones</a>
+        <a href="#hobbies" class="nav-link">Diversification</a>
+        <a href="#projects" class="nav-link">Projects</a>
+    </nav>
+    
+    <main id="main-content">
+        <section class="section" id="home">
+            <div class="crystal-card hero-content">
+                <p class="hero-constellation">✦ VDNSS ✦</p>
+                <h1 class="hero-title">KARTHIKEYA MUDILI</h1>
+                <p class="hero-subtitle">INTEGRATING ACCOUNTING WITH FINTECH INNOVATION</p>
+                <div class="hero-divider"></div>
+<p class="hero-tagline">
+    A Chartered Accountancy student bridging the gap between <strong>Financial Rigor</strong> and <strong>Modern Fintech</strong>. 
+    Leveraging audit expertise (80%) with Python automation (20%) to solve complex business challenges.
+</p>
+            </div>
+        </section>
+        
+        <section class="section" id="about">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <div class="about-grid">
+                        <div class="about-text-content">
+                            <h2 class="about-title"> The Core </h2>
+                            <div class="about-text">
+                            <p>
+            I am a <strong>Chartered Accountancy student</strong> (CA Inter) with a 
+            technological pulse. My foundation is <strong>80% Finance</strong> 
+            (Audit, Accounts, Finance) and <strong>20% Code</strong>.
+        </p>
+        <p>
+            I use Python not to be a developer, but as a lever to move the 
+            heavy weight of financial compliance. My goal is to evolve from 
+            traditional accounting into <strong>Global Fintech Leadership</strong>.
+        </p>    
+                            </div>
+                        </div>
+                        <div class="orb-container">
+                            <img class="astral-orb" src="https://media.licdn.com/dms/image/v2/D4E03AQFiyI3EeZ8MWg/profile-displayphoto-crop_800_800/B4EZvwcTlNKYAI-/0/1769265513092?e=1772064000&v=beta&t=2WeWBWcrxy5NwBCsjR7QGEa3DXp2rMaAJMDDMdD_CGo" alt="Karthikeya Mudili" style="object-fit: cover; background: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="skills">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <h2 class="skills-title">Domain Expertise</h2>
+                    <div class="skills-grid">
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">📚</span>
+                            <span class="artifact-name">Advanced Accounting</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🐍</span>
+                            <span class="artifact-name">Python Basics</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🏦</span>
+                            <span class="artifact-name">Financial Management </span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🔍</span>
+                            <span class="artifact-name">Auditing Basics</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">💰</span>
+                            <span class="artifact-name">Cost Management</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🕵️</span>
+                            <span class="artifact-name">Corporate Research</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">♟️</span>
+                            <span class="artifact-name">Strategic Analysis</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🧠</span>
+                            <span class="artifact-name">Critical Thinking</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="path">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <h2 class="timeline-title">Milestones</h2>
+                    <div class="milestones-container">
+                        <div class="milestones-left">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2026</div>
+                                    <div class="timeline-role">CA Intermediate Aspirant (May 2026)</div>
+                                    <div class="timeline-company">Focus: Advanced Strategies & Financial Management</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Dec 2025</div>
+                                    <div class="timeline-role">Academic Semester: BBA (Finance)</div>
+                                    <div class="timeline-company">KK Modi University | CGPA: 8.03/10.0 (First Class Distinction)<br>Focus: Cost Accounting & Business Management</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">June 2023</div>
+                                    <div class="timeline-role">Professional Certification: CA Foundation</div>
+                                    <div class="timeline-company">Institute of Chartered Accountants of India (ICAI)<br>Score: 247/400 (First Attempt) | Top 60th Percentile</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">June 2021 - March 2023</div>
+                                    <div class="timeline-role">Andhra Pradesh Intermediate (BIEAP) (HSC)</div>
+                                    <div class="timeline-company">Class (11 + 12): State Board Topper (95.8%)<br>Pratibha Puraskar Awardee | Master Minds Institute</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">March 2021</div>
+                                    <div class="timeline-role">Indian Certificate of Secondary Education (ICSE Class 10)</div>
+                                    <div class="timeline-company">ICSE Board | Score: 88.6%<br>Focus: Mathematics, English Literature & Computers</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="milestones-right">
+    <h3 class="credentials-title">CREDENTIALS & DISTINCTIONS</h3>
+    
+    <div class="credentials-grid">
+        <div class="credential-badge badge-green-teal" data-modal="modal-ca">
+            <div class="badge-title">CA Foundation</div>
+            <div class="badge-subtitle">ICAI Verified • Pass (First Attempt)</div>
+        </div>
+        
+        <a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10281216" target="_blank" style="text-decoration: none;">
+            <div class="credential-badge badge-cyan-gold">
+                <div class="badge-title">Published Author</div>
+                <div class="badge-subtitle">SSRN • View Author Profile</div>
+            </div>
+        </a>
+        
+        <div class="credential-badge badge-purple-cyan" data-modal="modal-topper">
+            <div class="badge-title">State Board Topper</div>
+            <div class="badge-subtitle">Rank 1 in College • 95.8%</div>
+        </div>
+        
+        <div class="credential-badge badge-gold-orange" data-modal="modal-pratibha">
+            <div class="badge-title">Pratibha Awardee</div>
+            <div class="badge-subtitle">Govt of AP • Excellence Award</div>
+        </div>
+        
+        <div class="credential-badge badge-blue-indigo" data-modal="modal-finance">
+            <div class="badge-title">Financial Markets</div>
+            <div class="badge-subtitle">Yale Univ • ⏳ Active Learning</div>
+        </div>
+        
+        <div class="credential-badge badge-pink-purple" data-modal="modal-powerbi">
+            <div class="badge-title">Power BI Analyst</div>
+            <div class="badge-subtitle">Microsoft • ⏳ Active Learning</div>
+        </div>
+    </div>
+
+    <div class="ongoing-pursuit">
+        <h4 class="ongoing-title">Currently Engineering</h4>
+        <ul class="ongoing-list">
+            <li>
+                <span><strong>Python Financial Engine</strong> – Published on Zenodo. Building automated loan calculators.</span>
+            </li>
+            <li>
+                <span><strong>CA Intermediate (May 2026)</strong> – Full-time preparation with focus on Costing & FM.</span>
+            </li>
+            <li>
+                <span><strong>Global Top Universities</strong> – Targeting advanced studies in Finance, Tech & Fintech.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="hobbies">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <h2 class="hobbies-title">Diversification</h2>
+                   <div class="hobbies-slider">
+    <div class="hobby-card">
+        <div class="hobby-icon">📒</div>
+        <h3 class="hobby-name">Financial Accounting</h3>
+        <p class="hobby-desc">
+            Strong foundation in Accounting Standards (AS). Understanding Balance Sheets, P&L, and Cash Flow statements.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">⚖️</div>
+        <h3 class="hobby-name">Corporate Law</h3>
+        <p class="hobby-desc">
+            Studying the Companies Act. Understanding the legal framework for how businesses are incorporated and managed.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">♟️</div>
+        <h3 class="hobby-name">Strategic Management</h3>
+        <p class="hobby-desc">
+            Analyzing business environments. Using tools like SWOT analysis to understand how companies compete (e.g., Keppel Ltd).
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">🔍</div>
+        <h3 class="hobby-name">Auditing Basics</h3>
+        <p class="hobby-desc">
+            Learning the concepts of verification and internal controls. Understanding how to check if financial data is accurate.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">📈</div>
+        <h3 class="hobby-name">Business Economics</h3>
+        <p class="hobby-desc">
+            Understanding demand, supply, and market structures. Analyzing how macro-economic factors affect business decisions.
+        </p>
+    </div>
+
+    <div class="hobby-card">
+        <div class="hobby-icon">🐍</div>
+        <h3 class="hobby-name">Python Basics</h3>
+        <p class="hobby-desc">
+            Currently learning the syntax. Understanding loops and logic to eventually automate basic math problems.
+        </p>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="projects">
+            <div class="crystal-card">
+                <div class="card-content">
+                    <h2 class="projects-title">Projects</h2>
+                    <p class="projects-subtitle">Bridging Financial Theory & Digital Solutions</p>
+                    
+                    <div class="astral-table-container">
+                        <table class="astral-table">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Focus Area</th>
+                                    <th>Status</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+    <td class="project-name">
+        Keppel Ltd Strategic Analysis
+        <br>
+        <span style="font-size: 0.85em; color: #aaa; display: block; margin-top: 5px;">
+            A strategic review of Keppel's "Vision 2030" pivot. Published on SSRN.
+        </span>
+    </td>
+
+    <td>Strategy Analysis</td>
+
+    <td class="status-live">✦ LIVE</td>
+
+    <td>
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6196159" target="_blank" class="btn-link">
+            Read Paper (SSRN)
+        </a>
+    </td>
+</tr>
+                            <tr>
+    <td class="project-name">
+        DBS Loan Amortization Engine
+        <br>
+        <span style="font-size: 0.85em; color: #aaa; display: block; margin-top: 5px;">
+            A Python-based financial engine for calculating loan amortization schedules.
+        </span>
+    </td>
+
+    <td>Fin Py</td>
+
+<td class="status-live" style="color: #00e676;">✦ PUBLISHED</td>
+    <td>
+<a href="https://zenodo.org/records/18526916" target="_blank" class="btn-link">
+            View Code (Zenodo) &rarr;
+    </td>
+</tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                 <div class="social-hub">
+    <h3 class="social-hub-title">Establish Connection</h3>
+    <div class="social-buttons">
+        
+        <a href="https://www.linkedin.com/in/karthikeya-mudili/" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+            <span>💼</span> LinkedIn
+        </a>
+
+        <a href="https://github.com/mvdnssk" class="social-btn github" target="_blank" rel="noopener noreferrer">
+            <span>💻</span> GitHub
+        </a>
+
+        <a href="https://orcid.org/0009-0008-2440-8170" class="social-btn orcid" target="_blank" rel="noopener noreferrer">
+            <span>iD</span> ORCID
+        </a>
+
+        <a href="https://www.instagram.com/karthikeya.mudili/" class="social-btn instagram" target="_blank" rel="noopener noreferrer">
+            <span>📸</span> Instagram
+        </a>
+        
+        <a href="https://t.me/Mvdnssk" class="social-btn telegram" target="_blank" rel="noopener noreferrer">
+            <span>✈️</span> Telegram
+        </a>
+
+        <a href="mailto:mvdnssk@gmail.com" class="social-btn mail">
+            <span>✉️</span> Official Mail
+        </a>
+
+    </div>
+</div>
+                </div>
+            </div>
+        </section>
+    </main>
+<div class="modal-overlay" id="modal-ca">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="CA%20Foundation%20June%202023.jpg" alt="CA Foundation Certificate">
+        <p class="modal-caption">ICAI Chartered Accountancy Foundation • June 2023</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-pratibha">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="Highest%20Marks%20Award%20Certification%20HSC%20AP%20Inter%202023.jpg" alt="Pratibha Puraskar Award Certificate">
+        <p class="modal-caption">Pratibha Puraskar Award • Master Minds Institute</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-topper">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="India%20HSC%20Andhra%20Pradesh%20Class%20XII%202023.jpg" alt="Andhra Pradesh State Board Topper Certificate">
+        <p class="modal-caption">Andhra Pradesh State Board Topper • 95.8% Class 12</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-finance">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Yale_University_Shield_1.svg" alt="Yale University">
+        <p class="modal-caption">Yale University • Financial Markets (In Progress)</p>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-powerbi">
+    <div class="modal-container">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <img class="modal-image" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI">
+<p class="modal-caption">Microsoft Power BI • Financial Visualization Foundations (In Progress)</p>    </div>
+</div>
+    <footer class="system-footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+        <span class="copyright">© 2026 VDNSS KARTHIKEYA MUDILI</span> 
+        <span class="separator">||</span> 
+        <span class="status" style="color: #00F5D4; text-shadow: 0 0 10px rgba(0, 245, 212, 0.4);">DIGITAL LEDGER: VERIFIED</span>
+    </div>
+</footer>
+
+    <script>
+        // ===== ASTRAL SOVEREIGN PORTFOLIO - MAIN SCRIPT =====
+        
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // ===== ASTRAL COLORS =====
+        const ASTRAL_COLORS = {
+            purple: '#9D4EDD',
+            cyan: '#00D9FF',
+            gold: '#FFD700',
+            pink: '#FF006E',
+            teal: '#00F5D4'
+        };
+        
+        // ===== STATE =====
+        let introComplete = false;
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        // ===== ASTRAL CANVAS - STARFIELD =====
+        const astralCanvas = document.getElementById('astral-canvas');
+        const astralCtx = astralCanvas.getContext('2d');
+        
+        let astralWidth, astralHeight;
+        let stars = [];
+        let nebulae = [];
+        let shootingStars = [];
+        
+        function resizeAstralCanvas() {
+            astralWidth = window.innerWidth;
+            astralHeight = window.innerHeight;
+            astralCanvas.width = astralWidth;
+            astralCanvas.height = astralHeight;
+            initStars();
+            initNebulae();
+        }
+        
+        class Star {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight;
+                this.size = Math.random() * 2 + 0.5;
+                this.baseAlpha = Math.random() * 0.5 + 0.3;
+                this.alpha = this.baseAlpha;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.twinklePhase = Math.random() * Math.PI * 2;
+                this.color = this.getStarColor();
+            }
+            
+            getStarColor() {
+                const colors = ['#ffffff', '#FFD700', '#00D9FF', '#9D4EDD'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            update() {
+                this.twinklePhase += this.twinkleSpeed;
+                this.alpha = this.baseAlpha + Math.sin(this.twinklePhase) * 0.2;
+                
+                // Parallax based on mouse
+                const parallaxX = (mouseX - astralWidth / 2) * 0.0001 * this.size;
+                const parallaxY = (mouseY - astralHeight / 2) * 0.0001 * this.size;
+                this.x += parallaxX;
+                this.y += parallaxY;
+                
+                // Wrap around
+                if (this.x < 0) this.x = astralWidth;
+                if (this.x > astralWidth) this.x = 0;
+                if (this.y < 0) this.y = astralHeight;
+                if (this.y > astralHeight) this.y = 0;
+            }
+            
+            draw() {
+                astralCtx.save();
+                astralCtx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
+                astralCtx.fillStyle = this.color;
+                astralCtx.shadowBlur = this.size * 2;
+                astralCtx.shadowColor = this.color;
+                astralCtx.beginPath();
+                astralCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                astralCtx.fill();
+                astralCtx.restore();
+            }
+        }
+        
+        class Nebula {
+            constructor() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight;
+                this.radius = 200 + Math.random() * 300;
+                this.color = this.getNebulaColor();
+                this.driftX = (Math.random() - 0.5) * 0.2;
+                this.driftY = (Math.random() - 0.5) * 0.2;
+            }
+            
+            getNebulaColor() {
+                const colors = [
+                    'rgba(157, 78, 221, 0.08)',
+                    'rgba(0, 217, 255, 0.06)',
+                    'rgba(255, 215, 0, 0.05)',
+                    'rgba(0, 245, 212, 0.04)'
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            update() {
+                this.x += this.driftX;
+                this.y += this.driftY;
+                
+                if (this.x < -this.radius) this.x = astralWidth + this.radius;
+                if (this.x > astralWidth + this.radius) this.x = -this.radius;
+                if (this.y < -this.radius) this.y = astralHeight + this.radius;
+                if (this.y > astralHeight + this.radius) this.y = -this.radius;
+            }
+            
+            draw() {
+                astralCtx.save();
+                const gradient = astralCtx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.radius
+                );
+                gradient.addColorStop(0, this.color);
+                gradient.addColorStop(1, 'transparent');
+                astralCtx.fillStyle = gradient;
+                astralCtx.beginPath();
+                astralCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                astralCtx.fill();
+                astralCtx.restore();
+            }
+        }
+        
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight * 0.5;
+                this.length = Math.random() * 80 + 40;
+                this.speed = Math.random() * 10 + 15;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
+                this.life = 1;
+                this.decay = 0.02;
+                this.active = false;
+            }
+            
+            activate() {
+                this.active = true;
+                this.reset();
+            }
+            
+            update() {
+                if (!this.active) return;
+                
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.life -= this.decay;
+                
+                if (this.life <= 0 || this.x > astralWidth + this.length || this.y > astralHeight + this.length) {
+                    this.active = false;
+                }
+            }
+            
+            draw() {
+                if (!this.active) return;
+                
+                astralCtx.save();
+                astralCtx.globalAlpha = this.life;
+                astralCtx.strokeStyle = '#ffffff';
+                astralCtx.lineWidth = 2;
+                astralCtx.shadowBlur = 10;
+                astralCtx.shadowColor = '#00D9FF';
+                
+                const tailX = this.x - Math.cos(this.angle) * this.length;
+                const tailY = this.y - Math.sin(this.angle) * this.length;
+                
+                astralCtx.beginPath();
+                astralCtx.moveTo(tailX, tailY);
+                astralCtx.lineTo(this.x, this.y);
+                astralCtx.stroke();
+                astralCtx.restore();
+            }
+        }
+        
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 200; i++) {
+                stars.push(new Star());
+            }
+        }
+        
+        function initNebulae() {
+            nebulae = [];
+            for (let i = 0; i < 5; i++) {
+                nebulae.push(new Nebula());
+            }
+        }
+        
+        function initShootingStars() {
+            for (let i = 0; i < 3; i++) {
+                shootingStars.push(new ShootingStar());
+            }
+        }
+        
+        function animateAstral() {
+            astralCtx.fillStyle = '#030305';
+            astralCtx.fillRect(0, 0, astralWidth, astralHeight);
+            
+            // Draw nebulae
+            nebulae.forEach(nebula => {
+                nebula.update();
+                nebula.draw();
+            });
+            
+            // Draw stars
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            // Random shooting star
+            if (Math.random() < 0.005) {
+                const inactiveStar = shootingStars.find(s => !s.active);
+                if (inactiveStar) inactiveStar.activate();
+            }
+            
+            shootingStars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            requestAnimationFrame(animateAstral);
+        }
+        
+        // ===== ASTRAL PROGRESS BAR =====
+        const astralProgressBar = document.getElementById('astral-progress-bar');
+        
+        function updateProgressBar() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            astralProgressBar.style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgressBar, { passive: true });
+        
+        // ===== Domain CURSOR (Optimized) =====
+        const cursor = document.getElementById('cursor');
+
+        // Center the anchor point initially
+        gsap.set(cursor, {xPercent: -50, yPercent: -50});
+
+        let xTo = gsap.quickTo(cursor, "x", {duration: 0.2, ease: "power3"}),
+            yTo = gsap.quickTo(cursor, "y", {duration: 0.2, ease: "power3"});
+
+        document.addEventListener('mousemove', (e) => {
+            // This moves the ring smoothly using the GPU
+            xTo(e.clientX);
+            yTo(e.clientY);
+        });
+        
+        // ===== STARDUST PARTICLE SYSTEM =====
+        const particleCanvas = document.getElementById('particle-canvas');
+        const particleCtx = particleCanvas.getContext('2d');
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+        
+        let particles = [];
+        
+        class StardustParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                const colors = Object.values(ASTRAL_COLORS);
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4 + 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.life = 1;
+                this.decay = Math.random() * 0.02 + 0.015;
+                this.size = Math.random() * 4 + 2;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.2;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vx *= 0.97;
+                this.vy *= 0.97;
+                this.life -= this.decay;
+                this.size *= 0.98;
+                this.rotation += this.rotationSpeed;
+            }
+            
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                // Draw star shape
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+                
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    const angle = (i * 4 * Math.PI) / 5 - Math.PI / 2;
+                    const x = Math.cos(angle) * this.size;
+                    const y = Math.sin(angle) * this.size;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+        
+        function createStardustExplosion(x, y) {
+            for (let i = 0; i < 40; i++) {
+                particles.push(new StardustParticle(x, y));
+            }
+        }
+        
+        function animateParticles() {
+            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            
+            particles = particles.filter(p => p.life > 0);
+            particles.forEach(p => {
+                p.update();
+                p.draw(particleCtx);
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        // Global click for stardust
+        document.addEventListener('click', (e) => {
+            if (!introComplete) return;
+            createStardustExplosion(e.clientX, e.clientY);
+        });
+        
+        window.addEventListener('resize', () => {
+            resizeAstralCanvas();
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+        });
+        
+        // ===== INTRO SEQUENCE =====
+        document.getElementById('ignite-btn').addEventListener('click', () => {
+            introComplete = true;
+            
+            const tl = gsap.timeline();
+            
+            tl.to('#intro-sequence', {
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.inOut'
+            });
+            
+            tl.add(() => {
+                document.getElementById('intro-sequence').style.display = 'none';
+                document.getElementById('nav-bar').classList.add('visible');
+                document.querySelector('#home .crystal-card').classList.add('visible');
+            });
+        });
+        
+        // ===== SCROLL ANIMATIONS =====
+        gsap.utils.toArray('.crystal-card').forEach((card, index) => {
+            if (index === 0) return;
+            
+            ScrollTrigger.create({
+                trigger: card,
+                start: 'top 80%',
+                onEnter: () => card.classList.add('visible'),
+                once: true
+            });
+        });
+        
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+            ScrollTrigger.create({
+                trigger: item,
+                start: 'top 85%',
+                onEnter: () => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 150);
+                },
+                once: true
+            });
+        });
+        
+        gsap.utils.toArray('.celestial-artifact').forEach((artifact, index) => {
+            gsap.to(artifact, {
+                y: -8,
+                duration: 3 + index * 0.4,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+            
+            artifact.addEventListener('click', () => {
+                const rect = artifact.getBoundingClientRect();
+                createStardustExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            });
+        });
+        
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // ===== HOBBIES SLIDER =====
+        const hobbiesSlider = document.querySelector('.hobbies-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        hobbiesSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - hobbiesSlider.offsetLeft;
+            scrollLeft = hobbiesSlider.scrollLeft;
+        });
+        
+        hobbiesSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        hobbiesSlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        hobbiesSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - hobbiesSlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            hobbiesSlider.scrollLeft = scrollLeft - walk;
+        });
+        
+        hobbiesSlider.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                hobbiesSlider.scrollLeft += e.deltaY;
+            }
+        });
+        
+        // ===== CREDENTIALS MODAL SYSTEM =====
+        const modalOverlay = document.querySelectorAll('.modal-overlay');
+        const credentialBadges = document.querySelectorAll('.credential-badge');
+        
+        // Open modal when badge is clicked
+        credentialBadges.forEach(badge => {
+            badge.addEventListener('click', () => {
+                const modalId = badge.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                }
+            });
+        });
+        
+        // Close modal functions
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+        
+        // Close on X button click
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = closeBtn.closest('.modal-overlay');
+                closeModal(modal);
+            });
+        });
+        
+        // Close on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeModal(overlay);
+                }
+            });
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    closeModal(modal);
+                });
+            }
+        });
+        
+        // ===== INITIALIZATION =====
+        window.addEventListener('resize', resizeAstralCanvas);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            resizeAstralCanvas();
+            initShootingStars();
+            animateAstral();
+            animateParticles();
+        });
+    </script>
+   <script>
     // 1. Disable Right Click
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
