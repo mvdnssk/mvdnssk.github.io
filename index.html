@@ -15,7 +15,7 @@
             window.location.href = "https://mvdnssk.github.io";
         }
     })();
-</script>
+    </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -37,10 +37,8 @@
     <meta property="og:description" content="Bridging Financial Accounting with Algorithmic Logic. View the portfolio of Venkata Durga Naga Satya Sai Karthikeya.">
     <meta property="og:image" content="https://mvdnssk.github.io/banner.png">
     
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
@@ -80,17 +78,17 @@
         }
         
         body {
-    font-family: 'Inter', sans-serif;
-    background: var(--void-black);
-    color: #ffffff;
-    overflow-x: hidden;
-    cursor: none;
+            font-family: 'Inter', sans-serif;
+            background: var(--void-black);
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: none;
 
-    /* SECURITY: DISABLE TEXT SELECTION */
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10+ */
-    user-select: none; /* Standard syntax */
-}
+            /* SECURITY: DISABLE TEXT SELECTION */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
+        }
         
         /* ===== HIDE SCROLLBAR ===== */
         body::-webkit-scrollbar {
@@ -543,8 +541,8 @@
             background: linear-gradient(90deg, 
                 transparent, 
                 var(--cosmic-violet), 
-                var(--celestial-cyan),
-                var(--starlight-gold),
+                var(--celestial-cyan), 
+                var(--starlight-gold), 
                 transparent);
             margin: 32px auto;
             opacity: 0.6;
@@ -700,7 +698,7 @@
             inset: 0;
             background: linear-gradient(135deg, 
                 rgba(157, 78, 221, 0.1), 
-                transparent 50%,
+                transparent 50%, 
                 rgba(0, 217, 255, 0.1));
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -718,7 +716,7 @@
             padding: 2px;
             background: linear-gradient(135deg, 
                 var(--cosmic-violet), 
-                var(--celestial-cyan),
+                var(--celestial-cyan), 
                 var(--starlight-gold));
             -webkit-mask: 
                 linear-gradient(#fff 0 0) content-box, 
@@ -1021,7 +1019,7 @@
         
         .badge-purple-cyan:hover {
             box-shadow: 
-                0 20px 40px rgba(157, 78, 221, 0.3),
+                0 20px 40px rgba(157, 78, 221, 0.3), 
                 0 0 40px rgba(0, 217, 255, 0.2);
         }
         
@@ -1034,7 +1032,7 @@
         
         .badge-gold-orange:hover {
             box-shadow: 
-                0 20px 40px rgba(255, 215, 0, 0.3),
+                0 20px 40px rgba(255, 215, 0, 0.3), 
                 0 0 40px rgba(255, 140, 0, 0.2);
         }
         
@@ -1047,7 +1045,7 @@
         
         .badge-green-teal:hover {
             box-shadow: 
-                0 20px 40px rgba(0, 245, 150, 0.3),
+                0 20px 40px rgba(0, 245, 150, 0.3), 
                 0 0 40px rgba(0, 217, 255, 0.2);
         }
         
@@ -1060,7 +1058,7 @@
         
         .badge-pink-purple:hover {
             box-shadow: 
-                0 20px 40px rgba(255, 0, 110, 0.3),
+                0 20px 40px rgba(255, 0, 110, 0.3), 
                 0 0 40px rgba(157, 78, 221, 0.2);
         }
         
@@ -1073,7 +1071,7 @@
         
         .badge-blue-indigo:hover {
             box-shadow: 
-                0 20px 40px rgba(58, 12, 163, 0.4),
+                0 20px 40px rgba(58, 12, 163, 0.4), 
                 0 0 40px rgba(0, 217, 255, 0.2);
         }
         
@@ -1086,7 +1084,7 @@
         
         .badge-cyan-gold:hover {
             box-shadow: 
-                0 20px 40px rgba(0, 217, 255, 0.3),
+                0 20px 40px rgba(0, 217, 255, 0.3), 
                 0 0 40px rgba(255, 215, 0, 0.2);
         }
         
@@ -1254,7 +1252,7 @@
             background: linear-gradient(90deg, 
                 transparent, 
                 var(--cosmic-violet), 
-                var(--celestial-cyan),
+                var(--celestial-cyan), 
                 transparent);
             opacity: 0;
             transition: opacity 0.5s ease;
@@ -1431,7 +1429,7 @@
         
         .social-buttons {
             display: flex;
-            gap: 24px;
+            gap: 12px; /* FIXED ALIGNMENT GAP */
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -1496,61 +1494,69 @@
             pointer-events: none;
             z-index: 9998;
         }
-        /* ===== BRAND SPECIFIC COLORS ===== */
+        /* ===== BRAND SPECIFIC COLORS (SOLID VERSION) ===== */
 
-/* 1. LinkedIn (Corporate Blue) */
+/* 1. LinkedIn (Solid Blue) */
 .social-btn.linkedin {
-    border-color: rgba(10, 102, 194, 0.4);
-    color: #0A66C2;
+    background: rgba(10, 102, 194, 0.2); /* Semi-transparent background */
+    border-color: #0A66C2;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.4);
 }
 .social-btn.linkedin:hover {
-    background: rgba(10, 102, 194, 0.1);
-    box-shadow: 0 0 30px rgba(10, 102, 194, 0.3);
-    border-color: #0A66C2;
+    background: #0A66C2; /* Full solid on hover */
+    box-shadow: 0 0 40px rgba(10, 102, 194, 0.6);
 }
 
-/* 2. GitHub (Console White/Grey) */
+/* 2. GitHub (Solid White/Grey) */
 .social-btn.github {
-    border-color: rgba(255, 255, 255, 0.4);
-    color: #f0f6fc;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 .social-btn.github:hover {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-    border-color: #ffffff;
+    background: #ffffff;
+    color: #000000; /* Text turns black on white background */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
 }
 
-/* 3. ORCID (Academic Green) */
+/* 3. ORCID (Solid Green) */
 .social-btn.orcid {
-    border-color: rgba(166, 206, 57, 0.4);
-    color: #A6CE39;
+    background: rgba(166, 206, 57, 0.2);
+    border-color: #A6CE39;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(166, 206, 57, 0.4);
 }
 .social-btn.orcid:hover {
-    background: rgba(166, 206, 57, 0.1);
-    box-shadow: 0 0 30px rgba(166, 206, 57, 0.3);
-    border-color: #A6CE39;
+    background: #A6CE39;
+    color: #000000;
+    box-shadow: 0 0 40px rgba(166, 206, 57, 0.6);
 }
 
-/* 4. Instagram (Neon Pink) */
+/* 4. Instagram (Solid Pink) */
 .social-btn.instagram {
-    border-color: rgba(225, 48, 108, 0.4);
-    color: #E1306C;
+    background: rgba(225, 48, 108, 0.2);
+    border-color: #E1306C;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
 }
 .social-btn.instagram:hover {
-    background: rgba(225, 48, 108, 0.1);
-    box-shadow: 0 0 30px rgba(225, 48, 108, 0.3);
-    border-color: #E1306C;
+    background: #E1306C;
+    box-shadow: 0 0 40px rgba(225, 48, 108, 0.6);
 }
 
-/* 5. Official Mail (Starlight Gold) */
+/* 5. Official Mail (Solid Gold) */
 .social-btn.mail {
-    border-color: rgba(255, 215, 0, 0.4);
-    color: #FFD700;
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #FFD700;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 .social-btn.mail:hover {
-    background: rgba(255, 215, 0, 0.1);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-    border-color: #FFD700;
+    background: #FFD700;
+    color: #000000;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
 }
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
@@ -1910,7 +1916,6 @@
 <base target="_blank">
 </head>
 <body>
-    <!-- Sacred Geometry Background -->
     <div class="sacred-geometry">
         <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -1920,7 +1925,6 @@
                     <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0.1" />
                 </linearGradient>
             </defs>
-            <!-- Flower of Life Pattern -->
             <g fill="none" stroke="url(#sacredGrad)" stroke-width="0.5">
                 <circle cx="500" cy="500" r="400" />
                 <circle cx="500" cy="500" r="350" />
@@ -1931,16 +1935,13 @@
                 <circle cx="500" cy="500" r="100" />
                 <circle cx="500" cy="500" r="50" />
                 
-                <!-- Hexagon -->
                 <polygon points="500,100 846,300 846,700 500,900 154,700 154,300" />
                 <polygon points="500,200 773,357 773,643 500,800 227,643 227,357" />
                 <polygon points="500,300 700,415 700,585 500,700 300,585 300,415" />
                 
-                <!-- Star of David -->
                 <polygon points="500,150 650,412 350,412" />
                 <polygon points="500,850 350,588 650,588" />
                 
-                <!-- Metatron's Cube Lines -->
                 <line x1="500" y1="100" x2="500" y2="900" />
                 <line x1="154" y1="300" x2="846" y2="700" />
                 <line x1="154" y1="700" x2="846" y2="300" />
@@ -1952,22 +1953,17 @@
         </svg>
     </div>
     
-    <!-- Astral Canvas Background -->
     <canvas id="astral-canvas"></canvas>
     
-    <!-- Astral Progress Bar -->
     <div class="astral-progress-bar" id="astral-progress-bar"></div>
     
-    <!-- Celestial Cursor -->
     <div class="cursor" id="cursor">
         <div class="cursor-ring"></div>
         <div class="cursor-core"></div>
     </div>
     
-    <!-- Particle Canvas -->
     <canvas class="particle-canvas" id="particle-canvas"></canvas>
     
-    <!-- Intro Sequence -->
     <div id="intro-sequence">
         <div class="intro-orb"></div>
        <div class="ignite-container">
@@ -1976,7 +1972,6 @@
 </div>
     </div>
     
-    <!-- Navigation -->
     <nav class="nav-bar" id="nav-bar">
         <a href="#home" class="nav-link">Origin</a>
         <a href="#about" class="nav-link">The Core</a>
@@ -1986,9 +1981,7 @@
         <a href="#projects" class="nav-link">Projects</a>
     </nav>
     
-    <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Section -->
         <section class="section" id="home">
             <div class="crystal-card hero-content">
                 <p class="hero-constellation">✦ VDNSS ✦</p>
@@ -2002,7 +1995,6 @@
             </div>
         </section>
         
-        <!-- About Section -->
         <section class="section" id="about">
             <div class="crystal-card">
                 <div class="card-content">
@@ -2030,7 +2022,6 @@
             </div>
         </section>
         
-        <!-- Skills Section -->
         <section class="section" id="skills">
             <div class="crystal-card">
                 <div class="card-content">
@@ -2129,13 +2120,11 @@
             </div>
         </section>
         
-        <!-- Timeline Section -->
         <section class="section" id="path">
             <div class="crystal-card">
                 <div class="card-content">
                     <h2 class="timeline-title">Milestones</h2>
                     <div class="milestones-container">
-                        <!-- LEFT SIDE: Timeline (100% identical) -->
                         <div class="milestones-left">
                             <div class="timeline">
                                 <div class="timeline-item">
@@ -2166,8 +2155,7 @@
                             </div>
                         </div>
                         
-                        <!-- RIGHT SIDE: Credentials & Distinctions -->
-             <div class="milestones-right">
+                        <div class="milestones-right">
     <h3 class="credentials-title">CREDENTIALS & DISTINCTIONS</h3>
     
     <div class="credentials-grid">
@@ -2224,7 +2212,6 @@
             </div>
         </section>
         
-        <!-- Hobbies Section -->
         <section class="section" id="hobbies">
             <div class="crystal-card">
                 <div class="card-content">
@@ -2283,7 +2270,6 @@
             </div>
         </section>
         
-        <!-- Projects Section -->
         <section class="section" id="projects">
             <div class="crystal-card">
                 <div class="card-content">
@@ -2955,11 +2941,6 @@
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('dragstart', e => e.preventDefault());
     });
-</script>
-
-<script>
-/* ⚠️ ADVANCED ANTI-THEFT PROTOCOL (Obfuscated) */
-(function(_0x1a2b,_0x3c4d){const _0x5e6f=function(_0x7g8h){while(--_0x7g8h){_0x1a2b['push'](_0x1a2b['shift']());}};_0x5e6f(++_0x3c4d);}(['mvdnssk.github.io','localhost','127.0.0.1','VDNSS\x20KARTHIKEYA\x20MUDILI','innerText','.copyright','href','location','⚠️\x20SECURITY\x20ALERT:\x20Unauthorized\x20Clone\x20Detected.\x20Redirecting...','contextmenu','preventDefault','keydown','keyCode','ctrlKey','shiftKey','charCodeAt','dragstart','querySelector','querySelectorAll','forEach','addEventListener'],0x1e3));const _0x9h0i=function(_0x1a2b,_0x3c4d){_0x1a2b=_0x1a2b-0x0;let _0x5e6f=arguments[_0x1a2b];return _0x5e6f;};(function(){const _0x1=window[_0x9h0i('0x7')]['hostname'];const _0x2=[_0x9h0i('0x0'),_0x9h0i('0x1'),_0x9h0i('0x2')];if(_0x1!==''&&!_0x2['includes'](_0x1)){alert(_0x9h0i('0x8'));window[_0x9h0i('0x7')][_0x9h0i('0x6')]='https://'+_0x2[0x0];}setInterval(function(){const _0x3=document[_0x9h0i('0x11')](_0x9h0i('0x5'));if(!_0x3||!_0x3[_0x9h0i('0x4')]['includes'](_0x9h0i('0x3'))){window[_0x9h0i('0x7')][_0x9h0i('0x6')]='https://'+_0x2[0x0];}},0x7d0);})();
 </script>
 
 </body>
