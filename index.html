@@ -3,51 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script>
-    (function() {
-        const allowedDomains = ["mvdnssk.github.io", "localhost", "127.0.0.1", ""];
-        const hostname = window.location.hostname;
-        
-        // Allow local network IPs for mobile testing (e.g., 192.168.x.x)
-        const isLocalNetwork = hostname.startsWith("192.168.") || hostname.startsWith("10.");
-
-        if (hostname && !allowedDomains.includes(hostname) && !isLocalNetwork) {
-            console.warn("⚠️ SECURITY ALERT: Redirecting to verified source.");
-            window.location.href = "https://mvdnssk.github.io";
-        }
-    })();
-    </script>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" href="favicon.ico">
-    <meta name="theme-color" content="#030305">
+    <title>Karthikeya Mudili | Astral Sovereign | Portfolio</title>
+    <meta name="description" content="Portfolio of Karthikeya Mudili | CA Intermediate & Python Developer. Specializing in Fintech, Automated Audit Systems, and Quantitative Finance.">
+    <meta name="keywords" content="Karthikeya Mudili, CA Intermediate, Fintech, Python Developer, Audit Automation, KK Modi University, NTU Aspirant">
+    <meta name="author" content="Karthikeya Mudili">
     
-    <title>Karthikeya Mudili (VDNSS) | CA & FinTech Portfolio</title>
-
-    <meta name="description" content="Official Portfolio of VDNSS Karthikeya Mudili. CA Intermediate student and Python Developer bridging Finance with Algorithmic Logic.">
-    <meta name="keywords" content="Karthikeya Mudili, VDNSS, CA Intermediate, Fintech, Python Developer, NTU Singapore">
-    <meta name="author" content="VDNSS Karthikeya Mudili">
-    <meta name="google-site-verification" content="BvwAcUxKpywcpYrh7pGQ1Q9ezBoZDmeq29fYyEgIWk4" />
-
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Karthikeya Mudili | The Astral Sovereign">
+    <meta property="og:description" content="Bridging Financial Accounting with Algorithmic Logic. View the portfolio.">
+    <meta property="og:image" content="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif">
     <meta property="og:url" content="https://mvdnssk.github.io">
-    <meta property="og:title" content="VDNSS Karthikeya Mudili | The Strategist">
-    <meta property="og:description" content="Bridging Financial Accounting with Algorithmic Logic. View the portfolio of Venkata Durga Naga Satya Sai Karthikeya.">
-    <meta property="og:image" content="https://mvdnssk.github.io/banner.png">
-    
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <style>
         /* ===== CSS RESET & BASE ===== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         :root {
+            /* Astral Palette - The Colors of Divinity */
             --void-black: #030305;
             --deep-space: #0a0a12;
             --nebula-purple: #7B2D8E;
@@ -57,9 +38,13 @@
             --aurora-teal: #00F5D4;
             --stardust-pink: #FF006E;
             --galaxy-blue: #3A0CA3;
+            
+            /* Glow Effects */
             --glow-gold: rgba(255, 215, 0, 0.5);
             --glow-cyan: rgba(0, 217, 255, 0.5);
             --glow-purple: rgba(157, 78, 221, 0.5);
+            
+            /* Animation Timing */
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
         }
@@ -67,7 +52,6 @@
         html {
             scroll-behavior: smooth;
             scroll-snap-type: y mandatory;
-            height: auto; min-height: 100vh; overflow-y: auto; overflow-x: hidden;
         }
         
         body {
@@ -75,271 +59,1293 @@
             background: var(--void-black);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none; /* Custom cursor active */
-            -webkit-user-select: none; -ms-user-select: none; user-select: none;
+            cursor: none; /* Keeps your custom cursor logic */
+            
+            /* Hiding Scrollbar while keeping functionality */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         
-        body::-webkit-scrollbar { display: none; }
-        body { -ms-overflow-style: none; scrollbar-width: none; }
+        body::-webkit-scrollbar {
+            display: none;
+        }
         
-        /* ===== LAYERS ===== */
-        #astral-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; }
-        .particle-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9998; }
+        /* ===== ASTRAL CANVAS BACKGROUND ===== */
+        #astral-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+        }
         
+        /* ===== SACRED GEOMETRY OVERLAY ===== */
         .sacred-geometry {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 150vmax; height: 150vmax; pointer-events: none; z-index: 1; opacity: 0.03;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150vmax;
+            height: 150vmax;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
         }
-        .sacred-geometry svg { width: 100%; height: 100%; animation: sacredRotate 120s linear infinite; }
-        @keyframes sacredRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         
-        /* ===== PROGRESS BAR ===== */
-        .astral-progress-bar {
-            position: fixed; bottom: 0; left: 0; height: 2px; width: 0%;
-            background: linear-gradient(90deg, var(--nebula-purple), var(--cosmic-violet), var(--celestial-cyan), var(--starlight-gold), var(--stardust-pink));
-            box-shadow: 0 0 20px var(--cosmic-violet), 0 0 40px var(--celestial-cyan);
-            z-index: 200; transition: width 0.1s ease-out;
+        .sacred-geometry svg {
+            width: 100%;
+            height: 100%;
+            animation: sacredRotate 120s linear infinite;
         }
+        
+        @keyframes sacredRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== ASTRAL PROGRESS BAR ===== */
+        .astral-progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, 
+                var(--nebula-purple) 0%, 
+                var(--cosmic-violet) 25%,
+                var(--celestial-cyan) 50%,
+                var(--starlight-gold) 75%,
+                var(--stardust-pink) 100%);
+            box-shadow: 
+                0 0 20px var(--cosmic-violet),
+                0 0 40px var(--celestial-cyan);
+            z-index: 200;
+            transition: width 0.1s ease-out;
+        }
+        
         .astral-progress-bar::after {
-            content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-            width: 8px; height: 8px; background: var(--starlight-gold); border-radius: 50%;
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--starlight-gold);
+            border-radius: 50%;
             box-shadow: 0 0 20px var(--starlight-gold), 0 0 40px var(--celestial-cyan);
             animation: starPulse 2s ease-in-out infinite;
         }
+        
         @keyframes starPulse {
-            0%, 100% { box-shadow: 0 0 20px var(--starlight-gold), 0 0 40px var(--celestial-cyan); transform: translateY(-50%) scale(1); }
-            50% { box-shadow: 0 0 40px var(--starlight-gold), 0 0 80px var(--celestial-cyan); transform: translateY(-50%) scale(1.5); }
+            0%, 100% { 
+                box-shadow: 0 0 20px var(--starlight-gold), 0 0 40px var(--celestial-cyan);
+                transform: translateY(-50%) scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px var(--starlight-gold), 0 0 80px var(--celestial-cyan);
+                transform: translateY(-50%) scale(1.5);
+            }
         }
         
-        /* ===== CURSOR ===== */
-        .cursor { position: fixed; width: 30px; height: 30px; pointer-events: none; z-index: 9999; mix-blend-mode: screen; }
-        .cursor-core { position: absolute; width: 6px; height: 6px; background: var(--starlight-gold); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 10px var(--starlight-gold), 0 0 20px var(--celestial-cyan); }
-        .cursor-ring { position: absolute; width: 25px; height: 25px; border: 1px solid var(--celestial-cyan); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.6; }
+        /* ===== CELESTIAL CURSOR ===== */
+        .cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+        }
         
-        /* ===== INTRO ===== */
+        .cursor-core {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--starlight-gold);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 10px var(--starlight-gold),
+                0 0 20px var(--celestial-cyan),
+                0 0 30px var(--cosmic-violet);
+        }
+        
+        .cursor-ring {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--celestial-cyan);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+            animation: cursorOrbit 3s linear infinite;
+        }
+        
+        .cursor-ring::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border: 1px solid var(--cosmic-violet);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: cursorOrbit 5s linear infinite reverse;
+        }
+        
+        @keyframes cursorOrbit {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* ===== INTRO SEQUENCE ===== */
         #intro-sequence {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: var(--void-black); z-index: 1000;
-            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--void-black);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
+        
         .intro-orb {
-            position: absolute; width: 300px; height: 300px; border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(157, 78, 221, 0.4), rgba(0, 217, 255, 0.2) 40%, rgba(255, 215, 0, 0.1) 70%, transparent);
-            filter: blur(40px); animation: introOrbPulse 4s ease-in-out infinite;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(157, 78, 221, 0.4), 
+                rgba(0, 217, 255, 0.2) 40%, 
+                rgba(255, 215, 0, 0.1) 70%, 
+                transparent);
+            filter: blur(40px);
+            animation: introOrbPulse 4s ease-in-out infinite;
         }
-        @keyframes introOrbPulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; } }
         
-        .ignite-container { position: relative; z-index: 10; text-align: center; }
+        @keyframes introOrbPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        
+        .ignite-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        
         .ignite-btn {
-            font-family: 'Orbitron', sans-serif; font-size: 16px; font-weight: 500; color: var(--starlight-gold);
-            background: transparent; border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 50px;
-            padding: 20px 50px; cursor: none; text-transform: uppercase; letter-spacing: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--starlight-gold);
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 50px;
+            padding: 20px 50px;
+            cursor: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
             text-shadow: 0 0 20px var(--starlight-gold);
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2) inset, 0 0 50px rgba(0, 217, 255, 0.2);
-            animation: astralBtnPulse 3s ease-in-out infinite; transition: all 0.5s ease;
-            position: relative; overflow: hidden;
-        }
-        .ignite-btn:hover {
-            background: rgba(157, 78, 221, 0.1); border-color: var(--celestial-cyan);
-            box-shadow: 0 0 50px rgba(157, 78, 221, 0.3) inset, 0 0 80px rgba(0, 217, 255, 0.4);
-            transform: scale(1.02); letter-spacing: 6px;
-        }
-        @keyframes astralBtnPulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(157, 78, 221, 0.2) inset, 0 0 50px rgba(0, 217, 255, 0.2); }
-            50% { box-shadow: 0 0 50px rgba(157, 78, 221, 0.4) inset, 0 0 80px rgba(0, 217, 255, 0.4); }
-        }
-        .ignite-subtext {
-            font-family: 'Cormorant Garamond', serif; font-size: 14px; color: rgba(255, 255, 255, 0.5);
-            margin-top: 24px; letter-spacing: 3px; font-style: italic;
+            box-shadow: 
+                0 0 30px rgba(157, 78, 221, 0.2) inset,
+                0 0 50px rgba(0, 217, 255, 0.2);
+            animation: astralBtnPulse 3s ease-in-out infinite;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* ===== NAV BAR ===== */
+        .ignite-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.2), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .ignite-btn:hover::before {
+            left: 100%;
+        }
+        
+        .ignite-btn:hover {
+            background: rgba(157, 78, 221, 0.1);
+            border-color: var(--celestial-cyan);
+            box-shadow: 
+                0 0 50px rgba(157, 78, 221, 0.3) inset,
+                0 0 80px rgba(0, 217, 255, 0.4);
+            transform: scale(1.02);
+            letter-spacing: 6px;
+        }
+        
+        @keyframes astralBtnPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(157, 78, 221, 0.2) inset,
+                    0 0 50px rgba(0, 217, 255, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 50px rgba(157, 78, 221, 0.4) inset,
+                    0 0 80px rgba(0, 217, 255, 0.4);
+            }
+        }
+        
+        .ignite-subtext {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 24px;
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+        
+        /* ===== NAVIGATION ===== */
         .nav-bar {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: rgba(3, 3, 5, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(157, 78, 221, 0.2); border-radius: 50px; padding: 12px 32px;
-            z-index: 100; display: flex; gap: 32px; opacity: 0; pointer-events: none;
-            transition: opacity 0.5s ease; box-shadow: 0 0 40px rgba(157, 78, 221, 0.1);
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(3, 3, 5, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 50px;
+            padding: 12px 32px;
+            z-index: 100;
+            display: flex;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            box-shadow: 0 0 40px rgba(157, 78, 221, 0.1);
         }
-        .nav-bar.visible { opacity: 1; pointer-events: auto; }
+        
+        .nav-bar.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
         .nav-link {
-            font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 500;
-            color: rgba(255, 255, 255, 0.5); text-decoration: none; text-transform: uppercase;
-            letter-spacing: 2px; position: relative; white-space: nowrap; transition: all 0.4s ease; padding: 8px 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            white-space: nowrap;
+            transition: all 0.4s ease;
+            padding: 8px 0;
         }
+        
         .nav-link::after {
-            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 1px;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
             background: linear-gradient(90deg, transparent, var(--starlight-gold), transparent);
-            transition: width 0.4s ease; box-shadow: 0 0 10px var(--starlight-gold);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--starlight-gold);
         }
-        .nav-link:hover { color: var(--starlight-gold); text-shadow: 0 0 20px var(--starlight-gold); }
-        .nav-link:hover::after { width: 100%; }
+        
+        .nav-link:hover {
+            color: var(--starlight-gold);
+            text-shadow: 0 0 20px var(--starlight-gold);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
         
         /* ===== SECTIONS ===== */
         .section {
-            min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
-            position: relative; z-index: 2; scroll-snap-align: start; scroll-snap-stop: always; padding: 80px 24px;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            padding: 80px 24px;
         }
         
-        /* CRYSTAL CARD */
+        /* ===== CRYSTAL CARD ===== */
         .crystal-card {
-            background: rgba(10, 10, 18, 0.7); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(157, 78, 221, 0.2); border-radius: 24px; padding: 56px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.03) inset, 0 0 60px rgba(157, 78, 221, 0.1);
-            max-width: 1000px; width: 100%; height: auto; opacity: 0; transform: translateY(50px);
-            position: relative; overflow: hidden;
+            background: rgba(10, 10, 18, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 24px;
+            padding: 56px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+                0 0 60px rgba(157, 78, 221, 0.1);
+            max-width: 1000px;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+            overflow: hidden;
         }
+        
         .crystal-card::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(157, 78, 221, 0.03), transparent, rgba(0, 217, 255, 0.03), transparent);
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, 
+                transparent, 
+                rgba(157, 78, 221, 0.03), 
+                transparent, 
+                rgba(0, 217, 255, 0.03), 
+                transparent);
             animation: crystalShimmer 15s linear infinite;
         }
-        @keyframes crystalShimmer { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .crystal-card.visible { opacity: 1; transform: translateY(0); transition: all 1s var(--ease-out-expo); }
-        .card-content { position: relative; z-index: 1; }
         
-        /* TYPOGRAPHY & ELEMENTS */
+        @keyframes crystalShimmer {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .crystal-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s var(--ease-out-expo);
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-constellation {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            color: var(--cosmic-violet);
+            letter-spacing: 8px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        
         .hero-title {
-            font-family: 'Cinzel', serif; font-size: clamp(32px, 5vw, 84px); font-weight: 700;
-            background: linear-gradient(135deg, var(--starlight-gold), #FFA500, var(--celestial-cyan), var(--cosmic-violet));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center;
-            margin-bottom: 20px; animation: titleShine 5s linear infinite; letter-spacing: 6px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(42px, 5vw, 84px);
+            font-weight: 700;
+            background: linear-gradient(135deg, 
+                var(--starlight-gold) 0%, 
+                #FFA500 25%,
+                var(--celestial-cyan) 50%,
+                var(--cosmic-violet) 75%,
+                var(--starlight-gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShine 5s linear infinite;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            position: relative;
         }
-        @keyframes titleShine { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
         
-        .hero-subtitle { font-family: 'Orbitron'; font-size: clamp(14px, 2.5vw, 22px); color: var(--celestial-cyan); letter-spacing: 6px; text-align: center; margin-bottom: 28px; }
-        .hero-tagline { font-family: 'Cormorant Garamond'; font-size: 18px; color: rgba(255,255,255,0.6); max-width: 550px; margin: 0 auto; text-align: center; line-height: 1.8; }
-        .hero-constellation { font-family: 'Orbitron'; color: var(--cosmic-violet); text-align: center; letter-spacing: 8px; margin-bottom: 24px; }
-        .hero-divider { width: 100px; height: 1px; background: linear-gradient(90deg, transparent, var(--cosmic-violet), var(--celestial-cyan), var(--starlight-gold), transparent); margin: 32px auto; opacity: 0.6; }
+        @keyframes titleShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
         
-        .about-grid, .milestones-container { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-        .about-title { font-family: 'Cinzel'; font-size: 38px; color: var(--cosmic-violet); margin-bottom: 28px; }
-        .orb-container { display: flex; justify-content: center; }
-        .astral-orb { width: 220px; height: 220px; border-radius: 50%; box-shadow: 0 0 80px rgba(157,78,221,0.4); animation: astralPulse 4s infinite, astralFloat 6s infinite; }
+        .hero-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(14px, 2.5vw, 22px);
+            font-weight: 400;
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 28px;
+            opacity: 0.9;
+        }
         
-        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-        .celestial-artifact { background: rgba(10,10,18,0.6); border: 1px solid rgba(157,78,221,0.2); border-radius: 16px; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.5s; }
-        .celestial-artifact:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 60px rgba(157,78,221,0.2); }
-        .artifact-icon { font-size: 36px; margin-bottom: 16px; }
-        .level-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); }
-        .level-dot.active { background: var(--starlight-gold); box-shadow: 0 0 10px var(--starlight-gold); }
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
         
-        .timeline { position: relative; padding-left: 40px; }
-        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--cosmic-violet), var(--celestial-cyan), var(--starlight-gold)); opacity: 0.5; }
-        .timeline-item { padding: 28px 0 28px 36px; opacity: 0; transform: translateX(-30px); position: relative; }
-        .timeline-item.visible { opacity: 1; transform: translateX(0); transition: all 0.8s var(--ease-out-expo); }
-        .timeline-item::before { content: ''; position: absolute; left: -5px; top: 32px; width: 12px; height: 12px; border-radius: 50%; background: var(--deep-space); border: 2px solid var(--celestial-cyan); box-shadow: 0 0 15px var(--celestial-cyan); }
+        .hero-divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--cosmic-violet), 
+                var(--celestial-cyan),
+                var(--starlight-gold),
+                transparent);
+            margin: 32px auto;
+            opacity: 0.6;
+        }
         
-        /* CREDENTIALS & BADGES */
-        .credentials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 25px; }
-        .credential-badge { padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: center; cursor: pointer; overflow: hidden; position: relative; transition: 0.3s; }
-        .credential-badge:hover { transform: translateY(-3px); border-color: var(--celestial-cyan); }
-        .badge-title { font-family: 'Orbitron'; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
-        .badge-subtitle { font-family: 'Inter'; font-size: 10px; color: rgba(255,255,255,0.6); }
+        /* ===== ABOUT SECTION ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
         
-        /* Badge Colors */
-        .badge-green-teal { background: linear-gradient(135deg, rgba(0,245,150,0.4), rgba(0,217,255,0.3)); }
-        .badge-cyan-gold { background: linear-gradient(135deg, rgba(0,217,255,0.4), rgba(255,215,0,0.3)); }
-        .badge-purple-cyan { background: linear-gradient(135deg, rgba(157,78,221,0.4), rgba(0,217,255,0.3)); }
-        .badge-gold-orange { background: linear-gradient(135deg, rgba(255,215,0,0.4), rgba(255,140,0,0.3)); }
-        .badge-blue-indigo { background: linear-gradient(135deg, rgba(58,12,163,0.5), rgba(0,217,255,0.3)); }
-        .badge-pink-purple { background: linear-gradient(135deg, rgba(255,0,110,0.4), rgba(157,78,221,0.3)); }
+        .about-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--cosmic-violet);
+            margin-bottom: 28px;
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+        }
         
-        /* HOBBIES & PROJECTS */
-        .hobbies-slider { display: flex; gap: 24px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; }
-        .hobby-card { flex: 0 0 280px; background: rgba(10,10,18,0.5); padding: 36px; border-radius: 20px; border: 1px solid rgba(157,78,221,0.15); transition: 0.5s; }
-        .hobby-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(157,78,221,0.15); }
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cosmic-violet), var(--celestial-cyan));
+        }
         
-        .astral-table { width: 100%; min-width: 500px; border-collapse: separate; border-spacing: 0; font-family: 'Orbitron'; font-size: 13px; background: rgba(10,10,18,0.5); border-radius: 12px; }
-        .astral-table th, .astral-table td { padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: left; }
-        .astral-table .status-live { color: var(--celestial-cyan); }
+        .about-text {
+            font-size: 16px;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.7);
+        }
         
-        /* SOCIAL HUB */
-        .social-hub { text-align: center; padding-top: 40px; border-top: 1px solid rgba(157,78,221,0.15); }
-        .social-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .social-btn { font-family: 'Orbitron'; font-size: 12px; padding: 16px 36px; border-radius: 50px; text-decoration: none; color: white; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; display: flex; align-items: center; gap: 10px; }
-        .social-btn:hover { transform: translateY(-3px); }
-        .social-btn.linkedin { background: rgba(10,102,194,0.2); border-color: #0A66C2; }
-        .social-btn.linkedin:hover { background: #0A66C2; }
+        .about-text p {
+            margin-bottom: 20px;
+        }
         
-        /* MODALS */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.92); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: 0.4s; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-container { position: relative; max-width: 90vw; max-height: 90vh; text-align: center; }
-        .modal-image { max-width: 100%; max-height: 85vh; border-radius: 12px; }
-        .modal-close { position: absolute; top: -50px; right: 0; color: white; background: none; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; width: 44px; height: 44px; font-size: 28px; cursor: pointer; }
-        body.modal-open { overflow: hidden; cursor: auto; }
-        body.modal-open .cursor { opacity: 0; }
-
-        /* FOOTER */
-        .system-footer { width: 100%; text-align: center; padding: 12px 0; margin-top: 80px; background: linear-gradient(to top, #000 10%, transparent 100%); }
-        .footer-line { width: 120px; height: 1px; background: linear-gradient(90deg, transparent, #FFD700, transparent); margin: 0 auto 20px auto; }
-        .footer-content { font-family: 'Orbitron'; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); }
-        .copyright { color: #FFD700; }
-
-        /* RESPONSIVE FIXES (Merged from bottom patch) */
+        .orb-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* ASTRAL ORB */
+        .astral-orb {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            position: relative;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(157, 78, 221, 0.5), 
+                rgba(0, 217, 255, 0.3) 40%, 
+                rgba(255, 215, 0, 0.2) 70%, 
+                transparent);
+            box-shadow: 
+                0 0 80px rgba(157, 78, 221, 0.4),
+                0 0 120px rgba(0, 217, 255, 0.3),
+                inset 0 0 60px rgba(255, 215, 0, 0.2);
+            animation: astralPulse 4s ease-in-out infinite, astralFloat 6s ease-in-out infinite;
+        }
+        
+        .astral-orb::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            animation: orbRing1 8s linear infinite;
+        }
+        
+        .astral-orb::after {
+            content: '';
+            position: absolute;
+            inset: -30px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            animation: orbRing2 12s linear infinite reverse;
+        }
+        
+        @keyframes astralPulse {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 
+                    0 0 80px rgba(157, 78, 221, 0.4),
+                    0 0 120px rgba(0, 217, 255, 0.3);
+            }
+            50% { 
+                transform: scale(1.05); 
+                box-shadow: 
+                    0 0 120px rgba(157, 78, 221, 0.6),
+                    0 0 180px rgba(0, 217, 255, 0.5);
+            }
+        }
+        
+        @keyframes astralFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes orbRing1 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes orbRing2 {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        
+        /* ===== SKILLS SECTION - CELESTIAL ARTIFACTS ===== */
+        .skills-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--celestial-cyan);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 4px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        
+        .celestial-artifact {
+            aspect-ratio: 1;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 0 auto;
+            cursor: none;
+            transition: all 0.5s ease;
+            background: rgba(10, 10, 18, 0.6);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            overflow: hidden;
+        }
+        
+        .celestial-artifact::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                rgba(157, 78, 221, 0.1), 
+                transparent 50%,
+                rgba(0, 217, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .celestial-artifact:hover::before {
+            opacity: 1;
+        }
+        
+        .celestial-artifact::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, 
+                var(--cosmic-violet), 
+                var(--celestial-cyan),
+                var(--starlight-gold));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .celestial-artifact:hover::after {
+            opacity: 1;
+        }
+        
+        .celestial-artifact:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(157, 78, 221, 0.2),
+                0 0 40px rgba(0, 217, 255, 0.1);
+        }
+        
+        .artifact-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+        
+        .artifact-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(0.55rem, 1.8vw, 0.8rem);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 0 12px;
+        }
+        
+        .artifact-level {
+            display: flex;
+            gap: 4px;
+            margin-top: 16px;
+        }
+        
+        .level-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .level-dot.active {
+            background: var(--starlight-gold);
+            box-shadow: 0 0 10px var(--starlight-gold);
+        }
+        
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--starlight-gold);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 4px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, 
+                var(--cosmic-violet) 0%, 
+                var(--celestial-cyan) 50%, 
+                var(--starlight-gold) 100%);
+            opacity: 0.5;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 28px 0;
+            padding-left: 36px;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -43px;
+            top: 32px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--deep-space);
+            border: 2px solid var(--celestial-cyan);
+            box-shadow: 0 0 15px var(--celestial-cyan);
+        }
+        
+        .timeline-date {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            color: var(--celestial-cyan);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+        
+        .timeline-role {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        
+        .timeline-company {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+        
+        /* ===== HOBBIES SECTION ===== */
+        .hobbies-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--stardust-pink);
+            text-align: center;
+            margin-bottom: 56px;
+            letter-spacing: 4px;
+        }
+        
+        .hobbies-slider {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        
+        .hobbies-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .hobby-card {
+            flex: 0 0 280px;
+            background: rgba(10, 10, 18, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(157, 78, 221, 0.15);
+            border-radius: 20px;
+            padding: 36px;
+            scroll-snap-align: start;
+            transition: all 0.5s ease;
+            cursor: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--cosmic-violet), 
+                var(--celestial-cyan),
+                transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .hobby-card:hover::before {
+            opacity: 1;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(157, 78, 221, 0.4);
+            box-shadow: 
+                0 20px 60px rgba(157, 78, 221, 0.15),
+                0 0 40px rgba(0, 217, 255, 0.1);
+        }
+        
+        .hobby-icon {
+            font-size: 44px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+        }
+        
+        .hobby-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hobby-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+        }
+        
+        /* ===== PROJECTS SECTION ===== */
+        .projects-title {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 600;
+            background: linear-gradient(90deg, 
+                var(--starlight-gold), 
+                var(--celestial-cyan), 
+                var(--cosmic-violet),
+                var(--stardust-pink));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShine 4s linear infinite;
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: 4px;
+        }
+        
+        .projects-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            margin-bottom: 48px;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+        
+        /* ===== ASTRAL TABLE ===== */
+        .astral-table-container {
+            max-width: 900px;
+            margin: 0 auto 48px auto;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .astral-table {
+            width: 100%;
+            min-width: 500px;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            background: rgba(10, 10, 18, 0.5);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .astral-table thead {
+            background: rgba(157, 78, 221, 0.1);
+        }
+        
+        .astral-table th {
+            color: var(--celestial-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            padding: 18px 24px;
+            text-align: left;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+            font-size: 11px;
+        }
+        
+        .astral-table td {
+            padding: 18px 24px;
+            color: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+        
+        .astral-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        
+        .astral-table tbody tr:hover {
+            background: rgba(157, 78, 221, 0.05);
+        }
+        
+        .astral-table tbody tr:hover td {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .astral-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .astral-table .project-name {
+            color: #ffffff;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .astral-table .status-live {
+            color: var(--celestial-cyan);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+        
+        .astral-table .status-deployed {
+            color: var(--starlight-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .astral-table a {
+            color: var(--cosmic-violet);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(157, 78, 221, 0.5);
+            transition: all 0.3s ease;
+            padding-bottom: 2px;
+        }
+        
+        .astral-table a:hover {
+            color: var(--celestial-cyan);
+            border-bottom-color: var(--celestial-cyan);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+        
+        /* ===== SOCIAL HUB ===== */
+        .social-hub {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(157, 78, 221, 0.15);
+        }
+        
+        .social-hub-title {
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: var(--starlight-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 28px;
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* RE-ADDED PULSE ANIMATION HERE */
+        .social-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--starlight-gold);
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            padding: 16px 36px;
+            cursor: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.5s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            /* Added pulse to match main button */
+            animation: astralBtnPulse 3s ease-in-out infinite;
+        }
+        
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.1), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .social-btn:hover::before {
+            left: 100%;
+        }
+        
+        .social-btn:hover {
+            background: rgba(157, 78, 221, 0.1);
+            border-color: var(--celestial-cyan);
+            color: var(--celestial-cyan);
+            box-shadow: 
+                0 0 30px rgba(0, 217, 255, 0.2),
+                0 0 60px rgba(157, 78, 221, 0.2);
+            transform: translateY(-3px);
+            letter-spacing: 3px;
+        }
+        
+        /* ===== PARTICLE CANVAS ===== */
+        .particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+        }
+        
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .skills-grid, .about-grid, .milestones-container, .credentials-grid { grid-template-columns: 1fr; gap: 40px; }
-            .skills-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
         }
+        
         @media (max-width: 768px) {
-            .nav-bar { top: auto; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; justify-content: flex-start; overflow-x: auto; background: rgba(0,0,0,0.85); padding: 10px 15px; }
-            .nav-bar::-webkit-scrollbar { display: none; }
-            .nav-link { font-size: 11px; padding: 5px 8px; }
-            .hero-title { font-size: 36px; line-height: 1.2; }
-            .section { padding: 40px 15px; }
-            .crystal-card { padding: 30px 20px; }
-            .orb-container img { width: 140px; height: 140px; }
-            .cursor { display: none; }
-            body { cursor: auto; padding-bottom: 180px; } /* Footer scroll fix */
-            .system-footer { margin-top: 11px; padding-bottom: 0; background: transparent; }
-            .footer-content { display: flex; flex-direction: column; gap: 10px; font-size: 9px; }
-            .separator { display: none; }
+            .nav-bar {
+                top: auto;
+                bottom: 20px;
+                gap: 6px;
+                padding: 10px 16px;
+                background: rgba(3, 3, 5, 0.8);
+            }
+            
+            .nav-link {
+                font-size: 9px;
+                letter-spacing: 1px;
+                padding: 8px 10px;
+            }
+            
+            .nav-link::after {
+                display: none;
+            }
+            
+            .section {
+                padding: 60px 20px 100px 20px;
+            }
+            
+            .crystal-card {
+                padding: 36px 24px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .celestial-artifact {
+                border-radius: 12px;
+            }
+            
+            .artifact-icon {
+                font-size: 28px;
+            }
+            
+            body {
+                cursor: auto;
+            }
+            
+            .cursor {
+                display: none;
+            }
+            
+            .astral-progress-bar {
+                bottom: 80px;
+            }
+            
+            .astral-table {
+                font-size: 11px;
+            }
+            
+            .astral-table th,
+            .astral-table td {
+                padding: 14px 16px;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .ignite-btn {
+                font-size: 13px;
+                padding: 16px 36px;
+            }
+            
+            .astral-orb {
+                width: 160px;
+                height: 160px;
+            }
         }
+        
         @media (max-width: 480px) {
-            .hero-title { font-size: 32px; }
-            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .nav-bar {
+                padding: 8px 12px;
+                gap: 4px;
+                bottom: 15px;
+            }
+            
+            .nav-link {
+                font-size: 8px;
+                padding: 6px 8px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+            
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+            
+            .section {
+                padding: 50px 16px 90px 16px;
+            }
+            
+            .astral-progress-bar {
+                bottom: 70px;
+            }
+            
+            .astral-table th,
+            .astral-table td {
+                padding: 12px 14px;
+            }
+            
+            .ignite-btn {
+                font-size: 11px;
+                padding: 14px 28px;
+                letter-spacing: 2px;
+            }
+            
+            .about-title,
+            .skills-title,
+            .timeline-title,
+            .hobbies-title,
+            .projects-title {
+                font-size: 28px;
+            }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div class="sacred-geometry">
-        <svg viewBox="0 0 1000 1000"><g fill="none" stroke="rgba(157,78,221,0.2)" stroke-width="0.5"><circle cx="500" cy="500" r="400"/><circle cx="500" cy="500" r="300"/><circle cx="500" cy="500" r="200"/><polygon points="500,100 846,300 846,700 500,900 154,700 154,300"/></g></svg>
+        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="sacredGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#00D9FF;stop-opacity:0.2" />
+                    <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#sacredGrad)" stroke-width="0.5">
+                <circle cx="500" cy="500" r="400" />
+                <circle cx="500" cy="500" r="350" />
+                <circle cx="500" cy="500" r="300" />
+                <circle cx="500" cy="500" r="250" />
+                <circle cx="500" cy="500" r="200" />
+                <circle cx="500" cy="500" r="150" />
+                <circle cx="500" cy="500" r="100" />
+                <circle cx="500" cy="500" r="50" />
+                
+                <polygon points="500,100 846,300 846,700 500,900 154,700 154,300" />
+                <polygon points="500,200 773,357 773,643 500,800 227,643 227,357" />
+                <polygon points="500,300 700,415 700,585 500,700 300,585 300,415" />
+                
+                <polygon points="500,150 650,412 350,412" />
+                <polygon points="500,850 350,588 650,588" />
+                
+                <line x1="500" y1="100" x2="500" y2="900" />
+                <line x1="154" y1="300" x2="846" y2="700" />
+                <line x1="154" y1="700" x2="846" y2="300" />
+                <line x1="227" y1="357" x2="773" y2="643" />
+                <line x1="227" y1="643" x2="773" y2="357" />
+                <line x1="300" y1="415" x2="700" y2="585" />
+                <line x1="300" y1="585" x2="700" y2="415" />
+            </g>
+        </svg>
     </div>
     
     <canvas id="astral-canvas"></canvas>
+    
     <div class="astral-progress-bar" id="astral-progress-bar"></div>
-    <div class="cursor" id="cursor"><div class="cursor-ring"></div><div class="cursor-core"></div></div>
+    
+    <div class="cursor" id="cursor">
+        <div class="cursor-ring"></div>
+        <div class="cursor-core"></div>
+    </div>
+    
     <canvas class="particle-canvas" id="particle-canvas"></canvas>
     
     <div id="intro-sequence">
         <div class="intro-orb"></div>
-       <div class="ignite-container">
-            <button class="ignite-btn" id="ignite-btn">VIEW EXECUTIVE PORTFOLIO</button>
-            <p class="ignite-subtext">CHARTERED ACCOUNTANCY • CORPORATE STRATEGY • FINTECH INNOVATION</p>
+        <div class="ignite-container">
+            <button class="ignite-btn" id="ignite-btn">ENTER THE VOID</button>
+            <p class="ignite-subtext">Where finance meets the infinite</p>
         </div>
     </div>
     
     <nav class="nav-bar" id="nav-bar">
         <a href="#home" class="nav-link">Origin</a>
-        <a href="#about" class="nav-link">The Core</a>
-        <a href="#skills" class="nav-link">Expertise</a>
-        <a href="#path" class="nav-link">Milestones</a>
-        <a href="#hobbies" class="nav-link">Diversification</a>
-        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">Essence</a>
+        <a href="#skills" class="nav-link">Artifacts</a>
+        <a href="#path" class="nav-link">Journey</a>
+        <a href="#hobbies" class="nav-link">Passions</a>
+        <a href="#projects" class="nav-link">Works</a>
     </nav>
     
     <main id="main-content">
         <section class="section" id="home">
             <div class="crystal-card hero-content">
-                <p class="hero-constellation">✦ VDNSS ✦</p>
+                <p class="hero-constellation">✦ ASTRAL SOVEREIGN ✦</p>
                 <h1 class="hero-title">KARTHIKEYA MUDILI</h1>
-                <p class="hero-subtitle">INTEGRATING ACCOUNTING WITH FINTECH INNOVATION</p>
+                <p class="hero-subtitle">Bridging GAAP Standards & Python Automation</p>
                 <div class="hero-divider"></div>
-                <p class="hero-tagline">
-                    A Chartered Accountancy student bridging the gap between <strong>Financial Rigor</strong> and <strong>Modern Fintech</strong>. 
-                    Leveraging audit expertise (80%) with Python automation (20%) to solve complex business challenges.
-                </p>
+                <p class="hero-tagline">A Chartered Accountancy student navigating the cosmos of Quantitative Finance. Building tools that transcend manual compliance through the precision of code.</p>
             </div>
         </section>
         
@@ -348,14 +1354,14 @@
                 <div class="card-content">
                     <div class="about-grid">
                         <div class="about-text-content">
-                            <h2 class="about-title"> The Core </h2>
+                            <h2 class="about-title">The Essence</h2>
                             <div class="about-text">
-                                <p>I am a <strong>Chartered Accountancy student</strong> (CA Inter) with a technological pulse. My foundation is <strong>80% Finance</strong> (Audit, Accounts, Finance) and <strong>20% Code</strong>.</p>
-                                <p>I use Python not to be a developer, but as a lever to move the heavy weight of financial compliance. My goal is to evolve from traditional accounting into <strong>Global Fintech Leadership</strong>.</p>    
+                                <p>I am a Chartered Accountancy student (CA Foundation Qualified) charting a course through the infinite expanse of Quantitative Finance. While others remain bound to manual processes, I forge tools that transcend limitation.</p>
+                                <p>Currently preparing for CA Intermediate (May 2026), I blend the ancient wisdom of accounting with the boundless potential of Python automation.</p>
                             </div>
                         </div>
                         <div class="orb-container">
-                            <img class="astral-orb" src="https://media.licdn.com/dms/image/v2/D4E03AQFiyI3EeZ8MWg/profile-displayphoto-crop_800_800/B4EZvwcTlNKYAI-/0/1769265513092?e=1772064000&v=beta&t=2WeWBWcrxy5NwBCsjR7QGEa3DXp2rMaAJMDDMdD_CGo" alt="Karthikeya Mudili" style="object-fit: cover; background: none;">
+                            <div class="astral-orb"></div>
                         </div>
                     </div>
                 </div>
@@ -365,16 +1371,96 @@
         <section class="section" id="skills">
             <div class="crystal-card">
                 <div class="card-content">
-                    <h2 class="skills-title">Domain Expertise</h2>
+                    <h2 class="skills-title">Celestial Artifacts</h2>
                     <div class="skills-grid">
-                        <div class="celestial-artifact"><span class="artifact-icon">📚</span><span class="artifact-name">Advanced Accounting</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">🐍</span><span class="artifact-name">Python Basics</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">🏦</span><span class="artifact-name">Financial Mgmt</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">🔍</span><span class="artifact-name">Auditing Basics</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">💰</span><span class="artifact-name">Cost Management</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">🕵️</span><span class="artifact-name">Corporate Research</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">♟️</span><span class="artifact-name">Strategic Analysis</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot"></div></div></div>
-                        <div class="celestial-artifact"><span class="artifact-icon">🧠</span><span class="artifact-name">Critical Thinking</span><div class="artifact-level"><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div><div class="level-dot active"></div></div></div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">📚</span>
+                            <span class="artifact-name">Advanced Accounting</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🐍</span>
+                            <span class="artifact-name">Python Basics</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">⚖️</span>
+                            <span class="artifact-name">Business & Corp Law</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🔍</span>
+                            <span class="artifact-name">Auditing Basics</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">💰</span>
+                            <span class="artifact-name">Cost Management</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🕵️</span>
+                            <span class="artifact-name">Corporate Research</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">♟️</span>
+                            <span class="artifact-name">Strategic Analysis</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot"></div>
+                            </div>
+                        </div>
+                        <div class="celestial-artifact">
+                            <span class="artifact-icon">🧠</span>
+                            <span class="artifact-name">Critical Thinking</span>
+                            <div class="artifact-level">
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                                <div class="level-dot active"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -383,35 +1469,32 @@
         <section class="section" id="path">
             <div class="crystal-card">
                 <div class="card-content">
-                    <h2 class="timeline-title">Milestones</h2>
-                    <div class="milestones-container">
-                        <div class="milestones-left">
-                            <div class="timeline">
-                                <div class="timeline-item"><div class="timeline-date">2026</div><div class="timeline-role">CA Intermediate Aspirant</div><div class="timeline-company">Focus: Costing & FM</div></div>
-                                <div class="timeline-item"><div class="timeline-date">Dec 2025</div><div class="timeline-role">BBA (Finance)</div><div class="timeline-company">KK Modi University | CGPA: 8.03</div></div>
-                                <div class="timeline-item"><div class="timeline-date">June 2023</div><div class="timeline-role">CA Foundation</div><div class="timeline-company">ICAI | Score: 247/400</div></div>
-                                <div class="timeline-item"><div class="timeline-date">2021-2023</div><div class="timeline-role">AP Intermediate</div><div class="timeline-company">State Topper (95.8%)</div></div>
-                                <div class="timeline-item"><div class="timeline-date">2021</div><div class="timeline-role">ICSE Class 10</div><div class="timeline-company">Score: 88.6%</div></div>
-                            </div>
+                    <h2 class="timeline-title">The Journey</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2026</div>
+                            <div class="timeline-role">CA Intermediate Aspirant (May 2026)</div>
+                            <div class="timeline-company">Focus: Advanced Strategies & Financial Management</div>
                         </div>
-                        
-                        <div class="milestones-right">
-                            <h3 class="credentials-title">CREDENTIALS</h3>
-                            <div class="credentials-grid">
-                                <div class="credential-badge badge-green-teal" data-modal="modal-ca"><div class="badge-title">CA Foundation</div><div class="badge-subtitle">ICAI Verified</div></div>
-                                <a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10281216" target="_blank" style="text-decoration: none;"><div class="credential-badge badge-cyan-gold"><div class="badge-title">Published Author</div><div class="badge-subtitle">SSRN Profile</div></div></a>
-                                <div class="credential-badge badge-purple-cyan" data-modal="modal-topper"><div class="badge-title">State Topper</div><div class="badge-subtitle">Rank 1 • 95.8%</div></div>
-                                <div class="credential-badge badge-gold-orange" data-modal="modal-pratibha"><div class="badge-title">Pratibha Award</div><div class="badge-subtitle">Govt of AP</div></div>
-                                <div class="credential-badge badge-blue-indigo" data-modal="modal-finance"><div class="badge-title">Financial Markets</div><div class="badge-subtitle">Yale Univ</div></div>
-                                <div class="credential-badge badge-pink-purple" data-modal="modal-powerbi"><div class="badge-title">Power BI</div><div class="badge-subtitle">Microsoft</div></div>
-                            </div>
-                            <div class="ongoing-pursuit">
-                                <h4 class="ongoing-title">Currently Engineering</h4>
-                                <ul class="ongoing-list">
-                                    <li><span><strong>Python Financial Engine</strong> – Loan calculators on Zenodo.</span></li>
-                                    <li><span><strong>CA Intermediate</strong> – May 2026 Preparation.</span></li>
-                                </ul>
-                            </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Dec 2025</div>
+                            <div class="timeline-role">Academic Semester: BBA (Finance)</div>
+                            <div class="timeline-company">KK Modi University | CGPA: 8.03/10.0 (First Class Distinction)<br>Focus: Cost Accounting & Business Management</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">June 2023</div>
+                            <div class="timeline-role">Professional Certification: CA Foundation</div>
+                            <div class="timeline-company">Institute of Chartered Accountants of India (ICAI)<br>Score: 247/400 (First Attempt) | Top 60th Percentile</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">June 2021 - March 2023</div>
+                            <div class="timeline-role">Andhra Pradesh Intermediate (BIEAP) (HSC)</div>
+                            <div class="timeline-company">Class (11 + 12): State Board Topper (95.8%)<br>Pratibha Puraskar Awardee | Master Minds Institute</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">March 2021</div>
+                            <div class="timeline-role">Indian Certificate of Secondary Education (ICSE Class 10)</div>
+                            <div class="timeline-company">ICSE Board | Score: 88.6%<br>Focus: Mathematics, English Literature & Computers</div>
                         </div>
                     </div>
                 </div>
@@ -421,14 +1504,38 @@
         <section class="section" id="hobbies">
             <div class="crystal-card">
                 <div class="card-content">
-                    <h2 class="hobbies-title">Diversification</h2>
-                   <div class="hobbies-slider">
-                        <div class="hobby-card"><div class="hobby-icon">📒</div><h3 class="hobby-name">Accounting</h3><p class="hobby-desc">Foundation in Accounting Standards (AS).</p></div>
-                        <div class="hobby-card"><div class="hobby-icon">⚖️</div><h3 class="hobby-name">Corp Law</h3><p class="hobby-desc">Companies Act & Legal Frameworks.</p></div>
-                        <div class="hobby-card"><div class="hobby-icon">♟️</div><h3 class="hobby-name">Strategy</h3><p class="hobby-desc">SWOT Analysis & Competitive Strategy.</p></div>
-                        <div class="hobby-card"><div class="hobby-icon">🔍</div><h3 class="hobby-name">Auditing</h3><p class="hobby-desc">Verification & Internal Controls.</p></div>
-                        <div class="hobby-card"><div class="hobby-icon">📈</div><h3 class="hobby-name">Economics</h3><p class="hobby-desc">Market Structures & Demand Analysis.</p></div>
-                        <div class="hobby-card"><div class="hobby-icon">🐍</div><h3 class="hobby-name">Python</h3><p class="hobby-desc">Automation Logic & Syntax.</p></div>
+                    <h2 class="hobbies-title">Passions</h2>
+                    <div class="hobbies-slider">
+                        <div class="hobby-card">
+                            <div class="hobby-icon">💻</div>
+                            <h3 class="hobby-name">Creative Coding</h3>
+                            <p class="hobby-desc">Blending logic with cosmic design. Building ethereal web experiences using Canvas and Python to visualize financial data.</p>
+                        </div>
+                        <div class="hobby-card">
+                            <div class="hobby-icon">📊</div>
+                            <h3 class="hobby-name">Equity Research</h3>
+                            <p class="hobby-desc">Analyzing corporate balance sheets with stellar precision. Dissecting business strategies to understand growth patterns.</p>
+                        </div>
+                        <div class="hobby-card">
+                            <div class="hobby-icon">♟️</div>
+                            <h3 class="hobby-name">Strategic Gaming</h3>
+                            <p class="hobby-desc">Playing Chess and simulation games to sharpen decision-making and pattern recognition skills under cosmic pressure.</p>
+                        </div>
+                        <div class="hobby-card">
+                            <div class="hobby-icon">🤖</div>
+                            <h3 class="hobby-name">AI & Automation</h3>
+                            <p class="hobby-desc">Exploring how Artificial Intelligence and Python tools are reshaping traditional Accounting & Audit.</p>
+                        </div>
+                        <div class="hobby-card">
+                            <div class="hobby-icon">📚</div>
+                            <h3 class="hobby-name">Reading</h3>
+                            <p class="hobby-desc">Exploring fantasy and sci-fi realms, gathering inspiration from great storytellers and visionary thinkers.</p>
+                        </div>
+                        <div class="hobby-card">
+                            <div class="hobby-icon">🏛️</div>
+                            <h3 class="hobby-name">Corporate History</h3>
+                            <p class="hobby-desc">Studying the origins of legacy firms to understand business longevity and the cosmos they've navigated.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -437,25 +1544,51 @@
         <section class="section" id="projects">
             <div class="crystal-card">
                 <div class="card-content">
-                    <h2 class="projects-title">Projects</h2>
-                    <p class="projects-subtitle">Bridging Financial Theory & Digital Solutions</p>
+                    <h2 class="projects-title">Works</h2>
+                    <p class="projects-subtitle">Manifestations in the physical realm</p>
+                    
                     <div class="astral-table-container">
                         <table class="astral-table">
-                            <thead><tr><th>Project Name</th><th>Focus Area</th><th>Status</th><th>Link</th></tr></thead>
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Focus Area</th>
+                                    <th>Status</th>
+                                    <th>Link</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                               <tr><td class="project-name">Keppel Ltd Strategy</td><td>Strategy Analysis</td><td class="status-live">✦ LIVE</td><td><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6196159" target="_blank">Read Paper</a></td></tr>
-                               <tr><td class="project-name">DBS Loan Engine</td><td>Fin Py</td><td class="status-live" style="color: #00e676;">✦ PUBLISHED</td><td><a href="https://zenodo.org/records/18526916" target="_blank">View Code</a></td></tr>
+                                <tr>
+                                    <td class="project-name">Keppel Ltd Strategic Analysis</td>
+                                    <td>Corp Strategy</td>
+                                    <td class="status-live">✦ LIVE</td>
+                                    <td>
+                                        <a href="https://www.linkedin.com/posts/karthikeya-mudili_keppel-ltds-reinvention-four-grand-strategies-activity-7424529700619857920-iA83" target="_blank">VIEW ON LINKEDIN</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="project-name">DBS Loan Amortization Engine</td>
+                                    <td>Fintech / Python</td>
+                                    <td class="status-deployed">✦ DEPLOYED</td>
+                                    <td>
+                                        <a href="Output_Terminal.png" target="_blank">VIEW TERMINAL</a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
+                    
                     <div class="social-hub">
                         <h3 class="social-hub-title">Establish Connection</h3>
                         <div class="social-buttons">
-                            <a href="https://www.linkedin.com/in/karthikeya-mudili/" class="social-btn linkedin" target="_blank"><span>💼</span> LinkedIn</a>
-                            <a href="https://github.com/mvdnssk" class="social-btn github" target="_blank"><span>💻</span> GitHub</a>
-                            <a href="https://orcid.org/0009-0008-2440-8170" class="social-btn orcid" target="_blank"><span>iD</span> ORCID</a>
-                            <a href="https://www.instagram.com/karthikeya.mudili/" class="social-btn instagram" target="_blank"><span>📸</span> Instagram</a>
-                            <a href="mailto:mvdnssk@gmail.com" class="social-btn mail"><span>✉️</span> Mail</a>
+                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer">
+                                <span>💼</span>
+                                LinkedIn
+                            </a>
+                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer">
+                                <span>📸</span>
+                                Instagram
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -463,152 +1596,473 @@
         </section>
     </main>
 
-    <div class="modal-overlay" id="modal-ca"><div class="modal-container"><button class="modal-close">&times;</button><img class="modal-image" src="CA%20Foundation%20June%202023.jpg" alt="CA Foundation"><p class="modal-caption">ICAI CA Foundation • June 2023</p></div></div>
-    <div class="modal-overlay" id="modal-pratibha"><div class="modal-container"><button class="modal-close">&times;</button><img class="modal-image" src="Highest%20Marks%20Award%20Certification%20HSC%20AP%20Inter%202023.jpg" alt="Pratibha Award"><p class="modal-caption">Pratibha Puraskar Award</p></div></div>
-    <div class="modal-overlay" id="modal-topper"><div class="modal-container"><button class="modal-close">&times;</button><img class="modal-image" src="India%20HSC%20Andhra%20Pradesh%20Class%20XII%202023.jpg" alt="State Topper"><p class="modal-caption">State Board Topper • 95.8%</p></div></div>
-    <div class="modal-overlay" id="modal-finance"><div class="modal-container"><button class="modal-close">&times;</button><img class="modal-image" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Yale_University_Shield_1.svg" alt="Yale"><p class="modal-caption">Yale University • Financial Markets</p></div></div>
-    <div class="modal-overlay" id="modal-powerbi"><div class="modal-container"><button class="modal-close">&times;</button><img class="modal-image" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"><p class="modal-caption">Microsoft Power BI</p></div></div>
-
-    <footer class="system-footer">
-        <div class="footer-line"></div>
-        <div class="footer-content">
-            <span class="copyright">© 2026 VDNSS KARTHIKEYA MUDILI</span> 
-            <span class="separator">||</span> 
-            <span class="status">DIGITAL LEDGER: VERIFIED</span>
-        </div>
-    </footer>
-
     <script>
-    // 1. FAILSAFE BUTTON LOGIC (Works even if GSAP fails)
-    const igniteBtn = document.getElementById('ignite-btn');
-    const introSeq = document.getElementById('intro-sequence');
-    const navBar = document.getElementById('nav-bar');
-    const homeCard = document.querySelector('#home .crystal-card');
-
-    function openPortfolio() {
-        if (typeof gsap !== 'undefined') {
-            gsap.to(introSeq, { opacity: 0, duration: 1, ease: 'power2.inOut', onComplete: () => { introSeq.style.display = 'none'; revealContent(); }});
-        } else {
-            // Fallback if GSAP crashes
-            introSeq.style.opacity = '0';
-            setTimeout(() => { introSeq.style.display = 'none'; revealContent(); }, 500);
-        }
-    }
-
-    function revealContent() {
-        if(navBar) navBar.classList.add('visible');
-        if(homeCard) homeCard.classList.add('visible');
-    }
-
-    if (igniteBtn) {
-        igniteBtn.addEventListener('click', openPortfolio);
-        igniteBtn.addEventListener('touchstart', openPortfolio, {passive: true});
-    }
-
-    // 2. ANIMATION ENGINE
-    document.addEventListener('DOMContentLoaded', () => {
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.utils.toArray('.crystal-card').forEach((card, i) => {
-                if (i===0) return;
-                ScrollTrigger.create({ trigger: card, start: 'top 85%', onEnter: () => card.classList.add('visible'), once: true });
-            });
-            gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-                ScrollTrigger.create({ trigger: item, start: 'top 85%', onEnter: () => setTimeout(() => item.classList.add('visible'), i * 150), once: true });
-            });
-        } else {
-            // Force show content if engine is dead
-            document.querySelectorAll('.crystal-card').forEach(c => c.classList.add('visible'));
-            document.querySelectorAll('.timeline-item').forEach(t => t.classList.add('visible'));
-        }
-        initAstralWorld();
-    });
-
-    // 3. SNAPPY CURSOR & ASTRAL VISUALS
-    const astralCanvas = document.getElementById('astral-canvas');
-    const astralCtx = astralCanvas ? astralCanvas.getContext('2d') : null;
-    let astralWidth, astralHeight, stars = [], shootingStars = [], mouseX = 0, mouseY = 0;
-
-    function initAstralWorld() {
-        if (!astralCanvas) return;
-        resizeAstralCanvas();
-        window.addEventListener('resize', resizeAstralCanvas);
-        for(let i=0; i<150; i++) stars.push(new Star());
-        for(let i=0; i<3; i++) shootingStars.push(new ShootingStar());
-        requestAnimationFrame(animateAstral);
-
-        // Snappy Cursor Logic
-        const cursorCore = document.querySelector('.cursor-core');
-        const cursorRing = document.querySelector('.cursor-ring');
+        // ===== ASTRAL SOVEREIGN PORTFOLIO - MAIN SCRIPT =====
         
-        // Hide default positioning
-        if(typeof gsap !== 'undefined') gsap.set('#cursor', {xPercent: -50, yPercent: -50});
-
-        window.addEventListener('mousemove', e => {
-            mouseX = e.clientX; mouseY = e.clientY;
-            // Instant core movement (Zero Lag)
-            if(cursorCore) gsap.set(cursorCore, {x: mouseX, y: mouseY});
-            // Smooth ring movement
-            if(cursorRing) gsap.to(cursorRing, {x: mouseX, y: mouseY, duration: 0.15});
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // ===== ASTRAL COLORS =====
+        const ASTRAL_COLORS = {
+            purple: '#9D4EDD',
+            cyan: '#00D9FF',
+            gold: '#FFD700',
+            pink: '#FF006E',
+            teal: '#00F5D4'
+        };
+        
+        // ===== STATE =====
+        let introComplete = false;
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        // ===== ASTRAL CANVAS - STARFIELD =====
+        const astralCanvas = document.getElementById('astral-canvas');
+        const astralCtx = astralCanvas.getContext('2d');
+        
+        let astralWidth, astralHeight;
+        let stars = [];
+        let nebulae = [];
+        let shootingStars = [];
+        
+        function resizeAstralCanvas() {
+            astralWidth = window.innerWidth;
+            astralHeight = window.innerHeight;
+            astralCanvas.width = astralWidth;
+            astralCanvas.height = astralHeight;
+            initStars();
+            initNebulae();
+        }
+        
+        class Star {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight;
+                this.size = Math.random() * 2 + 0.5;
+                this.baseAlpha = Math.random() * 0.5 + 0.3;
+                this.alpha = this.baseAlpha;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.twinklePhase = Math.random() * Math.PI * 2;
+                this.color = this.getStarColor();
+            }
+            
+            getStarColor() {
+                const colors = ['#ffffff', '#FFD700', '#00D9FF', '#9D4EDD'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            update() {
+                this.twinklePhase += this.twinkleSpeed;
+                this.alpha = this.baseAlpha + Math.sin(this.twinklePhase) * 0.2;
+                
+                // Parallax based on mouse
+                const parallaxX = (mouseX - astralWidth / 2) * 0.0001 * this.size;
+                const parallaxY = (mouseY - astralHeight / 2) * 0.0001 * this.size;
+                this.x += parallaxX;
+                this.y += parallaxY;
+                
+                // Wrap around
+                if (this.x < 0) this.x = astralWidth;
+                if (this.x > astralWidth) this.x = 0;
+                if (this.y < 0) this.y = astralHeight;
+                if (this.y > astralHeight) this.y = 0;
+            }
+            
+            draw() {
+                astralCtx.save();
+                astralCtx.globalAlpha = Math.max(0, Math.min(1, this.alpha));
+                astralCtx.fillStyle = this.color;
+                astralCtx.shadowBlur = this.size * 2;
+                astralCtx.shadowColor = this.color;
+                astralCtx.beginPath();
+                astralCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                astralCtx.fill();
+                astralCtx.restore();
+            }
+        }
+        
+        class Nebula {
+            constructor() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight;
+                this.radius = 200 + Math.random() * 300;
+                this.color = this.getNebulaColor();
+                this.driftX = (Math.random() - 0.5) * 0.2;
+                this.driftY = (Math.random() - 0.5) * 0.2;
+            }
+            
+            getNebulaColor() {
+                const colors = [
+                    'rgba(157, 78, 221, 0.08)',
+                    'rgba(0, 217, 255, 0.06)',
+                    'rgba(255, 215, 0, 0.05)',
+                    'rgba(0, 245, 212, 0.04)'
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            update() {
+                this.x += this.driftX;
+                this.y += this.driftY;
+                
+                if (this.x < -this.radius) this.x = astralWidth + this.radius;
+                if (this.x > astralWidth + this.radius) this.x = -this.radius;
+                if (this.y < -this.radius) this.y = astralHeight + this.radius;
+                if (this.y > astralHeight + this.radius) this.y = -this.radius;
+            }
+            
+            draw() {
+                astralCtx.save();
+                const gradient = astralCtx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.radius
+                );
+                gradient.addColorStop(0, this.color);
+                gradient.addColorStop(1, 'transparent');
+                astralCtx.fillStyle = gradient;
+                astralCtx.beginPath();
+                astralCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                astralCtx.fill();
+                astralCtx.restore();
+            }
+        }
+        
+        class ShootingStar {
+            constructor() {
+                this.reset();
+            }
+            
+            reset() {
+                this.x = Math.random() * astralWidth;
+                this.y = Math.random() * astralHeight * 0.5;
+                this.length = Math.random() * 80 + 40;
+                this.speed = Math.random() * 10 + 15;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3;
+                this.life = 1;
+                this.decay = 0.02;
+                this.active = false;
+            }
+            
+            activate() {
+                this.active = true;
+                this.reset();
+            }
+            
+            update() {
+                if (!this.active) return;
+                
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.life -= this.decay;
+                
+                if (this.life <= 0 || this.x > astralWidth + this.length || this.y > astralHeight + this.length) {
+                    this.active = false;
+                }
+            }
+            
+            draw() {
+                if (!this.active) return;
+                
+                astralCtx.save();
+                astralCtx.globalAlpha = this.life;
+                astralCtx.strokeStyle = '#ffffff';
+                astralCtx.lineWidth = 2;
+                astralCtx.shadowBlur = 10;
+                astralCtx.shadowColor = '#00D9FF';
+                
+                const tailX = this.x - Math.cos(this.angle) * this.length;
+                const tailY = this.y - Math.sin(this.angle) * this.length;
+                
+                astralCtx.beginPath();
+                astralCtx.moveTo(tailX, tailY);
+                astralCtx.lineTo(this.x, this.y);
+                astralCtx.stroke();
+                astralCtx.restore();
+            }
+        }
+        
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 200; i++) {
+                stars.push(new Star());
+            }
+        }
+        
+        function initNebulae() {
+            nebulae = [];
+            for (let i = 0; i < 5; i++) {
+                nebulae.push(new Nebula());
+            }
+        }
+        
+        function initShootingStars() {
+            for (let i = 0; i < 3; i++) {
+                shootingStars.push(new ShootingStar());
+            }
+        }
+        
+        function animateAstral() {
+            astralCtx.fillStyle = '#030305';
+            astralCtx.fillRect(0, 0, astralWidth, astralHeight);
+            
+            // Draw nebulae
+            nebulae.forEach(nebula => {
+                nebula.update();
+                nebula.draw();
+            });
+            
+            // Draw stars
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            // Random shooting star
+            if (Math.random() < 0.005) {
+                const inactiveStar = shootingStars.find(s => !s.active);
+                if (inactiveStar) inactiveStar.activate();
+            }
+            
+            shootingStars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            requestAnimationFrame(animateAstral);
+        }
+        
+        // ===== ASTRAL PROGRESS BAR =====
+        const astralProgressBar = document.getElementById('astral-progress-bar');
+        
+        function updateProgressBar() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            astralProgressBar.style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateProgressBar, { passive: true });
+        
+        // ===== CELESTIAL CURSOR =====
+        const cursor = document.getElementById('cursor');
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
         });
-    }
-
-    function resizeAstralCanvas() {
-        astralWidth = window.innerWidth;
-        astralHeight = window.innerHeight;
-        astralCanvas.width = astralWidth;
-        astralCanvas.height = astralHeight;
-    }
-
-    class Star {
-        constructor() { this.reset(); }
-        reset() { this.x = Math.random()*astralWidth; this.y = Math.random()*astralHeight; this.size = Math.random()*2+0.5; this.alpha = Math.random()*0.5+0.3; }
-        update() { this.alpha += (Math.random()-0.5)*0.05; this.alpha = Math.max(0.1, Math.min(1, this.alpha)); }
-        draw() { astralCtx.globalAlpha = this.alpha; astralCtx.fillStyle = '#fff'; astralCtx.beginPath(); astralCtx.arc(this.x, this.y, this.size, 0, Math.PI*2); astralCtx.fill(); }
-    }
-
-    class ShootingStar {
-        constructor() { this.reset(); }
-        reset() { this.x = Math.random()*astralWidth; this.y = Math.random()*astralHeight*0.5; this.len = Math.random()*80+40; this.speed = Math.random()*10+6; this.active = false; }
-        update() {
-            if(!this.active) { if(Math.random()<0.005) this.active = true; return; }
-            this.x += this.speed; this.y += this.speed*0.5;
-            if(this.x > astralWidth+100) { this.active = false; this.reset(); }
+        
+        // ===== STARDUST PARTICLE SYSTEM =====
+        const particleCanvas = document.getElementById('particle-canvas');
+        const particleCtx = particleCanvas.getContext('2d');
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+        
+        let particles = [];
+        
+        class StardustParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                const colors = Object.values(ASTRAL_COLORS);
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4 + 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.life = 1;
+                this.decay = Math.random() * 0.02 + 0.015;
+                this.size = Math.random() * 4 + 2;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.2;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vx *= 0.97;
+                this.vy *= 0.97;
+                this.life -= this.decay;
+                this.size *= 0.98;
+                this.rotation += this.rotationSpeed;
+            }
+            
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                // Draw star shape
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+                
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    const angle = (i * 4 * Math.PI) / 5 - Math.PI / 2;
+                    const x = Math.cos(angle) * this.size;
+                    const y = Math.sin(angle) * this.size;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath();
+                ctx.fill();
+                
+                ctx.restore();
+            }
         }
-        draw() {
-            if(!this.active) return;
-            astralCtx.strokeStyle = '#fff'; astralCtx.lineWidth = 2; astralCtx.beginPath();
-            astralCtx.moveTo(this.x, this.y); astralCtx.lineTo(this.x-this.len, this.y-this.len*0.5); astralCtx.stroke();
+        
+        function createStardustExplosion(x, y) {
+            for (let i = 0; i < 40; i++) {
+                particles.push(new StardustParticle(x, y));
+            }
         }
-    }
-
-    function animateAstral() {
-        if(!astralCtx) return;
-        astralCtx.fillStyle = '#030305'; astralCtx.fillRect(0,0,astralWidth,astralHeight);
-        stars.forEach(s => { s.update(); s.draw(); });
-        shootingStars.forEach(s => { s.update(); s.draw(); });
-        requestAnimationFrame(animateAstral);
-    }
-
-    // 4. MODALS & SCROLL
-    document.querySelectorAll('.credential-badge').forEach(b => {
-        b.addEventListener('click', () => { const m = document.getElementById(b.dataset.modal); if(m) { m.classList.add('active'); document.body.classList.add('modal-open'); }});
-    });
-    document.querySelectorAll('.modal-close, .modal-overlay').forEach(el => {
-        el.addEventListener('click', e => { if(e.target === el) { document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active')); document.body.classList.remove('modal-open'); }});
-    });
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'}); });
-    });
-
-    // 5. SILENT SECURITY
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = function(e) {
-        if (e.keyCode == 123) return false;
-        if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) return false;
-        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
-    };
-    document.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+        
+        function animateParticles() {
+            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            
+            particles = particles.filter(p => p.life > 0);
+            particles.forEach(p => {
+                p.update();
+                p.draw(particleCtx);
+            });
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        // Global click for stardust
+        document.addEventListener('click', (e) => {
+            if (!introComplete) return;
+            createStardustExplosion(e.clientX, e.clientY);
+        });
+        
+        window.addEventListener('resize', () => {
+            resizeAstralCanvas();
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+        });
+        
+        // ===== INTRO SEQUENCE =====
+        document.getElementById('ignite-btn').addEventListener('click', () => {
+            introComplete = true;
+            
+            const tl = gsap.timeline();
+            
+            tl.to('#intro-sequence', {
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.inOut'
+            });
+            
+            tl.add(() => {
+                document.getElementById('intro-sequence').style.display = 'none';
+                document.getElementById('nav-bar').classList.add('visible');
+                document.querySelector('#home .crystal-card').classList.add('visible');
+            });
+        });
+        
+        // ===== SCROLL ANIMATIONS =====
+        gsap.utils.toArray('.crystal-card').forEach((card, index) => {
+            if (index === 0) return;
+            
+            ScrollTrigger.create({
+                trigger: card,
+                start: 'top 80%',
+                onEnter: () => card.classList.add('visible'),
+                once: true
+            });
+        });
+        
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+            ScrollTrigger.create({
+                trigger: item,
+                start: 'top 85%',
+                onEnter: () => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 150);
+                },
+                once: true
+            });
+        });
+        
+        gsap.utils.toArray('.celestial-artifact').forEach((artifact, index) => {
+            gsap.to(artifact, {
+                y: -8,
+                duration: 3 + index * 0.4,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+            
+            artifact.addEventListener('click', () => {
+                const rect = artifact.getBoundingClientRect();
+                createStardustExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            });
+        });
+        
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // ===== HOBBIES SLIDER =====
+        const hobbiesSlider = document.querySelector('.hobbies-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        hobbiesSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - hobbiesSlider.offsetLeft;
+            scrollLeft = hobbiesSlider.scrollLeft;
+        });
+        
+        hobbiesSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        hobbiesSlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        hobbiesSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - hobbiesSlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            hobbiesSlider.scrollLeft = scrollLeft - walk;
+        });
+        
+        hobbiesSlider.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                hobbiesSlider.scrollLeft += e.deltaY;
+            }
+        });
+        
+        // ===== INITIALIZATION =====
+        window.addEventListener('resize', resizeAstralCanvas);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            resizeAstralCanvas();
+            initShootingStars();
+            animateAstral();
+            animateParticles();
+        });
     </script>
 </body>
 </html>
